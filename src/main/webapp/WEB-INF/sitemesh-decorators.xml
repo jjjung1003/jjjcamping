@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/views/common">
+
+	 <!-- 제외할 패턴 -->
+	 <excludes>
+	  <pattern></pattern>
+	 </excludes>
+	 
+	 <!-- 기본 패턴 -->
+	 <!-- views/common 폴더 안에 default.jsp 파일을 사용 -->
+	 <decorator name="default" page="default.jsp">
+	  <pattern>*</pattern> 
+	 </decorator>
+	 
+	 <!-- 모바일 패턴 -->
+	 <decorator name="mobileDefault" page="mobileDefault.jsp">
+	  <pattern>/m.*.do</pattern> 
+	 </decorator>
+	 
+</decorators>
+
+ 

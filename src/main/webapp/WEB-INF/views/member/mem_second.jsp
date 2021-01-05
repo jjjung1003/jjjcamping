@@ -20,7 +20,7 @@
 	}
 	
 	#sec_first {
-		margin-top:50px;
+		margin-top:100px;
 	}
 	
 </style>
@@ -188,9 +188,12 @@
 </script>	
 </head>
 <body>
-<div align="center"> <h2>회원정보 입력 </h2></div>
-<hr>
+
   <div id="sec_first" align="center">
+  
+  <div align="center"> <h2>회원정보 입력 </h2></div>
+<hr>
+
 	<form method="post" name="jjj" action="mem_third" onsubmit="return check(this)">
 	<input type="hidden" name="cla1" value="${cla1}">
 	<input type="hidden" name="cla2" value="${cla2}">

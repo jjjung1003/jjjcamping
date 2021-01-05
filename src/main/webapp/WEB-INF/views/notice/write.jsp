@@ -16,16 +16,19 @@
 	}
 	
 	#notice_write {
-		margin-top:50px;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 </style>
 </head>
 <body>
   <c:if test="${email == 'yunjjjung1003@naver.com'}">	
-  <div align="center"> <h2> 공지사항 글쓰기 </h2> </div>
-	<hr>
+  
 	<div id="notice_write">
+	
+	<div align="center"> <h2> 공지사항 글쓰기 </h2> </div>
+	<hr>
+	
   <form method="post" action="write_ok" enctype="multipart/form-data">
     <input type="hidden" name="name" value="관리자">
 	<table align="center" width="700">
@@ -43,7 +46,7 @@
 	  </tr>	 
 	  <tr>  
 	    <td>File</td>
-	    <td><input type="file" name="fname"> <span style="color:red"> 파일 필수 선택 </td>
+	    <td><input type="file" name="fname"> <span style="color:red"> 파일 필수 선택 </span></td>
 	  </tr>	 
 	</table> <p>
 	<div align="center"> <input type="submit" value="등록하기"> </div>

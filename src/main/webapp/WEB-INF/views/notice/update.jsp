@@ -16,15 +16,18 @@
 	}
 	
 	#notice_update {
-		margin-top:50px;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 </style>
 </head>
 <body>
-<div align="center"> <h2> 공지사항 수정</h2> </div>
-	<hr>
+
 	<div id="notice_update">
+	
+	<div align="center"> <h2> 공지사항 수정</h2> </div>
+	<hr>
+	
 	<form method="post" action="update_ok?id=${ndto.id}" enctype="multipart/form-data">
 	<input type="hidden" name="name" value="${ndto.name}">
 	<table align="center" width="700">

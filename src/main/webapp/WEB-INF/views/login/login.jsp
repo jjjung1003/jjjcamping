@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 	#login {
-		margin-top:50px;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	#log_fir #loginbtn {
@@ -57,11 +57,13 @@
 </style>
 </head>
 <body>
-<div align="center"> <h2> 로그인
-  	  	</h2><br>첫 캠핑이 선물한 뜻밖의 세상_코베아 </div>
-	<hr id="hr_1">
 
   <div id="login" align="center">
+  
+  <div align="center"> <h2> 로그인
+  	  	</h2><br>첫 캠핑이 선물한 뜻밖의 세상_코베아 </div>
+	<hr id="hr_1">
+	
   	<div id="log_fir">
 	<form method="post" action="login_ok">
 	  <table>

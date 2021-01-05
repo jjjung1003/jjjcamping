@@ -15,6 +15,7 @@
 		width:1280px;
 		text-align:center;
 		margin:auto;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	
@@ -38,9 +39,12 @@
 </style>
 </head>
 <body>
-<div align="center"> <h2> 아이디찾기</h2> </div>
-	<hr id="hr_1">
+
 	<div id="id_sear">
+	
+	<div align="center"> <h2> 아이디찾기</h2> </div>
+	<hr id="hr_1">
+	
   <form method="post" action="id_search_ok">
 	<input type="text" name="name" id="name" placeholder="이름"> <p>
 	<input type="text" name="phone" id="phone" size="20px" placeholder="휴대폰번호 (숫자만 입력)" maxlength="11"> <p>

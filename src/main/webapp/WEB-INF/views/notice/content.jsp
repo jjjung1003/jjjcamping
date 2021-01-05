@@ -26,15 +26,16 @@
 	}
 	
 	#notice_content {
-		margin-top:50px;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 </style>
 </head>
 <body>
+	
+	<div id="notice_content">
 	<div align="center"> <h2> 공지사항</h2> </div>
 	<hr>
-	<div id="notice_content">
 	<table align="center" width="700">
 	  <tr>
 	    <td width="150">Name</td>

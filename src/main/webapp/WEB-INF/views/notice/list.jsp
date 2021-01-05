@@ -7,6 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
+	#notice_first {
+		margin-top:100px;
+	}
+	
 	#notice_second {
 		margin-bottom:150px;
 	}
@@ -61,7 +66,7 @@
 </style>
 </head>
 <body>
-<div align="center"> <h2> 공지사항</h2> </div>
+<div align="center" id="notice_first"> <h2> 공지사항</h2> </div>
 	<hr id="hr_1">
 	<div align="center">
 	<form method="post" action="list" name="jjj">

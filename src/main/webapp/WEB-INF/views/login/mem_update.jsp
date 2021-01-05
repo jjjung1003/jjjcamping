@@ -43,6 +43,7 @@
 		width:1280px;
 		text-align:center;
 		margin:auto;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	
@@ -54,12 +55,24 @@
 		margin-bottom:50px;
 	}
 	
+	#mpg_btn {
+		margin-top:150px;
+		margin-right:450px;	
+	}
+	
+	#mpg_btn1 {
+		background-color:#A4A4A4;	
+		color:white;	
+	}
 </style>
 </head>
 <body>
-<div align="center"> <h2> 정보 수정 페이지 </h2> </div> <p>
-	<hr id="hr_1">
+
 	<div id="mpg_up">
+	
+	<div align="center"> <h2> 정보수정 </h2> </div> <p>
+	<hr id="hr_1">
+	
 	<div id="base" align="center">
 	<form method="post" name="jjj" action="mem_update_ok?id=${mdto.id}" onsubmit="return check(this)">
 		<input type="hidden" name="id" value="${mdto.id}">
@@ -74,7 +87,7 @@
 	    </tr>
 	    <tr>
 	      <td> 비밀번호 </td>
-	      <td> <a href="../login/pwd_change2?id=${mdto.id}"> 변경 </a> </td>
+	      <td> <a href="../login/pwd_change2?id=${mdto.id}" id="mpg_btn1"> 변경 </a> </td>
 	    </tr>
 	    <tr>
 	      <td> 이메일 </td>
@@ -117,7 +130,7 @@
 	  </table> <p><br>
 	  
 		<div id="mpgup_pwd" align="center">
-	      <div style="font-size:12px"> 정보변경을 위해 비밀번호를 입력해주세요 </div>
+	      <div style="font-size:12px;color:purple"> 정보변경을 위해 비밀번호를 입력해주세요 </div>
 	     <input type="password" name="pwd" id="pwd">   <br>
 	        <c:if test="${chk != null}">
      			<span id="pkc" style="color:red;font-size:12px"> 비밀번호가 일치하지 않습니다. </span>
@@ -125,7 +138,10 @@
 		</div> <p>
 	   <span id="mpg_upbtn"><input type="submit" value="정보수정"></span>
 	  </form>
+	  
 	</div>
+	
 </div>
+	<div id="mpg_btn" align="right"><a href="mem_del?id=${mdto.id}" id="mpg_btn1"> 회원 탈퇴 </a></div>
 </body>
 </html>

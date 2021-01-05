@@ -6,6 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+	#mem_first {
+		margin-top:100px;
+		margin-bottom:150px;
+	}
 	
 	#cla1 {
 		margin:auto;
@@ -45,6 +49,8 @@
 </style>
 </head>
 <body>
+  <div id="mem_first">
+ 
 <div align="center"> <h2> 회원가입 </h2></div>
 	<hr>
   <form method="post" name="agree" action="mem_second">
@@ -317,7 +323,7 @@
   </form>
   
 
-  
+  </div>
   
   
 </body>

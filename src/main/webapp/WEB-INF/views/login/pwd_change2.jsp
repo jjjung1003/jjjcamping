@@ -18,7 +18,7 @@
 	
 	#pwdchg {
 		text-align:center;
-		margin-top:50px;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	
@@ -79,9 +79,12 @@
 </script>
 </head>
 <body>
-	<div align="center"> <h2> 비밀번호 변경 </h2></div>
-<hr>	
+		
 	<div id="pwdchg">
+	
+	<div align="center"> <h2> 비밀번호 변경 </h2></div>
+<hr>
+
 	<form method="post" name="jjj" action="pwd_change2_ok" onsubmit="return check(this)">
 	  <input type="hidden" name="email" value="${email}">
 	  <table align="center">

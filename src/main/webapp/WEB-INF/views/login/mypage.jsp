@@ -11,6 +11,7 @@
 		width:1280px;
 		text-align:center;
 		margin:auto;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	
@@ -34,10 +35,12 @@
 </head>
 <body>
 
+<div id="mpg_fourth">
+
 <div align="center"> <h2> ${mdto.name}님의 정보입니다. </h2> </div> <p>
 	<hr id="hr_1">
 	
-	<div id="mpg_fourth">
+	
 	<div id="base" align="center">
 		<input type="hidden" name="id" value="${mdto.id}">
 	  <table width="350" height="200">
@@ -65,10 +68,9 @@
 	      
         </tr>
 	  </table> <p>
-	  <td colspan="2" align="center"> 
+	      <span align="center"> 
       		<span id="mpg_btn"><a href="mem_update?id=${mdto.id}" id="mpg_btn1"> 정보 수정 </a></span>
-      		<span id="mpg_btn"><a href="mem_del?id=${mdto.id}" id="mpg_btn1"> 회원 탈퇴 </a></span>
-          </td>
+          </span>
 	</div>
 	</div>
 </body>

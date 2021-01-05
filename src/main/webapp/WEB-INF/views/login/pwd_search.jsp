@@ -11,6 +11,7 @@
 		width:800px;
 		text-align:center;
 		margin:auto;
+		margin-top:100px;
 		margin-bottom:150px;
 	}
 	
@@ -30,10 +31,12 @@
 </head>
 <body>
 
-<div align="center"> <h2> 패스워드 재설정 </h2> 
+  <div id="pwdsear">
+  
+  <div align="center"> <h2> 패스워드 재설정 </h2> 
 	<hr>
 	  패스워드 재설정을 위해 메일이 발송됩니다. </div> <br><p>
-  <div id="pwdsear">
+	  
     <form method="post" action="pwd_search_ok">
 
 
