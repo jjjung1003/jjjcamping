@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+<mapper namespace="kr.co.jjjcamping.dao.MemberDao">
+
+	<select id="userid_check" resultType="int">
+    	select count(*) from member where userid=#{param}
+    </select>
+    
+	<insert id="mem_third" parameterType="kr.co.jjjcamping.dto.MemberDto">
+      insert into member(name,userid,pwd,email,birth,gen,phone,cla1,cla2,cla3,cla4,writeday)
+      values(TRIM(#{name}),TRIM(#{userid}),#{pwd},#{email},#{birth},#{gen},#{phone},#{cla1},#{cla2},#{cla3},#{cla4},now())
+   </insert>
+			
+	<select id="login_ok" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where userid=#{userid} and pwd=#{pwd} and withdraw=0
+	</select>
+	
+	<select id="id_search_ok" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where name=#{name} and phone=#{phone}
+	</select>
+
+	<select id="id_search_ok2" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where name=#{name} and phone=#{phone}
+	</select>
+
+	<select id="email_send" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where userid=#{userid} and email=#{email}
+	</select>
+
+	<update id="pwd_change_ok" parameterType="kr.co.jjjcamping.dto.MemberDto">
+		update member set pwd=#{pwd} where email=#{email}
+	</update>
+	
+	<update id="pwd_change2_ok" parameterType="kr.co.jjjcamping.dto.MemberDto">
+		update member set pwd=#{pwd} where email=#{email}
+	</update>
+
+	<select id="mypage" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where userid=#{param}
+	</select>
+	
+	<select id="mem_update" resultType="kr.co.jjjcamping.dto.MemberDto">
+		select * from member where id=#{param}
+	</select>
+	
+	<update id="mem_update_ok" parameterType="kr.co.jjjcamping.dto.MemberDto">
+		update member set name=#{name}, userid=#{userid}, email=#{email}, birth=#{birth}, phone=#{phone} where id=${id}
+	</update>
+	
+	<update id="mem_del" parameterType="kr.co.jjjcamping.dto.MemberDto">
+		update member set withdraw=1 where id=#{param}
+	</update>
+	
+	<select id="pwd_check" resultType="String">
+		select pwd from member where id=#{param}
+	</select>
+
+
+
+
+
+
+
+
+</mapper>
+
+
