@@ -15,11 +15,11 @@
 		color:black;
 	}	
 	
-	body {  /* 5층 고객센터 , 매장안내 , 캠핑 tip 때문에 paading-top 전체넣어야함 . 레이어가 밀림 원본페이지 레이어 띄어져있음....  */
+	body {  /* 5층 고객센터 , 매장안내 , 캠핑 tip 때문에 pading-top 전체넣어야함 . 레이어가 밀림 원본페이지 레이어 띄어져있음....  */
 		margin:0px;
 	}	  
 	  
-	#first { /*  장바구니, 주문배송, 마이페이지, 회원가입, 로그인 ,즐겨찾기 */
+	#first { /*  장바구니, 주문배송, 마이페이지, 회원가입, 로그인  */
 		width:1280px;
 		height:45px;
 		margin:auto;
@@ -132,6 +132,19 @@
 	#footer1 {
 		margin:auto;
 		width:1280px;
+		height:270px;
+		border-top:3px solid orange;
+	}
+	
+	#obj	{
+		display:inline-block;
+		width:400px;
+		height:270px;
+		padding-top:10px;
+		padding-left:50px;
+		padding-right:20px;
+   		font-size:17px;
+   		border-right:1px solid lightgray;
 	}
 	
 	#hr_2 {
@@ -192,6 +205,18 @@
 		font-size:30px;
 		cursor:pointer;
 	}
+	
+	#obj {
+		display:inline-block;
+		width:400px;
+		height:270px;
+		padding-top:10px;
+		padding-left:50px;
+		padding-right:20px;
+   		font-size:17px;
+   		border-right:1px solid lightgray;
+	}
+	
 </style>
 <script>
 	$(function(){	//top클릭시 맨 위로 이동
@@ -241,7 +266,7 @@
 	
 	<div id="second">
 	  <div id="logo">
-	     <center><a href="../main/index"><img src="../notice/img/logo.jpg" width="150" height="80"></a></center> <!-- 로고 -->	    
+	     <center><a href="../main/index"><img src="../notice/img/logo11.jpg" width="170" height="80"></a></center> <!-- 로고 -->	    
 	  </div>
 	  
 	  <div id="search">
@@ -255,14 +280,14 @@
 	<div id="third">
 	  <ul id="main" style="margin-top:30px;margin-left:-40px;text-align:center;">
 	    <li onmouseover="view(0,50)" onmouseout="hide(0)" class="main_li">
-		  <a href=""><span class="textbox">텐트/타프</span></a>
+		  <span class="textbox">텐트/타프</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">텐트</a></li>
 	          	<li class="sub_li"><a href="">타프</a></li>
         	</ul>
    		</li>
    		<li onmouseover="view(1,100)" onmouseout="hide(1)" class="main_li">
-		  <a href=""><span class="textbox">가스장비</span></a>
+		  <span class="textbox">가스장비</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">스토브</a></li>
 	          	<li class="sub_li"><a href="">랜턴</a></li>
@@ -271,14 +296,14 @@
         	</ul>
    		</li>
    		<li onmouseover="view(2,50)" onmouseout="hide(2)" class="main_li">
-		<a href=""><span class="textbox">침낭/매트</span></a>
+		<span class="textbox">침낭/매트</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">침낭</a></li>
 	          	<li class="sub_li"><a href="">매트</a></li>
         	</ul>
    		</li>
    		<li onmouseover="view(3,75)" onmouseout="hide(3)" class="main_li">
-		  <a href=""><span class="textbox">캠핑장비</span></a>
+		  <span class="textbox">캠핑장비</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">캐리백</a></li>
 	          	<li class="sub_li"><a href="">팩/폴/슬링</a></li>
@@ -286,49 +311,61 @@
         	</ul>
    		</li>
    		<li onmouseover="view(4,50)" onmouseout="hide(4)" class="main_li">
-		  <a href=""><span class="textbox">바베큐</span></a>
+		  <span class="textbox">바베큐</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">파이어캠프</a></li>
 	          	<li class="sub_li"><a href="">액세서리</a></li>
         	</ul>
    		</li>
-   		<li style="background:#F7890C">
-    	  <span class="textbox" style="color:white;"><a href="../notice/list">공지사항</a></span>
+   		<li onmouseover="view(5,100)" onmouseout="hide(5)" class="main_li">
+    	  <span class="textbox" style="color:white;">공지사항</span>
+	        <ul class="sub">
+	         	<li class="sub_li"><a href="../notice/list">공지사항</a></li>
+	          	<li class="sub_li"><a href="../cs/list">고객센터</a></li>
+	          	<li class="sub_li"><a href="">매장안내</a></li>
+	          	<li class="sub_li"><a href="../tip/list">캠핑꿀팁</a></li>
+        	</ul>
         </li>
 	  </ul>
 	</div>	
 	
 	<decorator:body/> 
  
-	<div id="footer1">
-	<hr id="hr_2">
-	  <div id="list_table" align="center">
-		<table id="aa" align="center" width="400" height="300">
-		  <tr>
+	<div id="footer1" valign="center">
+		<table id="obj">
+		  <tr height="60">
 		    <td style="font-size:17px;color:gray"> 고객센터 </td>
 		  </tr>
 		  <tr>
-		    <td style="font-size:30px;color:red"> 1588-5515 </td>
+		    <td style="font-size:30px;color:orange;font-weight:bold;"> 1588-5515 </td>
 		  </tr>
 		  <tr>
-		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 </td>
+		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>
 		  </tr>
 		  <tr>
-		    <td align="center"> <span style="background:#BDBDBD"><a href="../tip/gogaek" style="color:white"> 1:1 문의하기 </a></span>  </td>
+		    <td align="center"> <span style="background:#BDBDBD"><a href="" style="color:white"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
 		</table>
 		
-		<table id="bb" align="center" width="400" height="300">
+		<table id="obj">
 		  <tr height="55"> 
-		    <td style="font-size:17px;color:gray"> 캠핑몰 매장 안내  <a href="../tip/aanae"><span style="margin-left:150px"> ▷ </span> </a> </td>
+		    <td> <a href="" style="font-size:17px;color:gray">캠핑몰 매장 안내  </a> </td>
 		  </tr>
 		  <tr>
-		    <td rowspan="4"><a href="../tip/aanae"> <img src="../notice/img/11.jpg" width="300"> </a></td>
+		    <td><a href=""> <img src="../notice/img/11.jpg" width="300"> </a></td>
 		  </tr>
 		</table>
-		
-	  </div>
+		<table id="obj" style="border:none;">
+		  <tr height="55"> 
+		    <td> <a href="../tip/list" style="font-size:17px;color:gray">캠핑 꿀팁</a></td>
+		  </tr>
+		  <tr>
+		    <td><a href="../tip/list"><img src="../notice/img/22.jpg" width="300"></a></td>
+		  </tr>
+
+		</table>
 	</div>
+
 	<hr id="hr_2">
 	
 	<div id="footer2">

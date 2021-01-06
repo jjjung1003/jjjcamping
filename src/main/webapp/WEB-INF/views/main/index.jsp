@@ -109,7 +109,7 @@
 </head>
 <body>	
 <script>
-	function chg_img(n)
+	function img_chg(n)
 	{
 		var main=document.getElementsByClassName("main");
 		for(i=0; i<main.length; i++)
@@ -123,13 +123,13 @@
 	<div id="fourth">
   	  <div id="view">
         <div id="inner">
-      	  <img class="main" src="../notice/img/11.jpg" width="1280" height="500">  <img class="main" src="../notice/img/22.jpg" width="1280" height="500">  <img class="main" src="../notice/img/33.jpg" width="1280" height="500"><img class="main" src="../notice/img/44.jpg" width="1280" height="500"><img class="main" src="../notice/img/55.jpg" width="1280" height="500">
+      	  <img class="main" src="../notice/img/11.jpg" width="1280" height="500"> <img class="main" src="../notice/img/22.jpg" width="1280" height="500">  <img class="main" src="../notice/img/33.jpg" width="1280" height="500"><img class="main" src="../notice/img/44.jpg" width="1280" height="500"><img class="main" src="../notice/img/55.jpg" width="1280" height="500">
 	     	<div id="number">
-		      <a href="javascript:chg_img(0)" class="num">1</a> 
-		      <a href="javascript:chg_img(1)" class="num">2</a> 
-		      <a href="javascript:chg_img(2)" class="num">3</a> 
-		      <a href="javascript:chg_img(3)" class="num">4</a> 
-		      <a href="javascript:chg_img(4)" class="num">5</a> 
+		      <a href="javascript:img_chg(0)" class="num">1</a> 
+		      <a href="javascript:img_chg(1)" class="num">2</a> 
+		      <a href="javascript:img_chg(2)" class="num">3</a> 
+		      <a href="javascript:img_chg(3)" class="num">4</a> 
+		      <a href="javascript:img_chg(4)" class="num">5</a> 
 	      	</div>     
         </div>
       </div>

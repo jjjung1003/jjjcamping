@@ -25,6 +25,8 @@ public class NoticeController {
 	@Autowired
 	public SqlSession sqlSession;
 	
+	/*--------------------------------------------------------------------------------------------   notice   --------*/
+	
 	@RequestMapping("/notice/write")
 	public String write()
 	{
@@ -190,13 +192,7 @@ public class NoticeController {
 		else 
 			return "redirect:/notice/content?chk=1&id="+id;		
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
