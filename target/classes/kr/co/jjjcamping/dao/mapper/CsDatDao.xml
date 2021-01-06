@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+	
+<mapper namespace="kr.co.jjjcamping.dao.CsDatDao">
+
+  	<select id="get_csdat" resultType="kr.co.jjjcamping.dto.CsDatDto">
+		select * from cs_dat
+		where csid=#{param}
+		order by id asc
+	</select>	
+	
+	<insert id="csdat_ok" parameterType="kr.co.jjjcamping.dto.CsDatDto">
+  		insert into cs_dat(name,content,csid,writeday)
+  		values(#{name},#{content},#{csid},now())
+  	</insert>
+  	
+  	<delete id="csdat_del">
+		delete from cs_dat
+		where id=#{param}
+	</delete>
+  	
+  	
+
+
+
+
+</mapper>
+
+
+
+

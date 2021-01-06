@@ -343,7 +343,7 @@
 		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>
 		  </tr>
 		  <tr>
-		    <td align="center"> <span style="background:#BDBDBD"><a href="" style="color:white"> 1:1 문의하기 </a></span>  </td>
+		    <td align="center"> <span style="background:#BDBDBD"><a href="../cs/write" style="color:white"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
 		</table>
 		

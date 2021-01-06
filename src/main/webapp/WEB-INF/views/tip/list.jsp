@@ -23,11 +23,37 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:1000px;
+		width:800px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
 	}
+	
+	select {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+		border: 2px solid #999;
+		/*padding-left:12px;
+		font-family: inherit;
+		background: url('arrow.jpg') no-repeat 95% 50%;
+		border-radius: 0px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none; */
+	}
+	
+	input[type="text"] {
+		width: 190px;
+		height:25px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+	}
+	
 </style>
 <script>
 	function content(id)
