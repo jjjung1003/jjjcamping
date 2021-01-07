@@ -17,7 +17,7 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:800px;
+		width:700px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;

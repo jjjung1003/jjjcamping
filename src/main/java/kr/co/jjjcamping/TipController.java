@@ -30,7 +30,7 @@ public class TipController {
 /*---------------------------------------------------------- 꿀팁 ------------*/
 	
 	@RequestMapping("/tip/list")  //5 층에  캠핑을즐기는 꿀tip
-	public String tip(Model model, TipDto tdto, HttpServletRequest request)
+	public String tip(Model model,HttpServletRequest request)
 	{
 	    TipDao tdao = sqlSession.getMapper(TipDao.class);
 	    ArrayList<TipDto> tip_list = tdao.list();

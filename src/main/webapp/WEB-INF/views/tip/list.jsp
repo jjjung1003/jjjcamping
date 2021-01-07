@@ -77,6 +77,7 @@
 	
 	<div id="tip_second">
 	<table align="center" width="750">
+	
 	  <tr style="font-size:25px">
 	    <td>No.</td>
 	    <td width="400" height="60" align="center">Content</td>
@@ -85,7 +86,7 @@
 	  <c:forEach items="${tip_list}" var="tipdto">
 	  <tr>
 	    <td height="40">${tipdto.id}</td>
-	    <td><a href="javascript:content('${tipdto.id }')"> ${tipdto.title} </a></td>
+	    <td><a href="javascript:content('${tipdto.id}')"> ${tipdto.title} </a></td>
 	    <td align="center">${tipdto.writeday}</td>
 	  </tr> 
 	  </c:forEach> 	   

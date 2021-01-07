@@ -342,9 +342,18 @@
 		  <tr>
 		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>
 		  </tr>
+		  
+		  <c:if test="${userid != null}">
 		  <tr>
 		    <td align="center"> <span style="background:#BDBDBD"><a href="../cs/write" style="color:white"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
+		  </c:if>
+		  <c:if test="${userid == null}">
+		  <tr>
+		    <td align="center"> <span style="background:#BDBDBD"><a href="../login/login" style="color:white"> 1:1 문의하기 </a></span>  </td>
+		  </tr>
+		  </c:if>
+		  
 		</table>
 		
 		<table id="obj">
@@ -352,7 +361,7 @@
 		    <td> <a href="" style="font-size:17px;color:gray">캠핑몰 매장 안내  </a> </td>
 		  </tr>
 		  <tr>
-		    <td><a href=""> <img src="../notice/img/11.jpg" width="300"> </a></td>
+		    <td><a href="../store/list"> <img src="../notice/img/11.jpg" width="300"> </a></td>
 		  </tr>
 		</table>
 		<table id="obj" style="border:none;">

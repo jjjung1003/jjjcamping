@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+
+<mapper namespace="kr.co.jjjcamping.dao.StoreDao">
+
+	<select id="list" resultType="kr.co.jjjcamping.dto.StoreDto">
+		select * from store
+		where ${param1} like concat('%',#{param2},'%')
+		order by region asc
+		limit #{param3}, 9
+	</select>
+	
+	<insert id="store_write_ok" parameterType="kr.co.jjjcamping.dto.StoreDto">
+		insert into store(region,title,address,phone,m_img,m_imgsize,writeday)
+		values(#{region},#{title},#{address},#{phone},#{m_img},#{m_imgsize},now())
+	</insert>
+	
+	<select id="list_cnt" resultType="int">
+		select count(*) 
+		from store
+		where #{param1} like concat('%',#{param2},'%')
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
