@@ -82,6 +82,24 @@ public class StoreController {
 		return "/store/list";
 	}
 	
+	@RequestMapping("/store/content")
+	public String content(HttpServletRequest request, Model model)
+	{
+		String id=request.getParameter("id");
+		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
+		StoreDto sdto=sdao.content(id);	
+		model.addAttribute("sdto", sdto);
+		return "/store/content";		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -77,13 +77,13 @@
   </div>
   
   <div id="store_third" align="center">
-    <table>
+    <table width="1000" align="center">
       <tr>
       <c:set var="num" value="1"/>
       <c:forEach items="${slist}" var="sdto">
-        <td>
-          <img src="../store/img/${sdto.m_img}" width="250" height="250"> <br>
-          [${sdto.region}]<br>[${sdto.title}]<br> ${sdto.address}<br> ${sdto.phone}  
+        <td width="330" height="400" align="center">
+          <a href="content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange"></a> <br>
+          [${sdto.region} ${sdto.title}]<br> ${sdto.address}<br> ${sdto.phone}  
         </td>
         
         <c:if test="${num%3 == 0 && num != 30}">

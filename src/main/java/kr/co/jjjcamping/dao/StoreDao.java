@@ -12,6 +12,8 @@ public interface StoreDao {
 
 	public void store_write_ok(StoreDto sdto);
 
+	public StoreDto content(String id);
+
 	
 	
 	

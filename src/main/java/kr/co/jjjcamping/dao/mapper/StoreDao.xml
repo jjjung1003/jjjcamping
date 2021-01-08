@@ -22,6 +22,11 @@
 		from store
 		where #{param1} like concat('%',#{param2},'%')
 	</select>
+	
+	<select id="content" resultType="kr.co.jjjcamping.dto.StoreDto">
+		select * from store
+		where id=#{param}
+	</select>
 
 
 
