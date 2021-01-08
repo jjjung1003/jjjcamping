@@ -92,6 +92,15 @@ public class StoreController {
 		return "/store/content";		
 	}
 	
+	@RequestMapping("/store/delete")
+	public String delete(HttpServletRequest request)
+	{
+		String id=request.getParameter("id");
+		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
+		sdao.delete(id);
+		return "redirect:/store/list";		
+	}
+	
 	
 	
 	

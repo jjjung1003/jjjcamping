@@ -63,7 +63,7 @@
 </script>
 </head>
 <body>
-<div align="center" id="tip_first"> <h2> 즐거운 캠핑을 즐기는 꿀팁 </h2> </div>
+<div align="center" id="tip_first"> <h2> 캠핑을 즐기는 꿀팁 </h2> </div>
 	<hr id="hr_1">
 	<div align="center">
 	<form method="post" action="list" name="jjj">

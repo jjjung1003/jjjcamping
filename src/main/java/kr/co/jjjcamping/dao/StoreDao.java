@@ -14,6 +14,8 @@ public interface StoreDao {
 
 	public StoreDto content(String id);
 
+	public void delete(String id);
+
 	
 	
 	

@@ -27,6 +27,10 @@
 		select * from store
 		where id=#{param}
 	</select>
+	
+	<delete id="delete">
+		delete from store where id=#{param}
+	</delete>
 
 
 

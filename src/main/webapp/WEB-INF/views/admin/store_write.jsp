@@ -65,5 +65,7 @@
 	  <input type="submit" value="등록하기">  
 	  </form>
 	 </div>
+	 
+
 </body>
 </html>

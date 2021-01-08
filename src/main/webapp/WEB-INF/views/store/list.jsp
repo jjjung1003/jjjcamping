@@ -82,7 +82,7 @@
       <c:set var="num" value="1"/>
       <c:forEach items="${slist}" var="sdto">
         <td width="330" height="400" align="center">
-          <a href="content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange"></a> <br>
+          <a href="content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange; background:orange;"></a> <br>
           [${sdto.region} ${sdto.title}]<br> ${sdto.address}<br> ${sdto.phone}  
         </td>
         

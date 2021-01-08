@@ -286,38 +286,30 @@
 	          	<li class="sub_li"><a href="">타프</a></li>
         	</ul>
    		</li>
-   		<li onmouseover="view(1,100)" onmouseout="hide(1)" class="main_li">
-		  <span class="textbox">가스장비</span>
-	        <ul class="sub">
-	         	<li class="sub_li"><a href="">스토브</a></li>
-	          	<li class="sub_li"><a href="">랜턴</a></li>
-	          	<li class="sub_li"><a href="">히터</a></li>
-	          	<li class="sub_li"><a href="">토치</a></li>
-        	</ul>
-   		</li>
-   		<li onmouseover="view(2,50)" onmouseout="hide(2)" class="main_li">
+   		<li onmouseover="view(1,50)" onmouseout="hide(1)" class="main_li">
 		<span class="textbox">침낭/매트</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">침낭</a></li>
 	          	<li class="sub_li"><a href="">매트</a></li>
         	</ul>
+   		</li>   		
+   		<li onmouseover="view(2,75)" onmouseout="hide(2)" class="main_li">
+		  <span class="textbox">가스장비</span>
+	        <ul class="sub">
+	         	<li class="sub_li"><a href="">스토브</a></li>
+	          	<li class="sub_li"><a href="">바베큐</a></li>
+	          	<li class="sub_li"><a href="">히터</a></li>
+        	</ul>
    		</li>
    		<li onmouseover="view(3,75)" onmouseout="hide(3)" class="main_li">
-		  <span class="textbox">캠핑장비</span>
+		  <span class="textbox">액세서리</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="">캐리백</a></li>
 	          	<li class="sub_li"><a href="">팩/폴/슬링</a></li>
 	          	<li class="sub_li"><a href="">해먹</a></li>
         	</ul>
    		</li>
-   		<li onmouseover="view(4,50)" onmouseout="hide(4)" class="main_li">
-		  <span class="textbox">바베큐</span>
-	        <ul class="sub">
-	         	<li class="sub_li"><a href="">파이어캠프</a></li>
-	          	<li class="sub_li"><a href="">액세서리</a></li>
-        	</ul>
-   		</li>
-   		<li onmouseover="view(5,100)" onmouseout="hide(5)" class="main_li">
+   		<li onmouseover="view(4,100)" onmouseout="hide(4)" class="main_li">
     	  <span class="textbox" style="color:white;">공지사항</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="../notice/list">공지사항</a></li>
@@ -326,6 +318,14 @@
 	          	<li class="sub_li"><a href="../tip/list">캠핑꿀팁</a></li>
         	</ul>
         </li>
+   		<li onmouseover="view(5,75)" onmouseout="hide(5)" class="main_li">
+		  <span class="textbox">제휴캠핑장</span>
+	        <ul class="sub">
+	         	<li class="sub_li"><a href="../reserve/information">캠핑장소개</a></li>
+	          	<li class="sub_li"><a href="../reserve/reserve_first">예약하기</a></li>
+	          	<li class="sub_li"><a href="../reserve/confirm">예약확인</a></li>
+        	</ul>
+   		</li>
 	  </ul>
 	</div>	
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,6 +28,11 @@
 		width: 90px;
 		height:30px;
 	}
+	
+	#store_del {
+		width: 90px;
+		height:30px;
+	}
 </style>
 </head>
 <body>
@@ -37,7 +43,7 @@
 	
 	<table width="600" align="center">
 	  <tr>
-		<td rowspan="4"><img src="../store/img/${sdto.m_img}" width="200" height="200"></td>
+		<td rowspan="4"><img src="../store/img/${sdto.m_img}" width="200" height="200" style="border:3px solid orange; background:orange;"></td>
 	  </tr>	
 	  <tr>
 		<td>매장명 : ${sdto.title}</td>
@@ -57,6 +63,11 @@
     <input type="button" onclick="location.href='../store/list'" value="목록">
   </div>
   
+   <div align="center" style="margin-bottom:50px">
+  	 <c:if test="${userid eq 'admin'}">
+	   <a href="delete?id=${sdto.id}" id="store_del">[ 매장삭제 ]</a>
+	 </c:if> 
+   </div> 
 
 </body>
 </html>
