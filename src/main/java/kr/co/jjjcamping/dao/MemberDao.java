@@ -3,6 +3,7 @@ package kr.co.jjjcamping.dao;
 import javax.servlet.http.HttpServletRequest;
 
 import kr.co.jjjcamping.dto.MemberDto;
+import kr.co.jjjcamping.dto.ReserveDto;
 
 public interface MemberDao {
 
@@ -21,6 +22,8 @@ public interface MemberDao {
 	public void mem_del(String id);
 	
 	public String pwd_check(String id);
+	
+	
 	
 	
 	

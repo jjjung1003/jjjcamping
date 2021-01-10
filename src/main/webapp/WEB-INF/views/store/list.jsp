@@ -27,6 +27,24 @@
 	#store_third {
 		margin-bottom:150px;
 	}
+	
+		select {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+		border: 2px solid #999;
+	}
+	
+	input[type="text"] {
+		width: 190px;
+		height:25px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+	}
 </style>
 <script>
 	function all()

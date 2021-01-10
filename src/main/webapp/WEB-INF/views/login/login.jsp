@@ -39,7 +39,7 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:700px;
+		width:600px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;

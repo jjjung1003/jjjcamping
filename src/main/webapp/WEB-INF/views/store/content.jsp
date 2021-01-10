@@ -30,8 +30,14 @@
 	}
 	
 	#store_del {
-		width: 90px;
-		height:30px;
+		display:block;
+		width:70px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 </style>
 </head>
@@ -65,7 +71,7 @@
   
    <div align="center" style="margin-bottom:50px">
   	 <c:if test="${userid eq 'admin'}">
-	   <a href="delete?id=${sdto.id}" id="store_del">[ 매장삭제 ]</a>
+	   <a href="delete?id=${sdto.id}" id="store_del">매장삭제 </a>
 	 </c:if> 
    </div> 
 

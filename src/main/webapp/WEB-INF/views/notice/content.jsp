@@ -47,7 +47,7 @@
 	  </tr>
 	  <tr>  
 	    <td>File</td>
-	    <td><img src="../notice/img/${ndto.fname}" width="100"></td>
+	    <td><img src="../notice/img/${ndto.fname}" width="200"></td>
 	  </tr>	 
 	  <tr>  
 	    <td>Content</td>
@@ -57,7 +57,7 @@
 	<div align="center">
 	<span align="center"><input type="button" value="목록보기" onclick="location.href='list'"></span>
 	
-	<c:if test="${email == 'yunjjjung1003@naver.com'}">	  
+	<c:if test="${userid == 'admin'}">	  
 		<span align="center"><input type="button" value="수정하기" onclick="update_pwd()"></span>		
 		<span align="center"><input type="button" value="삭제하기" onclick="delete_pwd()"></span> <p>
 		

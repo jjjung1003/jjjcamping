@@ -1,6 +1,7 @@
 package kr.co.jjjcamping;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.jjjcamping.dao.MemberDao;
+import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dto.MemberDto;
+import kr.co.jjjcamping.dto.ReserveDto;
 import kr.co.jjjcamping.memcommand.Id_search_okCommand;
 import kr.co.jjjcamping.memcommand.Login_okCommand;
 import kr.co.jjjcamping.memcommand.Mail_SendCommand;
@@ -32,23 +35,23 @@ public class MemberController {
 		return "/main/index";
 	}
 	
-	@RequestMapping("/member/mem_first")
+	@RequestMapping("/login/mem_first")
 	public String mem_first()
 	{
-		return "/member/mem_first";
+		return "/login/mem_first";
 	}
 	
-	@RequestMapping("/member/mem_second")
+	@RequestMapping("/login/mem_second")
 	public String mem_second(HttpServletRequest request,Model model)
 	{
 		model.addAttribute("cla1",request.getParameter("cla_fir"));
 		model.addAttribute("cla2",request.getParameter("cla_sec"));
 		model.addAttribute("cla3",request.getParameter("cla_thir"));
 		model.addAttribute("cla4",request.getParameter("cla_four"));		
-		return "/member/mem_second";
+		return "/login/mem_second";
 	}
 	
-	@RequestMapping("/member/userid_check")
+	@RequestMapping("/login/userid_check")
 	public void userid_check(PrintWriter out,HttpServletRequest request)
 	{
 		String userid=request.getParameter("userid");
@@ -57,7 +60,7 @@ public class MemberController {
 		out.print(result);
 	}
 	
-	@RequestMapping("/member/mem_third")
+	@RequestMapping("/login/mem_third")
 	public String mem_third(MemberDto mdto)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
@@ -88,16 +91,16 @@ public class MemberController {
 		return "redirect:/main/index";
 	}
 
-	@RequestMapping("/login/id_search")
+	@RequestMapping("/member/id_search")
 	public String id_search(HttpServletRequest request,Model model)
 	{
 		model.addAttribute("chk", request.getParameter("chk"));
 		model.addAttribute("name", request.getParameter("name"));
 		model.addAttribute("userid", request.getParameter("userid"));
-		return "/login/id_search";
+		return "/member/id_search";
 	}
 	 
-	@RequestMapping("/login/id_search_ok")
+	@RequestMapping("/member/id_search_ok")
 	public String id_search_ok(MemberDto mdto,Model model)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
@@ -106,21 +109,21 @@ public class MemberController {
 		return url;
 	}
 	
-	@RequestMapping("/login/email_send")
+	@RequestMapping("/member/email_send")
 	public String email_send()
 	{
 		return "/login/email_send";
 	}
 	
-	@RequestMapping("/login/pwd_search")
+	@RequestMapping("/member/pwd_search")
 	public String pwd_search(HttpServletRequest request,Model model)
 	{
 		model.addAttribute("mdto3", request.getParameter("mdto3"));
 		model.addAttribute("chk", request.getParameter("chk"));
-		return "/login/pwd_search";
+		return "/member/pwd_search";
 	}
 	
-	@RequestMapping("/login/pwd_search_ok")
+	@RequestMapping("/member/pwd_search_ok")
 	public String pwd_search_ok(MemberDto mdto) throws Exception
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
@@ -129,22 +132,22 @@ public class MemberController {
 		return url;
 	}
 	
-	@RequestMapping("/login/pwd_change")
+	@RequestMapping("/member/pwd_change")
 	public String pwd_change(HttpServletRequest request,Model model)
 	{
 		model.addAttribute("email",request.getParameter("email"));
-		return "/login/pwd_change";
+		return "/member/pwd_change";
 	}
 	
-	@RequestMapping("/login/pwd_change2")
+	@RequestMapping("/member/pwd_change2")
 	public String pwd_change2(HttpServletRequest request,Model model)
 	{
 		model.addAttribute("id",request.getParameter("id"));
-		return "/login/pwd_change2";
+		return "/member/pwd_change2";
 	}
 	
-	@RequestMapping("/login/pwd_change_ok")
-	public String pwd_change_ok(MemberDto mdto)
+	@RequestMapping("/member/pwd_change_ok")
+	public String pwd_change_ok(MemberDto mdto,HttpSession session)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		String decode_email="";
@@ -156,27 +159,29 @@ public class MemberController {
 		mdto.setEmail(decode_email);
 		
 		mdao.pwd_change_ok(mdto);
+		session.invalidate();
 		return "redirect:/login/login";
 	}
 	
-	@RequestMapping("/login/pwd_change2_ok")
-	public String pwd_change2_ok(MemberDto mdto)
+	@RequestMapping("/member/pwd_change2_ok")
+	public String pwd_change2_ok(MemberDto mdto,HttpSession session)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);		
 		mdao.pwd_change2_ok(mdto);
+		session.invalidate();
 		return "redirect:/login/login";
 	}
 	
-	@RequestMapping("/login/mypage")
+	@RequestMapping("/member/mypage")
 	public String mypage(Model model,HttpSession session)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());		
 		model.addAttribute("mdto", mdto);
-		return "/login/mypage";
+		return "/member/mypage";
 	}
 	
-	@RequestMapping("/login/mem_update")
+	@RequestMapping("/member/mem_update")
 	public String mem_update(HttpServletRequest request,Model model)
 	{
 		String id=request.getParameter("id");
@@ -184,10 +189,10 @@ public class MemberController {
 		MemberDto mdto=mdao.mem_update(id);
 		model.addAttribute("mdto", mdto);
 		model.addAttribute("chk", request.getParameter("chk"));
-		return "/login/mem_update";
+		return "/member/mem_update";
 	}
 	
-	@RequestMapping("login/mem_update_ok")
+	@RequestMapping("member/mem_update_ok")
 	public String mem_update_ok(HttpServletRequest request,MemberDto mdto)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
@@ -196,21 +201,21 @@ public class MemberController {
 		if(pwd.equals(mdto.getPwd()))
 		{
 			mdao.mem_update_ok(mdto);
-			return "redirect:/login/mypage";
+			return "redirect:/member/mypage";
 		}
 		else
-			return "redirect:/login/mem_update?id="+id+"&chk=1";
+			return "redirect:/member/mem_update?id="+id+"&chk=1";
 	}
 	
-	@RequestMapping("login/mem_del")
-	public String mem_del(HttpServletRequest request,HttpSession session)
+	@RequestMapping("member/mem_del")
+	public void mem_del(HttpServletRequest request,HttpSession session)
 	{
 		String id=request.getParameter("id");
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		mdao.mem_del(id);
 		session.invalidate();
-		return "redirect:/main/index";
 	}
+	
 	
 	
 	

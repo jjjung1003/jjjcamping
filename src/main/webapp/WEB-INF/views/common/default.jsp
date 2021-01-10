@@ -217,6 +217,15 @@
    		border-right:1px solid lightgray;
 	}
 	
+	.def_btn {
+		display:block;
+		width:120px;
+		height:20px;
+		border:3px solid gray;
+		border-radius:5px;
+		color:gray;
+		font-size:15px;
+	}
 </style>
 <script>
 	$(function(){	//top클릭시 맨 위로 이동
@@ -247,18 +256,20 @@
 	<div id="first">
 	  <div id="right">
 	    <ul>
-		  <li><a href=""><span class="material-icons">local_grocery_store장바구니</span></a></li>
-		  <li><a href=""><span class="material-icons">local_shipping주문배송</span></a></li>
+		  
 		    <c:if test="${userid eq null }">
-		  	  <li><a href="../member/mem_first"><span class="material-icons">person회원가입</span></a></li>
+		  	  <li><a href="../login/mem_first"><span class="material-icons">person회원가입</span></a></li>
 		      <li><a href="../login/login"><span class="material-icons">vpn_key로그인</span></a></li>
 		    </c:if>
-		    <c:if test="${userid ne null }">
-		      <li><a href="../login/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
+		    <c:if test="${userid ne null }">		    
 		      <li><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
+		      <li><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
+			  <li><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
+			  <li><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
+		      <li><a href=""><span class="material-icons">local_grocery_store장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid eq 'admin' }">
-		      <li><span class="material-icons"><a href="">assignment_ind관리자페이지</a></span></li>
+		      <li><span class="material-icons"><a href="../admin/admin_list">assignment_ind관리자페이지</a></span></li>
 		    </c:if>
 	    </ul>
 	  </div>
@@ -314,16 +325,16 @@
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="../notice/list">공지사항</a></li>
 	          	<li class="sub_li"><a href="../cs/list">고객센터</a></li>
-	          	<li class="sub_li"><a href="">매장안내</a></li>
+	          	<li class="sub_li"><a href="../store/list">매장안내</a></li>
 	          	<li class="sub_li"><a href="../tip/list">캠핑꿀팁</a></li>
         	</ul>
         </li>
    		<li onmouseover="view(5,75)" onmouseout="hide(5)" class="main_li">
 		  <span class="textbox">제휴캠핑장</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="../reserve/information">캠핑장소개</a></li>
+	         	<li class="sub_li"><a href="../reserve/camp_list">캠핑장소개</a></li>
 	          	<li class="sub_li"><a href="../reserve/reserve_first">예약하기</a></li>
-	          	<li class="sub_li"><a href="../reserve/confirm">예약확인</a></li>
+	          	<li class="sub_li"><a href="../member/my_reserve">예약확인</a></li>
         	</ul>
    		</li>
 	  </ul>
@@ -337,7 +348,7 @@
 		    <td style="font-size:17px;color:gray"> 고객센터 </td>
 		  </tr>
 		  <tr>
-		    <td style="font-size:30px;color:orange;font-weight:bold;"> 1588-5515 </td>
+		    <td style="font-size:30px;color:orange;font-weight:bold;"> 1111-2222 </td>
 		  </tr>
 		  <tr>
 		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>
@@ -345,12 +356,12 @@
 		  
 		  <c:if test="${userid != null}">
 		  <tr>
-		    <td align="center"> <span style="background:#BDBDBD"><a href="../cs/write" style="color:white"> 1:1 문의하기 </a></span>  </td>
+		    <td align="center"> <span><a href="../cs/write" class="def_btn"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
 		  </c:if>
 		  <c:if test="${userid == null}">
 		  <tr>
-		    <td align="center"> <span style="background:#BDBDBD"><a href="../login/login" style="color:white"> 1:1 문의하기 </a></span>  </td>
+		    <td align="center"> <span><a href="../login/login" class="def_btn"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
 		  </c:if>
 		  
@@ -358,7 +369,7 @@
 		
 		<table id="obj">
 		  <tr height="55"> 
-		    <td> <a href="" style="font-size:17px;color:gray">캠핑몰 매장 안내  </a> </td>
+		    <td> <a href="../store/list" class="def_btn">캠핑몰 매장 안내  </a> </td>
 		  </tr>
 		  <tr>
 		    <td><a href="../store/list"> <img src="../notice/img/11.jpg" width="300"> </a></td>
@@ -366,7 +377,7 @@
 		</table>
 		<table id="obj" style="border:none;">
 		  <tr height="55"> 
-		    <td> <a href="../tip/list" style="font-size:17px;color:gray">캠핑 꿀팁</a></td>
+		    <td> <a href="../tip/list" class="def_btn" align="center">캠핑 꿀팁</a></td>
 		  </tr>
 		  <tr>
 		    <td><a href="../tip/list"><img src="../notice/img/22.jpg" width="300"></a></td>

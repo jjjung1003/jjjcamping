@@ -7,10 +7,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.co.jjjcamping.dao.ReserveDao">
 
 	<insert id="reserve_second" parameterType="kr.co.jjjcamping.dto.ReserveDto">
-		insert into reserve(userid,name,camp,A_deck,writeday)
-		values(#{userid},#{name},#{camp},#{A_deck},now())
+		insert into reserve(userid,name,camp,A_deck,in_date,out_date,writeday)
+		values(#{userid},#{name},#{camp},#{A_deck},#{in_date},#{out_date},now())
 	</insert>
+	
+	<select id="my_reserve" resultType="kr.co.jjjcamping.dto.ReserveDto">
+		select * from reserve
+		where userid=#{param}
+	</select>
 
+	<delete id="reserve_del">
+		delete from reserve
+		where id=#{param}
+	</delete>
 
 
 

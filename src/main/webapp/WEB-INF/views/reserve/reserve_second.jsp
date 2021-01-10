@@ -19,23 +19,15 @@
 		margin-bottom:150px;
 	}
 	
-	select {
-		margin-top:5px;
-		width: 200px;
-		height:30px;
-		border: 2px solid #999;
-	}
-	
-	input[type="text"] {
-		margin-top:4px;
-		margin-bottom:1px;
-		width: 193px;
-		height:23px;
-	}
-	
 	#reser_btn {
-		width: 90px;
-		height:30px;
+		display:block;
+		width:70px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 </style>
 </head>
@@ -45,9 +37,9 @@
 	<hr id="hr_1">
 	
 	
-	예약이 완료되었습니다. <p>
+	예약이 완료되었습니다. <p><br><br><br>
 	
-	<a href="" id="reser_btn">예약 확인</a>
+	<a href="../member/my_reserve" id="reser_btn">예약 확인</a>
 </div>	
 </body>
 </html>

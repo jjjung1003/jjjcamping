@@ -3,8 +3,28 @@ package kr.co.jjjcamping.dto;
 public class ReserveDto {
 
 	private int id, night, price;
-	private String userid, name, camp, A_deck, writeday;
+	private String userid, name, camp, A_deck, in_date, out_date, writeday;
 	
+	
+	
+	public String getA_deck() {
+		return A_deck;
+	}
+	public void setA_deck(String a_deck) {
+		A_deck = a_deck;
+	}
+	public String getIn_date() {
+		return in_date;
+	}
+	public void setIn_date(String in_date) {
+		this.in_date = in_date;
+	}
+	public String getOut_date() {
+		return out_date;
+	}
+	public void setOut_date(String out_date) {
+		this.out_date = out_date;
+	}
 	public int getId() {
 		return id;
 	}
@@ -41,12 +61,7 @@ public class ReserveDto {
 	public void setCamp(String camp) {
 		this.camp = camp;
 	}
-	public String getA_deck() {
-		return A_deck;
-	}
-	public void setA_deck(String a_deck) {
-		A_deck = a_deck;
-	}
+
 	public String getWriteday() {
 		return writeday;
 	}

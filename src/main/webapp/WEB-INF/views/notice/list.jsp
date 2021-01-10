@@ -17,8 +17,14 @@
 	}
 	
 	#notice_second #list_btn {
-		background-color:#2F0B3A;
-		color:white;
+		display:block;
+		width:70px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 	
 	#hr_1 {
@@ -29,6 +35,23 @@
 		margin-bottom:50px;
 	}
 
+	select {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+		border: 2px solid #999;
+	}
+	
+	input[type="text"] {
+		width: 190px;
+		height:25px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 70px;
+		height:30px;
+	}
 </style>
 </head>
 <body>
@@ -103,8 +126,8 @@
 	  </c:if>	  
 	</div> <br><p>
 	
-	<c:if test="${email == 'yunjjjung1003@naver.com'}">	
-		<div align="center"> <a href="write" id="list_btn"> 글 쓰기 </a> </div> <br><p>
+	<c:if test="${userid == 'admin'}">	
+		<div align="center"> <a href="write" id="list_btn"> 글쓰기 </a> </div> <br><p>
 	</c:if>
 
 	</div>

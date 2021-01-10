@@ -12,13 +12,6 @@
 		width: 70px;
 		height:30px;
 		border: 2px solid #999;
-		/*padding-left:12px;
-		font-family: inherit;
-		background: url('arrow.jpg') no-repeat 95% 50%;
-		border-radius: 0px;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none; */
 	}
 	
 	input[type="text"] {
@@ -50,13 +43,14 @@
 	}
 	
 	#cslist_btn {
-		display:inline-block;
-		border:3px solid #FAAC58;
-		padding-top:3px;
-		width: 90px;
+		display:block;
+		width:70px;
 		height:25px;
-		margin-top:40px;
-		border-radius:5px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 </style>
 </head>
@@ -137,7 +131,7 @@
 	  </c:if>
 	  
 	  <!-- 페이징처리 끝 -->
-	  <p>
+	  <p><br><br><br>
 	  <a href="write" id="cslist_btn"> 글쓰기 </a>
 	</div>
 	</div>	

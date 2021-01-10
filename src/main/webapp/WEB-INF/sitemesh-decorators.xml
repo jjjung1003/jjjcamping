@@ -13,9 +13,9 @@
 	 </decorator>
 	 
 	 <!-- 모바일 패턴 -->
-	 <decorator name="mobileDefault" page="mobileDefault.jsp">
+	 <!-- <decorator name="mobileDefault" page="mobileDefault.jsp">
 	  <pattern>/m.*.do</pattern> 
-	 </decorator>
+	 </decorator> -->
 	 
 </decorators>
 
