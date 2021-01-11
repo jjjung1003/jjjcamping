@@ -8,15 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
+import kr.co.jjjcamping.dto.ProductDto;
 import kr.co.jjjcamping.dto.StoreDto;
 
 @Controller
@@ -96,10 +99,21 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin/product_write_ok")
-	public String product_write_ok()
+	public String product_write_ok(ProductDto pdto, HttpServletRequest request) throws IOException
 	{
-		return "/admin/product_write_ok";
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
+		
+		String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img";
+		int max=1024*1024*20;
+		MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
+		
+		Product_write_okCommand pwoc=new Product_write_okCommand();
+		pwoc.product_write_ok(multi,adao);		
+				
+		return "redirect:/admin/product_write";
 	}
+	
+	
 	
 	
 	

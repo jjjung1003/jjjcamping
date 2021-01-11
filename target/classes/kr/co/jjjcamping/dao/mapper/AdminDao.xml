@@ -16,7 +16,15 @@
 		values(#{title},#{address},#{phone},#{m_img},#{d_img},#{m_imgsize},#{d_imgsize},#{on_price},#{off_price},now())
 	</insert>
 
-
+	<insert id="product_write_ok" parameterType="kr.co.jjjcamping.dto.ProductDto">
+		insert into product(code,pro_name,m_img,d_img,made,price,sale,discount,point,payment,pro_stock,quantity,writeday)
+		values(#{code},#{pro_name},#{m_img},#{d_img},#{made},#{price},#{sale},#{discount},#{point},#{payment},#{pro_stock},#{quantity},now())
+	</insert>
+	
+	<select id="get_code" resultType="String">
+		select substring(max(code),6,3) from product
+		where code like concat(#{param},'%')
+	</select>
 
 
 

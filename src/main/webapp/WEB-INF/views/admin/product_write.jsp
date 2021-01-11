@@ -51,10 +51,10 @@
 	
 </style>
 <script>
-	function view_zhong(da)
+	function view_zhong(da_val)
 	{
 		var zhong=document.getElementById("zhong");
-		switch(da)	// 대분류 코드
+		switch(da_val)	// 대분류 코드
 		{
 			case "01" : var val=['텐트','타프']; break;
 			case "02" : var val=['침낭','매트']; break;
@@ -77,7 +77,7 @@
 		var da=document.getElementById("da").value;
 		var zhong=document.getElementById("zhong").value;
 		
-		code="p"+da+zhong+"0";
+		code="p"+da+zhong;
 		document.pro_jjj.code.value=code;
 	}
 	
@@ -90,7 +90,7 @@
 <hr id="hr_1">
 
 <div align="center" id="pro_second">
-  <form method="post" action="pro_write_ok" name="pro_jjj" enctype="multipart/form-data">
+  <form method="post" action="product_write_ok" name="pro_jjj" enctype="multipart/form-data">
 
     <table align="center" width="750" style="margin-bottom:50px">
       <tr>
@@ -99,6 +99,7 @@
         <td>
         	대분류
           <select id="da" onchange="view_zhong(this.value)">
+            <option></option>
             <option value="01">텐트/타프</option>
             <option value="02">침낭/매트</option>
             <option value="03">가스장비</option>
@@ -115,7 +116,7 @@
       
 	  <tr>
 		<td> 상품명 </td>
-		<td colspan="2"> <input type="text" name="pname" placeholder="공백없이 입력해주세요"> </td>
+		<td colspan="2"> <input type="text" name="pro_name" placeholder="공백없이 입력해주세요"> </td>
 	  </tr>
 	  
 	  <tr>
@@ -153,7 +154,7 @@
 	  <tr>
 		<td> 할인 </td>
 		<td colspan="2">
-		  <select name="pro_event">
+		  <select name="sale">
 			<option value="0"> 정가 </option>
 			<option value="1"> 세일 </option>
 		  </select>
@@ -170,22 +171,22 @@
 	  </tr>
 	  <tr>
 		<td> 배송비 </td>
-		<td colspan="2"> 3만원 미만 무료 <input type="hidden" name="bprice" value="0"> </td>
+		<td colspan="2"> 10만원 이상 무료 <input type="hidden" name="charge" value="0"> </td>
 	  </tr>
 	  
 	  <tr>
 		<td> 배송비 결제 </td>
 		<td colspan="2">
-		  <select name="charge">
+		  <select name="payment">
 			<option value="0" selected> 선불 </option>
 			<option value="1"> 착불 </option>
 		  </select>
-			선불 기본
+			기본 선불
 		</td>
 	  </tr>
       
 	  <tr>
-		<td> 재고유무 </td>
+		<td> 판매여부 </td>
 		<td colspan="2">
 		  <select name="pro_stock">
 			<option value="0"> 판매중 </option>
@@ -196,7 +197,7 @@
 	  </tr>	
 	  
 	  <tr>
-		<td> 상품수량  </td>
+		<td> 재고수량  </td>
 		<td colspan="2"><input type="text" name="quantity" placeholder="숫자만 입력해주세요"></td>
 	  </tr>         
        
