@@ -5,7 +5,15 @@
 
 <mapper namespace="kr.co.jjjcamping.dao.ProductDao">
 
+	<select id="pro_list" resultType="kr.co.jjjcamping.dto.ProductDto">
+		select * from product
+		where code like concat(#{param1},'%')
+		limit ${param2}, 10
+	</select>
 	
+	<select id="get_category" resultType="kr.co.jjjcamping.dto.ProductDto">
+		
+	</select>
 	
 
 
