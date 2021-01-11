@@ -17,10 +17,14 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:1000px;
+		width:800px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
+	}
+	
+	td {
+	  padding-bottom:10px;
 	}
 	
 	input[type="text"] {
@@ -28,11 +32,56 @@
 		height:20px;
 	}
 	
+	input[type="button"] {
+		width: 70px;
+		height:25px;
+	}
+	
 	input[type="submit"] {
 		width: 90px;
 		height:30px;
 	}
+	
+	select {
+		margin-top:5px;
+		width: 100px;
+		height:30px;
+		border: 2px solid #999;
+	}
+	
 </style>
+<script>
+	function view_zhong(da)
+	{
+		var zhong=document.getElementById("zhong");
+		switch(da)	// 대분류 코드
+		{
+			case "01" : var val=['텐트','타프']; break;
+			case "02" : var val=['침낭','매트']; break;
+			case "03" : var val=['스토브','바베큐','히터']; break;
+			case "04" : var val=['캐리백','팩/폴/슬링','해먹']; break;
+		}
+		//중분류 option 생성
+		zhong.options.length=val.length;
+		
+		for(i=0; i<val.length; i++)
+		{
+			zhong.options[i].value="0"+(i+1);
+			zhong.options[i].text=val[i];
+		}
+		view_xiao(zhong.value);		
+	}
+	
+	function cre_code()
+	{
+		var da=document.getElementById("da").value;
+		var zhong=document.getElementById("zhong").value;
+		
+		code="p"+da+zhong+"0";
+		document.pro_jjj.code.value=code;
+	}
+	
+</script>
 </head>
 <body>
 <%-- <c:if test="${userid == 'admin'}">	 --%>
@@ -41,9 +90,9 @@
 <hr id="hr_1">
 
 <div align="center" id="pro_second">
-  <form method="post" action="pro_write_ok" name="jjj" enctype="multipart/form-data">
+  <form method="post" action="pro_write_ok" name="pro_jjj" enctype="multipart/form-data">
 
-    <table align="center" width="1000" style="margin-bottom:50px">
+    <table align="center" width="750" style="margin-bottom:50px">
       <tr>
         <td> 상품코드 </td>
         <td> <input type="text" name="code" id="code" placeholder="코드생성 버튼 이용"> </td>
@@ -59,11 +108,8 @@
           <select id="zhong" onchange="view_xiao(this.value)">
             
           </select> 
-         	소분류
-          <select id="xiao">
-           
-          </select>	          
-          <input type="button" value="코드생성">
+                
+          <input type="button" value="코드생성" onclick="cre_code()">
         </td>
       </tr>
       
