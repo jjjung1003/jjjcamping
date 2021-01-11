@@ -1,4 +1,4 @@
-package kr.co.jjjcamping.memcommand;
+package kr.co.jjjcamping.command;
 
 import javax.servlet.http.HttpServletRequest;
 

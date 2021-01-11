@@ -269,7 +269,7 @@
 		      <li><a href=""><span class="material-icons">local_grocery_store장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid eq 'admin' }">
-		      <li><span class="material-icons"><a href="../admin/admin_list">assignment_ind관리자페이지</a></span></li>
+		      <li><div class="material-icons" style="margin-left:-650px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
 		    </c:if>
 	    </ul>
 	  </div>
@@ -293,31 +293,31 @@
 	    <li onmouseover="view(0,50)" onmouseout="hide(0)" class="main_li">
 		  <span class="textbox">텐트/타프</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="">텐트</a></li>
-	          	<li class="sub_li"><a href="">타프</a></li>
+	         	<li class="sub_li"><a href="../product/pro_list?code=p0101">텐트</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0102">타프</a></li>
         	</ul>
    		</li>
    		<li onmouseover="view(1,50)" onmouseout="hide(1)" class="main_li">
 		<span class="textbox">침낭/매트</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="">침낭</a></li>
-	          	<li class="sub_li"><a href="">매트</a></li>
+	         	<li class="sub_li"><a href="../product/pro_list?code=p0201">침낭</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0202">매트</a></li>
         	</ul>
    		</li>   		
    		<li onmouseover="view(2,75)" onmouseout="hide(2)" class="main_li">
 		  <span class="textbox">가스장비</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="">스토브</a></li>
-	          	<li class="sub_li"><a href="">바베큐</a></li>
-	          	<li class="sub_li"><a href="">히터</a></li>
+	         	<li class="sub_li"><a href="../product/pro_list?code=p0301">스토브</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0302">바베큐</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0303">히터</a></li>
         	</ul>
    		</li>
    		<li onmouseover="view(3,75)" onmouseout="hide(3)" class="main_li">
 		  <span class="textbox">액세서리</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="">캐리백</a></li>
-	          	<li class="sub_li"><a href="">팩/폴/슬링</a></li>
-	          	<li class="sub_li"><a href="">해먹</a></li>
+	         	<li class="sub_li"><a href="../product/pro_list?code=p0401">캐리백</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0402">팩/폴/슬링</a></li>
+	          	<li class="sub_li"><a href="../product/pro_list?code=p0403">해먹</a></li>
         	</ul>
    		</li>
    		<li onmouseover="view(4,100)" onmouseout="hide(4)" class="main_li">

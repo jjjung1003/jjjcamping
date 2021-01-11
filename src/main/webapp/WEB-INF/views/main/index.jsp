@@ -137,7 +137,7 @@
 	
 	<div id="fifth">
 	  <div id="list">
-		<ul style="height=200px;margin-top:0px;">
+		<ul style="height:200px;margin-top:0px;">
 			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:17px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">NEW</a><br/>신규입고<br/>&nbsp;<br/></li>
 			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(0)"><i class="fas fa-campground" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>텐트/타프</li>
 			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(1)"><i class="fas fa-burn" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>가스장비</li>
@@ -147,25 +147,8 @@
 		</ul>
 	  </div>
 
-	
-	  <%-- <div class="outline" style="display:block;">
-	    <table width="1275" align="center" style="height:460px;">
-	      <tr>
-	        <c:forEach items="${tent_list}" var="tent" varStatus="status">	스위치문으로 각 항목별 코드 받고 그걸 통해 제품 코드 뽑아낸다. js로 display 변경 ${status.index} 0부터의 순서
-	          <c:if test="${status.index==0}">
-	            <td>
-	              <a href=""><img src="../product/img/${tent.mimg}" width=330></a>
-	              <span id="text2">${tent.pname}<br/><fmt:formatNumber value="${tent.price}"/>원</span>
-	            </td>
-	          </c:if>  
-	        </c:forEach>
-	      </tr> 	    
-	    </table>--%>
 	  </div> 
 	  
-	
-	
-	
 </body>
 </html>
 

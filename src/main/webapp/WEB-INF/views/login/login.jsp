@@ -61,7 +61,7 @@
   <div id="login" align="center">
   
   <div align="center"> <h2> 로그인
-  	  	</h2><br>첫 캠핑이 선물한 뜻밖의 세상_코베아 </div>
+  	  	</h2><br> 어서오세요. <strong>jjjcamping</strong>입니다. </div>
 	<hr id="hr_1">
 	
   	<div id="log_fir">

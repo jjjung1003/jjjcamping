@@ -2,6 +2,7 @@ package kr.co.jjjcamping;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +20,7 @@ import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
+import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ProductDto;
 import kr.co.jjjcamping.dto.StoreDto;
 
@@ -113,8 +115,51 @@ public class AdminController {
 		return "redirect:/admin/product_write";
 	}
 	
+	@RequestMapping("/admin/product_all_list")
+	public String product_list(Model model, HttpServletRequest request)
+	{
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
+		
+		String cla, search;
+		if(request.getParameter("cla") == null)
+		{
+			cla="pro_name";
+			search="";
+		}
+		else
+		{
+			cla=request.getParameter("cla");
+			search=request.getParameter("search");
+		}
+		
+		ArrayList<ProductDto> list=adao.product_all_list(cla,search);
+		model.addAttribute("list", list);
+		model.addAttribute("cla", cla);	
+		model.addAttribute("search", search);	
+		return "/admin/product_all_list";
+	}
 	
-	
+	@RequestMapping("/admin/member_list")
+	public String mem_view(Model model, HttpServletRequest request)
+	{
+		AdminDao adao = sqlSession.getMapper(AdminDao.class);
+		
+		String cla, search;
+		if(request.getParameter("cla") == null)
+		{
+			cla="userid";
+			search="";
+		}
+		else
+		{
+			cla=request.getParameter("cla");
+			search=request.getParameter("search");
+		}
+		
+		ArrayList<MemberDto> list = adao.member_list(cla,search);
+		model.addAttribute("list",list);
+		return "/admin/member_list";
+	}
 	
 	
 	

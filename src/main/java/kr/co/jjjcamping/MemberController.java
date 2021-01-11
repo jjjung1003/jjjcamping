@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.jjjcamping.command.Id_search_okCommand;
+import kr.co.jjjcamping.command.Login_okCommand;
+import kr.co.jjjcamping.command.Mail_SendCommand;
 import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ReserveDto;
-import kr.co.jjjcamping.memcommand.Id_search_okCommand;
-import kr.co.jjjcamping.memcommand.Login_okCommand;
-import kr.co.jjjcamping.memcommand.Mail_SendCommand;
 
 @Controller
 public class MemberController {
