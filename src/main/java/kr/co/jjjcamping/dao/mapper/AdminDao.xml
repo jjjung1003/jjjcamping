@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+
+<mapper namespace="kr.co.jjjcamping.dao.AdminDao">
+
+	
+	<insert id="store_write_ok" parameterType="kr.co.jjjcamping.dto.StoreDto">
+		insert into store(region,title,address,phone,m_img,m_imgsize,writeday)
+		values(#{region},#{title},#{address},#{phone},#{m_img},#{m_imgsize},now())
+	</insert>
+	
+	<insert id="camp_write_ok" parameterType="kr.co.jjjcamping.dto.CampDto">
+		insert into camp(title,address,phone,m_img,d_img,m_imgsize,d_imgsize,on_price,off_price,writeday)
+		values(#{title},#{address},#{phone},#{m_img},#{d_img},#{m_imgsize},#{d_imgsize},#{on_price},#{off_price},now())
+	</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

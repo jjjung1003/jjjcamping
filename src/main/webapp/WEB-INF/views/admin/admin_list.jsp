@@ -44,7 +44,7 @@
 		<a href="store_write" class="admin_btn">매장등록</a> <p>
 		<a href="camp_write" class="admin_btn">캠핑장등록</a> <p>
 		<a href="member_list" class="admin_btn">회원관리</a> <p>
-		<a href="" class="admin_btn">상품등록</a> <p>
+		<a href="product_write" class="admin_btn">상품등록</a> <p>
 		<a href="" class="admin_btn">상품리스트</a> <p>
 		<a href="" class="admin_btn">카페고리생성</a> <p>
 		

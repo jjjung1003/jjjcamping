@@ -10,8 +10,6 @@ public interface StoreDao {
 
 	public int list_cnt(String cla, String search);
 
-	public void store_write_ok(StoreDto sdto);
-
 	public StoreDto content(String id);
 
 	public void delete(String id);

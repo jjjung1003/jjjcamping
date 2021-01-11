@@ -5,10 +5,7 @@
 
 <mapper namespace="kr.co.jjjcamping.dao.CampDao">
 
-	<insert id="camp_write_ok" parameterType="kr.co.jjjcamping.dto.CampDto">
-		insert into camp(title,address,phone,m_img,d_img,m_imgsize,d_imgsize,on_price,off_price,writeday)
-		values(#{title},#{address},#{phone},#{m_img},#{d_img},#{m_imgsize},#{d_imgsize},#{on_price},#{off_price},now())
-	</insert>
+	
 	
 	<select id="camp_list" resultType="kr.co.jjjcamping.dto.CampDto">
 		select * from camp

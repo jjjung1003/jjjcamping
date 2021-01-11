@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-  <c:if test="${email == 'yunjjjung1003@naver.com'}">	
+  <c:if test="${userid == 'admin'}">	
   
 	<div id="notice_write">
 	

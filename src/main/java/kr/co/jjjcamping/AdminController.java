@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
@@ -39,7 +40,7 @@ public class AdminController {
 	@RequestMapping("/admin/store_write_ok")
 	public String store_write_ok(StoreDto sdto, HttpServletRequest request) throws IOException
 	{
-		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
 		
 		String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\store\\img";
 		int max=1024*1024*20;
@@ -53,7 +54,7 @@ public class AdminController {
 		File file=multi.getFile("m_img");
 		sdto.setM_imgsize(file.length());
 		
-		sdao.store_write_ok(sdto);
+		adao.store_write_ok(sdto);
 		return "/admin/store_write_ok";
 	}
 	
@@ -66,7 +67,7 @@ public class AdminController {
 	@RequestMapping("/admin/camp_write_ok")
 	public String camp_write_ok(CampDto cdto, HttpServletRequest request) throws IOException
 	{
-		CampDao cdao=sqlSession.getMapper(CampDao.class);
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
 		
 		String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img";
 		int max=1024*1024*20;
@@ -84,9 +85,24 @@ public class AdminController {
 		cdto.setOn_price(multi.getParameter("on_price"));
 		cdto.setOff_price(multi.getParameter("off_price"));
 		
-		cdao.camp_write_ok(cdto);
+		adao.camp_write_ok(cdto);
 		return "redirect:/admin/admin_list";
 	}
+	
+	@RequestMapping("/admin/product_write")
+	public String product_write()
+	{
+		return "/admin/product_write";
+	}
+	
+	@RequestMapping("/admin/product_write_ok")
+	public String product_write_ok()
+	{
+		return "/admin/product_write_ok";
+	}
+	
+	
+	
 	
 	
 	
