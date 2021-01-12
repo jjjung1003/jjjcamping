@@ -127,13 +127,13 @@ public class CsController {
 	}
 	
 	@RequestMapping("/cs/csdat_del")
-	public String dat_del(HttpServletRequest request)
+	public String dat_del(CsDatDto cddto,HttpServletRequest request)
 	{
 		String id=request.getParameter("id");
 		String csid=request.getParameter("csid");
 		CsDatDao cddao=sqlSession.getMapper(CsDatDao.class);
 		cddao.csdat_del(id);
-		return "redirect:/cs/content?id="+id+"&page="+request.getParameter("page");
+		return "redirect:/cs/content?id="+cddto.getCsid()+"&did="+id+"&page="+request.getParameter("page")+"&chk=1";
 	}
 	
 	@RequestMapping("/cs/delete")

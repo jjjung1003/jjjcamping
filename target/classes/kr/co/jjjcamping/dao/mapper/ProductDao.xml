@@ -12,7 +12,8 @@
 	</select>
 	
 	<select id="get_category" resultType="kr.co.jjjcamping.dto.ProductDto">
-		
+		select * from category
+		where code like concat(#{param1},'%')
 	</select>
 	
 

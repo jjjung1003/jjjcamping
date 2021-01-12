@@ -16,13 +16,13 @@ public class Id_search_okCommand {
 		
 		if(mdto2==null)
 		{
-			url="redirect:/login/id_search?chk=1";
+			url="redirect:/member/id_search?chk=1";
 		}
 		else
 		{
 			model.addAttribute("name", mdto2.getName());
 			model.addAttribute("userid", mdto2.getUserid());
-			url="redirect:/login/id_search?chk=0";
+			url="redirect:/member/id_search?chk=0";
 		}
 		return url;
 	}

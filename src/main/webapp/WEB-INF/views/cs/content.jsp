@@ -50,7 +50,6 @@
 	  
 	</div>
 	</c:if>
-	
 
 	<c:if test="${userid eq cdto.userid || userid eq 'admin'}">	<!-- 작성자 본인 가능 -->
 
@@ -84,6 +83,7 @@
       <input type="hidden" name="csid" value="${cdto.id}">
       <input type="hidden" name="name" value="${name}">
       <input type="hidden" name="page" value="${page}">
+      <input type="hidden" name="userid" value="${userid}">
       <input type="hidden" name="id" value="0">
         <tr> 
           <td height="40"> 댓글 </td>

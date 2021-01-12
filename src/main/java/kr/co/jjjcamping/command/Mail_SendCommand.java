@@ -18,7 +18,7 @@ public class Mail_SendCommand {
 		
 		if(mdto2==null)
 		{
-			url="redirect:/login/pwd_search?chk=1";			
+			url="redirect:/member/pwd_search?chk=1";			
 		}
 		else
 		{
@@ -27,9 +27,9 @@ public class Mail_SendCommand {
 				encode_email=encode_email+(char)(email.charAt(i)+1);
 			}
 			String subject="[캠핑] 비밀번호 재설정 관련 메일입니다.";
-			String body="비밀번호 변경 링크 : http://localhost/kovea/login/pwd_change?email="+encode_email;
+			String body="비밀번호 변경 링크 : http://localhost/jjjcamping/member/pwd_change?email="+encode_email;
 			ms.setEmail(email, subject, body);
-			url="redirect:/login/pwd_search?chk=0";
+			url="redirect:/member/pwd_search?chk=0";
 		}
 		return url;
 		

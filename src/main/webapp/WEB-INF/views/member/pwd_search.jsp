@@ -17,15 +17,32 @@
 	
 	hr {
 		border:1px solid #B40404;
-		width:600px;
+		width:400px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
 	}
 	
 	#pwdsear_btn {
-		background-color:#A4A4A4;	
-		color:white;	
+		display:block;
+		width:100px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
+	}
+	
+	input[type="text"] {
+		width: 190px;
+		height:25px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 90px;
+		height:30px;
 	}
 </style>
 </head>
@@ -43,7 +60,7 @@
         <div id="">
           <input type="text" name="userid" placeholder="아이디"> <p>
 		  <input type="text" name="email" placeholder="이메일 주소"> 
-		</div> <p> <br>
+		</div> <p>
         <div id="">
           <input type="submit" value="메일 받기">          
         </div> <br>
@@ -54,7 +71,7 @@
     	  
      	<c:if test="${chk == 0}">	<!-- chk라는 변수가 -->
       		<div id="msg" style="color:#F7819F; font-size:15px;"> 발송된 메일을 확인해주세요. </div> <p>
-      		<div id="msg"> <a href="login" id="pwdsear_btn"> 로그인하러 가기</a></div>
+      		<div id="msg" align="center"> <a href="../login/login" id="pwdsear_btn"> 로그인하기</a></div>
     	</c:if> 
     </form>
   </div>	

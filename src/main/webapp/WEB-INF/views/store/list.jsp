@@ -63,7 +63,7 @@
     <h2> 매장안내 </h2>
 	<hr id="hr_1">
 	
-	<a href="javascript:all()">전체</a>
+	<!-- <a href="javascript:all()">전체</a>
 	<a href="javascript:region('서울')">서울</a>
 	<a href="javascript:region('인천')">인천</a>
 	<a href="javascript:region('대전')">대전</a>
@@ -79,7 +79,7 @@
 	<a href="javascript:region('전남')">전남</a>
 	<a href="javascript:region('경북')">경북</a>
 	<a href="javascript:region('경남')">경남</a>
-	<a href="javascript:region('제주')">제주</a>
+	<a href="javascript:region('제주')">제주</a> -->
   </div>
 	
   <div id="store_second" align="center">
@@ -95,7 +95,7 @@
   </div>
   
   <div id="store_third" align="center">
-    <table width="1000" align="center">
+    <table width="950" align="center">
       <tr>
       <c:set var="num" value="1"/>
       <c:forEach items="${slist}" var="sdto">

@@ -61,6 +61,7 @@
 		width:1280px;
 		height:700px;
 		margin:auto;
+		margin-bottom:150px;
 	}
 
 	#fifth #list {
@@ -77,14 +78,12 @@
 	}
 	
 	#fifth #list .title {
-		float:left;
 		margin:0px;
 		text-align:center;
 		cursor:pointer;
 		background:#FBFBFB;
 		font-size:14px;
 		color:#9E9E9E;
-		border-top:3px solid #DDDDDD;
 		padding-top:17px;
 		display:inline-block;
 		width:213px;
@@ -92,7 +91,6 @@
 	}
 	
 	.li_style {
-		float:left;
 		margin:0px;
 		text-align:center;
 		cursor:pointer;
@@ -100,7 +98,7 @@
 		font-size:14px;
 		color:orange;
 		border-top:3px solid orange;
-		padding-top:17px;
+		padding-top:0px;
 		display:inline-block;
 		width:213px;
 		height:90px;
@@ -136,15 +134,31 @@
 	</div>
 	
 	<div id="fifth">
-	  <div id="list">
+	  <div id="list" style="margin-top:50px;">
 		<ul style="height:200px;margin-top:0px;">
-			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:17px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">NEW</a><br/>신규입고<br/>&nbsp;<br/></li>
-			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(0)"><i class="fas fa-campground" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>텐트/타프</li>
-			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(1)"><i class="fas fa-burn" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>가스장비</li>
-			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(2)"><i class="fas fa-bed" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>침낭/매트</li>
-			<li class="title" style="font-size:15px;padding-top:25px;padding-bottom:0px;" onmouseenter="view_con(3)"><i class="fas fa-luggage-cart" style="font-size:30px;margin-top:0px;margin-bottom:-2px;padding-top:0px;"></i><p/>캠핑장비</li>
-			<li class="title" onmouseenter="view_con(4)"><span style="font-size:45px;margin-top:-5px;margin-bottom:-2px;padding-top:0px;"class="material-icons">outdoor_grill</span><p/>바베큐</li>
+			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">NEW</a><br/>신상품<br/>&nbsp;<br/></li>
 		</ul>
+		<table width="1280" height="300" align="center" style="border:1px solid; margin-top:-70px;">
+		  <tr>
+		    <td>1</td>
+		    <td>2 </td>
+		    <td>3 </td>
+		    <td>4 </td>
+		    <td>5 </td>
+		  </tr> 
+		</table>
+		<ul style="height:200px;margin-top:0px;">
+			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">BEST</a><br/>판매량<br/>&nbsp;<br/></li>
+		</ul>
+		<table width="1280" height="300" align="center" style="border:1px solid; margin-top:-70px;">
+		  <tr>
+		    <td>1 </td>
+		    <td>2 </td>
+		    <td>3 </td>
+		    <td>4 </td>
+		    <td>5 </td>
+		  </tr> 
+		</table>
 	  </div>
 
 	  </div> 

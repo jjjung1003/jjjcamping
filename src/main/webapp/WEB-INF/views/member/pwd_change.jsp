@@ -10,7 +10,7 @@
 
 	hr {
 		border:1px solid #B40404;
-		width:600px;
+		width:300px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -20,6 +20,12 @@
 		text-align:center;
 		margin-top:100px;
 		margin-bottom:150px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 90px;
+		height:30px;
 	}
 	
 </style>
@@ -90,13 +96,13 @@
 	  <table align="center">
 	    <tr>
 	      <td>
-	  	    <input type="password" name="pwd" id="pwd" placeholder="변경할 비밀번호" onblur="pwdchk(this)" style="width:300px; height:30px;"> <br>
+	  	    <input type="password" name="pwd" id="pwd" placeholder="변경할 비밀번호" onblur="pwdchk(this)" style="width:200px; height:30px;"> <br>
 	        <span id="pwd_msg" style="font-size:12px;"></span>
 	      </td>   
 	    </tr>
 	    <tr>
 	      <td>
-	  		<input type="password" name="pwd2" id="pwd2" placeholder="변경할 비밀번호 확인" onblur="pwdchk_eq(this)" style="width:300px; height:30px;"> <br>
+	  		<input type="password" name="pwd2" id="pwd2" placeholder="변경할 비밀번호 확인" onblur="pwdchk_eq(this)" style="width:200px; height:30px;"> <br>
 	 		<span id="pwd2_msg" style="font-size:12px;"></span>
 	      </td>   
 	    </tr>	    

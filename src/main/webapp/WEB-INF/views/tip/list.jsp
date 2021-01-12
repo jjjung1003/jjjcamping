@@ -17,8 +17,14 @@
 	}
 	
 	#tip_second #list_btn {
-		background-color:#2F0B3A;
-		color:white;
+		display:block;
+		width:70px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 	
 	#hr_1 {
@@ -93,7 +99,7 @@
 	</table> <p><br>
 	
 	
-	<c:if test="${email == 'yunjjjung1003@naver.com'}">	
+	<c:if test="${userid == 'admin'}">	
 		<div align="center"> <a href="write" id="list_btn"> 글 쓰기 </a> </div> <br><p/>
 	</c:if>
   </div>

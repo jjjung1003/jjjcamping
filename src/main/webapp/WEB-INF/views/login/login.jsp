@@ -18,7 +18,7 @@
 	}	
 	#log_thir {
 		margin-top:50px;
-		width:600px;
+		width:590px;
 		height:100px;
 	}
 	#log_thir li {
@@ -50,8 +50,14 @@
 	}
 	
 	#log_btn1 {
-		background-color:#A4A4A4;	
-		color:white;	
+		display:block;
+		width:120px;
+		height:20px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;	
 	}
 
 </style>
@@ -92,12 +98,12 @@
 	<div id="log_thir">
 	<ul id="left">
        <li><span> 신규 회원가입 진행하시겠습니까? </span></li><p>
-       <li><span id="log_btn"><a href="../member/mem_first" id="log_btn1">회원가입</a></span></li>     
+       <li><span id="log_btn"><a href="../login/mem_first" id="log_btn1">회원가입</a></span></li>     
     </ul>
     <ul id="right">
        <li>아이디 또는 비밀번호를 잊으셨나요?</li><p>
-       <li><span id="log_btn"><a href="id_search" id="log_btn1">아이디 찾기</a></span></li> <p>
-       <li><span id="log_btn"><a href="../login/pwd_search" id="log_btn1"> 패스워드 재설정</a></span></li>
+       <li><span id="log_btn"><a href="../member/id_search" id="log_btn1">아이디 찾기</a></span></li> <p>
+       <li><span id="log_btn"><a href="../member/pwd_search" id="log_btn1"> 패스워드 재설정</a></span></li>
     </ul>
 	</div>
   </div>		

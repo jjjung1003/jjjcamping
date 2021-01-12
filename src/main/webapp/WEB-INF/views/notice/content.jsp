@@ -29,6 +29,12 @@
 		margin-top:100px;
 		margin-bottom:150px;
 	}
+	
+	input[type="button"] {
+		margin-top:5px;
+		width: 90px;
+		height:30px;
+	}
 </style>
 </head>
 <body>

@@ -19,10 +19,16 @@
 		margin-top:100px;
 		margin-bottom:150px;
 	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 90px;
+		height:30px;
+	}
 </style>
 </head>
 <body>
-  <c:if test="${email == 'yunjjjung1003@naver.com'}">	
+  <c:if test="${userid == 'admin'}">	
   
 	<div id="tip_write">
 	

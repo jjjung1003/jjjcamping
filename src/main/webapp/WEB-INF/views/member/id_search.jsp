@@ -21,20 +21,43 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:600px;
+		width:400px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
 	}
 	
 	#idsear_btn {
-		background-color:#A4A4A4;	
-		color:white;	
+		display:block;
+		width:100px;
+		height:20px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 	
 	#pwdsear_btn{
-		background-color:#A4A4A4;	
-		color:white;	
+		display:block;
+		width:100px;
+		height:20px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;	
+	}
+	
+	input[type="text"] {
+		width: 190px;
+		height:25px;
+	}
+	
+	input[type="submit"] {
+		margin-top:5px;
+		width: 90px;
+		height:30px;
 	}
 </style>
 </head>
@@ -55,10 +78,11 @@
      </c:if>
       
      <c:if test="${chk == 0}">	<!-- chk라는 변수가 -->
+     <div align="center">
       	<div id="msg" style="font-size:15px;"> <span style="color:#F7819F; font-size:18px;">${name}</span>님의 아이디는 <span style="color:#F7819F; font-size:24px;">${userid}</span>입니다. </div> <br><p>
-      	<div id="msg" style="color:black"> <a href="pwd_search" id="pwdsear_btn"> 비밀번호 찾기</a></div> <br>
-      	<div id="msg" style="color:black"> <a href="login" id="idsear_btn"> 로그인하러 가기</a></div>
-      	
+      	<div id="msg" style="color:black"> <a href="../member/pwd_search" id="pwdsear_btn"> 비밀번호 찾기</a></div> <br>
+      	<div id="msg" style="color:black"> <a href="login" id="idsear_btn"> 로그인하기</a></div>
+     </div> 	
      </c:if>  
   </div>	
 </body>
