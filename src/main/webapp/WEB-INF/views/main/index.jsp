@@ -133,7 +133,7 @@
       </div>
 	</div>
 	
-	<div id="fifth">
+	<!-- <div id="fifth">
 	  <div id="list" style="margin-top:50px;">
 		<ul style="height:200px;margin-top:0px;">
 			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">NEW</a><br/>신상품<br/>&nbsp;<br/></li>
@@ -161,7 +161,7 @@
 		</table>
 	  </div>
 
-	  </div> 
+	  </div>  -->
 	  
 </body>
 </html>

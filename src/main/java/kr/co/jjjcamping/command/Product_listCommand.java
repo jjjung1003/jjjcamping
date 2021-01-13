@@ -47,16 +47,16 @@ public class Product_listCommand {
 		CategoryDto cdto=pdao.get_category(code);
 		switch(Integer.parseInt(code.substring(1)))
 		{
-			case 101 : category="tent";break;
-			case 102 : category="tarp";break;
-			case 201 : category="s_bag";break;
-			case 202 : category="mat";break;
-			case 301 : category="stove";break;
-			case 302 : category="bbq";break;
-			case 303 : category="heater";break;
-			case 401 : category="cbag";break;
-			case 402 : category="peg";break;
-			case 403 : category="hammock";break;
+			case 0101 : category="tent";break;
+			case 0102 : category="tarp";break;
+			case 0201 : category="s_bag";break;
+			case 0202 : category="mat";break;
+			case 0301 : category="stove";break;
+			case 0302 : category="bbq";break;
+			case 0303 : category="heater";break;
+			case 0401 : category="cbag";break;
+			case 0402 : category="peg";break;
+			case 0403 : category="hammock";break;
 		}
 		
 	   model.addAttribute("pstart",pstart);

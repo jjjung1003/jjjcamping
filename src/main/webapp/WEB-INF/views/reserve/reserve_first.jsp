@@ -87,19 +87,20 @@
 		{
 			alert("제크아웃은 체크인 이후 날짜로 선택하시기 바랍니다.")	
 			return false;
-		}	
-
-	    /* var inarr = indate.split('-');
-	    var outarr = outdate.split('-');
-	    var in_date = new Date(inarr[0], (inarr[1]-1), inarr[2]);
-	    var out_date = new Date(outarr[0], (outarr[1]-1), outarr[2]);
-
-		var btw=out_date.getTime() - in_date.getTime();
-		var btwdate=btw/(1000*60*60*24);
-		
-		document.getElementsByClassName("night").value=btwdate;
-		alert(night); */
+		}		    
 	} 
+	
+	/* var inarr = indate.split('-');
+    var outarr = outdate.split('-');
+    var in_date = new Date(inarr[0], (inarr[1]-1), inarr[2]);
+    var out_date = new Date(outarr[0], (outarr[1]-1), outarr[2]);
+
+	var btw=out_date.getTime() - in_date.getTime();
+	var btwdate=btw/(1000*60*60*24);
+	
+	document.getElementsByClassName("night").value=btwdate;
+	alert(night); */
+	
 	
 	function campSelectValue(n)
 	{

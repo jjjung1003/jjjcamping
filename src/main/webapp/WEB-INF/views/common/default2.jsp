@@ -247,29 +247,6 @@
 		document.getElementsByClassName("sub")[n].style.display="none";
 		document.getElementsByClassName("main_li")[n].style.background="#1C1C1C";
 	}	
-	
-	function reser(userid)
-	{
-		if(userid=="")
-		{
-			if(confirm("캠핑장 예약을 위해서는 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"))
-				location="../login/login";			
-		}
-		else
-			location="../reserve/reserve_first";
-		
-	}
-	
-	function reser_chk(userid)
-	{
-		if(userid=="")
-		{
-			if(confirm("캠핑장 예약 확인을 위해 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"))
-				location="../login/login";
-		}
-		else
-			location="../member/my_reserve";
-	}
 </script>
 
 	<decorator:head/>
@@ -356,8 +333,8 @@
 		  <span class="textbox">제휴캠핑장</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="../reserve/camp_list">캠핑장소개</a></li>
-	          	<li class="sub_li" onclick="reser('${userid}')">예약하기</li>
-	          	<li class="sub_li" onclick="reser_chk('${userid}')">예약확인</li>
+	          	<li class="sub_li"><a href="../reserve/reserve_first">예약하기</a></li>
+	          	<li class="sub_li"><a href="../member/my_reserve">예약확인</a></li>
         	</ul>
    		</li>
 	  </ul>

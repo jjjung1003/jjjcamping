@@ -44,11 +44,9 @@
 	<div align="center" id="cs_second">
 	<c:if test="${!(userid eq cdto.userid || userid eq 'admin')}">
 		<div align="center">
-	      <div> 문의글은 작성자와 관리자만 확인할 수 있습니다.</div> <p>
-	  	  
-	  <a href="list?page=${page}" id="cscontent_btn"> 뒤로가기 </a>
-	  
-	</div>
+	      <div> 문의글은 작성자와 관리자만 확인할 수 있습니다.</div> <p>	  	  
+	  		<a href="list?page=${page}" id="cscontent_btn"> 뒤로가기 </a>	  
+		</div>
 	</c:if>
 
 	<c:if test="${userid eq cdto.userid || userid eq 'admin'}">	<!-- 작성자 본인 가능 -->
