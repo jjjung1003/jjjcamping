@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<update id="pwd_change2_ok" parameterType="kr.co.jjjcamping.dto.MemberDto">
-		update member set pwd=#{pwd} where email=#{email}
+		update member set pwd=#{pwd} where id=#{id}
 	</update>
 
 	<select id="mypage" resultType="kr.co.jjjcamping.dto.MemberDto">

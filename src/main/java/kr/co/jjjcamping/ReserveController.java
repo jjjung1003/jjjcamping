@@ -63,12 +63,6 @@ public class ReserveController {
 		return "/reserve/reserve_second";
 	}
 	
-	@RequestMapping("/reserve/reserve_1")
-	public String reserve_1()
-	{
-		return "/reserve/reserve_1";
-	}
-	
 	@RequestMapping("member/my_reserve")
 	public String my_reserve(HttpSession session,Model model)
 	{

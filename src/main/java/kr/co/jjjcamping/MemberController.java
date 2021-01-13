@@ -139,13 +139,6 @@ public class MemberController {
 		return "/member/pwd_change";
 	}
 	
-	@RequestMapping("/member/pwd_change2")
-	public String pwd_change2(HttpServletRequest request,Model model)
-	{
-		model.addAttribute("id",request.getParameter("id"));
-		return "/member/pwd_change2";
-	}
-	
 	@RequestMapping("/member/pwd_change_ok")
 	public String pwd_change_ok(MemberDto mdto,HttpSession session)
 	{
@@ -163,13 +156,31 @@ public class MemberController {
 		return "redirect:/login/login";
 	}
 	
-	@RequestMapping("/member/pwd_change2_ok")
-	public String pwd_change2_ok(MemberDto mdto,HttpSession session)
+	@RequestMapping("/member/pwd_change2")
+	public String pwd_change2(HttpServletRequest request,Model model)
 	{
-		MemberDao mdao=sqlSession.getMapper(MemberDao.class);		
-		mdao.pwd_change2_ok(mdto);
-		session.invalidate();
-		return "redirect:/login/login";
+		model.addAttribute("id",request.getParameter("id"));
+		model.addAttribute("chk3", request.getParameter("chk3"));
+		return "/member/pwd_change2";
+	}
+		
+	@RequestMapping("/member/pwd_change2_ok")
+	public String pwd_change2_ok(HttpServletRequest request,MemberDto mdto,HttpSession session)
+	{
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);	
+		
+		String dbpwd=mdao.pwd_check(request.getParameter("id"));
+		String pwd3=request.getParameter("pwd3");
+		String id=request.getParameter("id");
+
+		if(pwd3.equals(dbpwd))
+		{
+			mdao.pwd_change2_ok(mdto);
+			session.invalidate();
+			return "redirect:/login/login";
+		}
+		else
+			return "redirect:/member/pwd_change2?id="+id+"&chk3=1";		
 	}
 	
 	@RequestMapping("/member/mypage")

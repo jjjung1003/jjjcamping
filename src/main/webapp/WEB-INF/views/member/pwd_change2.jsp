@@ -10,7 +10,7 @@
 
 	hr {
 		border:1px solid #B40404;
-		width:600px;
+		width:400px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -87,20 +87,29 @@
 
 	<form method="post" name="jjj" action="pwd_change2_ok" onsubmit="return check(this)">
 	  <input type="hidden" name="email" value="${email}">
+	  <input type="hidden" name="id" value="${id}">
 	  <table align="center">
 	    <tr>
 	      <td>
-	  	    <input type="password" name="pwd" id="pwd" placeholder="변경할 비밀번호" onblur="pwdchk(this)" style="width:300px; height:30px;"> <br>
+	  	    <input type="password" name="pwd" id="pwd" placeholder="변경할 비밀번호" onblur="pwdchk(this)" style="width:200px; height:30px;"> <br>
 	        <span id="pwd_msg" style="font-size:12px;"></span>
 	      </td>   
 	    </tr>
 	    <tr>
 	      <td>
-	  		<input type="password" name="pwd2" id="pwd2" placeholder="변경할 비밀번호 확인" onblur="pwdchk_eq(this)" style="width:300px; height:30px;"> <br>
+	  		<input type="password" name="pwd2" id="pwd2" placeholder="변경할 비밀번호 확인" onblur="pwdchk_eq(this)" style="width:200px; height:30px;"> <br>
 	 		<span id="pwd2_msg" style="font-size:12px;"></span>
 	      </td>   
 	    </tr>	    
 	  </table>  <p>
+	  
+        <div id="mpgup_pwd" align="center">
+	      <div style="font-size:12px;color:purple"> 정보변경을 위해 기존비밀번호를 입력해주세요 </div>
+	     <input type="password" name="pwd3" id="pwd3">   <br>
+	        <c:if test="${chk3 != null}">
+     			<span id="jjj" style="color:red;font-size:12px"> 비밀번호가 일치하지 않습니다. </span>
+   			</c:if>
+		</div> <p>
 	  <div align="center"> <input type="submit" value="변경 신청"> </div>
 	</form>
 	</div>
