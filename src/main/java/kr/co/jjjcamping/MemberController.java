@@ -87,9 +87,25 @@ public class MemberController {
 	public String login_ok(MemberDto mdto,HttpSession session,HttpServletRequest request)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		Login_okCommand loc=new Login_okCommand();
+		/*Login_okCommand loc=new Login_okCommand();
 		String url=loc.login_ok(mdto,session,request,mdao,pwdEncoder);
-		return url;
+		return url;*/
+		
+		String userid=request.getParameter("userid");
+		String pwd = mdao.pwd_check2(userid);
+		String url="";
+		  String rawPw = mdto.getPwd();
+		  if(pwdEncoder.matches(rawPw, pwd)) {
+		    mdto.setPwd(pwd);
+		    session.setAttribute("email", mdto.getEmail());
+			session.setAttribute("userid", mdto.getUserid());
+			session.setAttribute("name", mdto.getName());
+			url="redirect:/main/index";
+		  }
+		  else {
+			  url="redirect:/login/login?chk=1";
+		  }  
+		  return url;
 	}
 	
 	@RequestMapping("/login/logout")
