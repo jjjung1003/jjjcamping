@@ -3,11 +3,14 @@ package kr.co.jjjcamping;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,9 @@ public class MemberController {
 
 	@Autowired
 	public SqlSession sqlSession;
+	
+	@Inject
+	BCryptPasswordEncoder pwdEncoder;
 	
 	@RequestMapping("/main/index")
 	public String index()
@@ -63,6 +69,8 @@ public class MemberController {
 	@RequestMapping("/login/mem_third")
 	public String mem_third(MemberDto mdto)
 	{
+		String encpassword=pwdEncoder.encode(mdto.getPwd());
+		mdto.setPwd(encpassword);
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		mdao.mem_third(mdto);
 		return "redirect:/login/login";
@@ -76,11 +84,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/login/login_ok")
-	public String login_ok(MemberDto mdto,HttpSession session)
+	public String login_ok(MemberDto mdto,HttpSession session,HttpServletRequest request)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		Login_okCommand loc=new Login_okCommand();
-		String url=loc.login_ok(mdto,session,mdao);
+		String url=loc.login_ok(mdto,session,request,mdao,pwdEncoder);
 		return url;
 	}
 	

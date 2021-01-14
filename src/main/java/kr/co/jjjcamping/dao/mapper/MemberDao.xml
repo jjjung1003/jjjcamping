@@ -58,8 +58,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select pwd from member where id=#{param}
 	</select>
 
-
-
+	<select id="pwd_check2" resultType="String">
+		select pwd from member where userid=#{param}
+	</select>
 
 
 
