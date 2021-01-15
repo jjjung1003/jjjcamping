@@ -42,7 +42,7 @@
 	<div align="center" id="cs_second">
 	  <form method="post" action="write_ok" name="jjj">
 	  <input type="hidden" name="userid" value="${userid}">
-	  <input type="hidden" name="name" value="${name}">
+	  <input type="hidden" name="name" value="${cdto.name}">
 	    <table align="center" width="500" style="margin-bottom:50px">
 	    <tr>
 	      <td width="100" height="50"> 아이디 </td> 
@@ -50,7 +50,7 @@
 	    </tr>
 	    <tr>
 	      <td height="50"> 이름 </td> 
-	      <td> ${name} </td> 
+	      <td> ${cdto.name} </td> 
 	    </tr>     
 	    <tr>
 	      <td height="50"> 제목 </td> 

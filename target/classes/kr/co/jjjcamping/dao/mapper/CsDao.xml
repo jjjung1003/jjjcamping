@@ -32,6 +32,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		delete from cs
   		where id=#{param}
   	</delete>
+  	
+  	<select id="mypage" resultType="kr.co.jjjcamping.dto.CsDto">
+  		select * from member where userid=#{param}
+  	</select>
 
 
 

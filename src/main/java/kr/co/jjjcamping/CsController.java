@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.jjjcamping.dao.CsDao;
 import kr.co.jjjcamping.dao.CsDatDao;
+import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dto.CsDatDto;
 import kr.co.jjjcamping.dto.CsDto;
 
@@ -23,8 +24,11 @@ public class CsController {
 	public SqlSession sqlSession;
 	
 	@RequestMapping("/cs/write")
-	public String write(HttpSession session)
+	public String write(HttpSession session,Model model)
 	{	
+		CsDao cdao=sqlSession.getMapper(CsDao.class);
+		CsDto cdto=cdao.mypage(session.getAttribute("userid").toString());
+		model.addAttribute("cdto", cdto);
 		return "/cs/write";
 	}
 	

@@ -30,7 +30,7 @@
 	<hr>
 	
   <form method="post" action="write_ok" enctype="multipart/form-data">
-    <input type="hidden" name="name" value="관리자">
+    <input type="hidden" name="userid" value="${userid}">
 	<table align="center" width="700">
 	  <tr>
 	    <td width="100">Name</td>

@@ -1,3 +1,5 @@
+<!-- 타 플젝에 적용시키기 위한 복사본 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>

@@ -35,8 +35,7 @@
 		text-align:center;
 		margin:auto;
 	}
-	
-	
+		
 	#hr_1 {
 		border:1px solid #B40404;
 		width:600px;

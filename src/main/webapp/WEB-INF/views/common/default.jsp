@@ -280,18 +280,18 @@
 	  <div id="right">
 	    <ul>
 		  
-		    <c:if test="${userid eq null }">
+		    <c:if test="${userid eq null}">
 		  	  <li><a href="../login/mem_first"><span class="material-icons">person회원가입</span></a></li>
 		      <li><a href="../login/login"><span class="material-icons">vpn_key로그인</span></a></li>
 		    </c:if>
-		    <c:if test="${userid ne null }">		    
+		    <c:if test="${userid ne null}">		    
 		      <li><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
 		      <li><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
 			  <li><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
 			  <li><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
 		      <li><a href=""><span class="material-icons">local_grocery_store장바구니</span></a></li>
 		    </c:if>
-		    <c:if test="${userid eq 'admin' }">
+		    <c:if test="${userid eq 'admin'}">
 		      <li><div class="material-icons" style="margin-left:-650px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
 		    </c:if>
 	    </ul>
@@ -356,8 +356,8 @@
 		  <span class="textbox">제휴캠핑장</span>
 	        <ul class="sub">
 	         	<li class="sub_li"><a href="../reserve/camp_list">캠핑장소개</a></li>
-	          	<li class="sub_li" onclick="reser('${userid}')">예약하기</li>
-	          	<li class="sub_li" onclick="reser_chk('${userid}')">예약확인</li>
+	          	<li class="sub_li" onclick="reser('${userid}')" style="cursor:pointer">예약하기</li>
+	          	<li class="sub_li" onclick="reser_chk('${userid}')" style="cursor:pointer">예약확인</li>
         	</ul>
    		</li>
 	  </ul>

@@ -92,11 +92,11 @@ public class MemberController {
 		return url;*/
 		
 		String userid=request.getParameter("userid");
-		String pwd = mdao.pwd_check2(userid);
+		String dbpwd = mdao.pwd_check2(userid);
 		String url="";
 		  String rawPw = mdto.getPwd();
-		  if(pwdEncoder.matches(rawPw, pwd)) {
-		    mdto.setPwd(pwd);
+		  if(pwdEncoder.matches(rawPw, dbpwd)) {
+		    mdto.setPwd(dbpwd);
 		    session.setAttribute("email", mdto.getEmail());
 			session.setAttribute("userid", mdto.getUserid());
 			session.setAttribute("name", mdto.getName());
@@ -175,6 +175,8 @@ public class MemberController {
 		}
 		mdto.setEmail(decode_email);
 		
+		String encpassword=pwdEncoder.encode(mdto.getPwd());
+		mdto.setPwd(encpassword);
 		mdao.pwd_change_ok(mdto);
 		session.invalidate();
 		return "redirect:/login/login";
@@ -192,13 +194,15 @@ public class MemberController {
 	public String pwd_change2_ok(HttpServletRequest request,MemberDto mdto,HttpSession session)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);	
-		
-		String dbpwd=mdao.pwd_check(request.getParameter("id"));
-		String pwd3=request.getParameter("pwd3");
-		String id=request.getParameter("id");
 
-		if(pwd3.equals(dbpwd))
+		String dbpwd=mdao.pwd_check(request.getParameter("id"));
+		String id=request.getParameter("id");
+		String rawPw = request.getParameter("pwd3");
+
+		if(pwdEncoder.matches(rawPw, dbpwd))
 		{
+			String encpassword=pwdEncoder.encode(mdto.getPwd());
+			mdto.setPwd(encpassword);
 			mdao.pwd_change2_ok(mdto);
 			session.invalidate();
 			return "redirect:/login/login";
@@ -231,10 +235,12 @@ public class MemberController {
 	public String mem_update_ok(HttpServletRequest request,MemberDto mdto)
 	{
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		String pwd=mdao.pwd_check(request.getParameter("id"));
+		String dbpwd=mdao.pwd_check(request.getParameter("id"));
 		String id=request.getParameter("id");
-		if(pwd.equals(mdto.getPwd()))
+		String rawPw = mdto.getPwd();
+		if(pwdEncoder.matches(rawPw, dbpwd))
 		{
+			mdto.setPwd(dbpwd);
 			mdao.mem_update_ok(mdto);
 			return "redirect:/member/mypage";
 		}

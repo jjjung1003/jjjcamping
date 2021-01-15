@@ -17,6 +17,8 @@ public interface CsDao {
 
 	public void delete(String id);
 
+	public CsDto mypage(String string);
+
 	
 	
 	
