@@ -24,16 +24,21 @@
 <body>
 
 	<div id="notice_update">
-	
+	<c:if test="${userid != 'admin'}">
+		<div align="center" style="margin-bottom:100px;"> 관리자만 접근할 수 있습니다. </div>
+	</c:if>
+	<c:if test="${userid == 'admin'}">
+
 	<div align="center"> <h2> 공지사항 수정</h2> </div>
 	<hr>
 	
 	<form method="post" action="update_ok?id=${ndto.id}" enctype="multipart/form-data">
-	<input type="hidden" name="name" value="${ndto.name}">
+	<input type="hidden" name="userid" value="${userid}">
+	<input type="hidden" name="name" value="관리자">
 	<table align="center" width="700">
 	  <tr>
 	    <td width="200">Name</td>
-	    <td>${ndto.name}</td>
+	    <td>관리자</td>
 	  </tr>
 <%-- 	  <tr>  
 	    <td>비밀번호</td>
@@ -57,7 +62,8 @@
 	  </tr>	 
 	</table> <p><br>
 	<div align="center"><input type="submit" value="수정하기"></div>	
-  </form>	
+  </form>
+  </c:if>	
   </div>
 </body>
 </html>

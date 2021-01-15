@@ -64,24 +64,9 @@
 	<span align="center"><input type="button" value="목록보기" onclick="location.href='list'"></span>
 	
 	<c:if test="${userid == 'admin'}">	  
-		<span align="center"><input type="button" value="수정하기" onclick="update_pwd()"></span>		
-		<span align="center"><input type="button" value="삭제하기" onclick="delete_pwd()"></span> <p>
-		
-		<c:if test="${chk != null}">
-			<div align="center" style="color:red">비밀번호가 일치하지 않습니다.</div>
-		</c:if> 
-		
-		<form method="post" action="update?id=${ndto.id}" id="pwd_chk1" style="visibility:hidden">
-       	  <input type="hidden" name="id" value="${ndto.id}">
-          <input type="password" name="pwd" placeholder="수정: 비밀번호">
-       	  <input type="submit" value="확인">
-        </form>
-		
-		<form method="post" action="delete?id=${ndto.id}" id="pwd_chk2" style="visibility:hidden">
-       	  <input type="hidden" name="id" value="${ndto.id}">
-          <input type="password" name="pwd" placeholder="삭제: 비밀번호">
-       	  <input type="submit" value="확인">
-        </form>		
+		<span align="center"><input type="button" value="수정하기" onclick="location='update?id=${ndto.id}'"></span>		
+		<span align="center"><input type="button" value="삭제하기" onclick="location='delete?id=${ndto.id}'"></span> <p>
+
 	</c:if>
 	</div>
 	</div>

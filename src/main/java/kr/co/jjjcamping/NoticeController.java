@@ -136,22 +136,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/notice/update")
-	public String update(HttpServletRequest request, Model model, HttpSession session)
+	public String update(HttpServletRequest request)
 	{
-		String email=session.getAttribute("email").toString();
-		String id=request.getParameter("id");
-		String pwd=request.getParameter("pwd");		
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-		String dbpwd=ndao.pwd_chk(email);
-		NoticeDto ndto=ndao.update(id);
-		
-		if(dbpwd.equals(pwd))
-		{
-			model.addAttribute("ndto", ndto);
 			return "/notice/update";
-		}
-		else 
-			return "redirect:/notice/content?chk=1&id="+id;
 	}
 	
 	@RequestMapping("/notice/update_ok")

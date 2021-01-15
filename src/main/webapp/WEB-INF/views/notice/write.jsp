@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style>
 	hr {
 		border:1px solid #B40404;
@@ -22,9 +23,11 @@
 </style>
 </head>
 <body>
-  <c:if test="${userid == 'admin'}">	
-  
-	<div id="notice_write">
+<div id="notice_write">
+	<c:if test="${userid != 'admin'}">
+		<div align="center" style="margin-bottom:100px;"> 관리자만 접근할 수 있습니다. </div>
+	</c:if>
+  	<c:if test="${userid == 'admin'}">		
 	
 	<div align="center"> <h2> 공지사항 글쓰기 </h2> </div>
 	<hr>

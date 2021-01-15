@@ -8,6 +8,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 		<param-value>/WEB-INF/spring/spring-security.xml</param-value>
+		<!-- <param-value>/WEB-INF/spring/security-context.xml</param-value> -->
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -31,7 +32,7 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
- <!--  ?쒓? ?몄퐫??  --> 
+ <!--  UTF-8 encoding  --> 
  
  <filter>
   <filter-name>encodingFilter</filter-name> 
@@ -61,9 +62,35 @@
       <url-pattern>/*</url-pattern>
     </filter-mapping>
   
-  
-  
-  
+
+<!-- Security filter 추가 -->
+
+	<!-- <filter>
+
+        <filter-name>springSecurityFilterChain</filter-name>
+
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+
+    </filter>   
+
+    <filter-mapping>
+
+        <filter-name>springSecurityFilterChain</filter-name>
+
+        <url-pattern>/*</url-pattern>
+
+    </filter-mapping>
+ -->
+
+
+
+
+
+
+
+
+
+
   
   
   </web-app>
