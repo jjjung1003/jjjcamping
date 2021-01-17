@@ -25,7 +25,7 @@
 <div align="center"> <h2> 전체 상품</h2> </div>
 	<hr id="hr_1">
 	<div align="center" id="cart_first">
-	 <table>
+	 <table width="500">
 	   <tr>
 	     <td height="70"><strong>상품 코드</strong></td>
 	     <td align="center"><strong>상품명</strong></td>

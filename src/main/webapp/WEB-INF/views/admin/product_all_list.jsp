@@ -106,8 +106,7 @@
 	    <td align="center">${imsi}</td>
 	    <td align="center">${pdto.quantity}</td>
 	    <td align="center">${pdto.writeday}</td>
-	    <td align="center"><input type="submit" value="장바구니"></td>
-	  </form>  
+	    <td align="center"><input type="submit" value="장바구니"></td>n.h  </form>  
 	  </tr> 
 	  </c:forEach> 	   
 	</table> <p><br>

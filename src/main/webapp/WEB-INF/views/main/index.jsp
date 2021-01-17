@@ -103,6 +103,23 @@
 		width:213px;
 		height:90px;
 	}
+	.pop_1 {
+		position: fixed;
+		padding: 20px;
+		width: 150px;
+		height: 150px;
+		border: 1px solid #ccc;
+		top:50px;
+		left: 200px;
+		z-index:10;
+	}
+	.pop_2 {
+		position: fixed;
+		border: 1px solid #ccc;
+		top:20px;
+		left: 20px;
+		z-index:10;
+	}
 </style>
 </head>
 <body>	
@@ -117,7 +134,51 @@
 		main[n].style.zIndex="2";
 	}
 </script>
-
+	<div class="pop_1"> Notice <br><br>
+		이 팝업은 첫 방문시에만 확인 가능합니다.	
+		
+		
+	</div>
+	<button class="pop_2" onclick="Cookie_del()"> 방문기록삭제 </button>
+<script>
+	console.log(document.cookie);
+	var currentCookie = document.cookie;
+	var cookieCheck = document.cookie.indexOf('ABC');	//없다면 -1
+	
+	console.log(cookieCheck);
+	if(cookieCheck > -1) {
+		document.querySelector('.pop_1').style.display = 'none';
+	}
+	else {
+		document.querySelector('.pop_1').style.display = 'block';
+	}
+	
+	//쿠키 생성
+	var date = new Date();
+	//date.getDate()+7	//변수에 날짜 지정 	변수.setDate(새로운 날짜)
+	date.setDate(date.getDate() + 7);
+	
+	var setCookie = '';
+	setCookie += 'CookieName = ABC;';
+	setCookie += 'expires =' + date.toUTCString();
+	
+	document.cookie = setCookie;
+	
+	//쿠키 삭제
+	document.cookie = setCookie;
+	
+	function Cookie_del(){
+		var date = new Date();
+		date.setDate(date.getDate() - 1);
+		
+		var setCookie = '';
+		setCookie += 'CookieName = ABC;';
+		setCookie += 'expires =' + date.toUTCString();
+		
+		document.cookie = setCookie;
+	}
+	
+</script>
 	<div id="fourth">
   	  <div id="view">
         <div id="inner">
