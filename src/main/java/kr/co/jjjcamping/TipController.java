@@ -29,38 +29,38 @@ public class TipController {
 	
 /*---------------------------------------------------------- 꿀팁 ------------*/
 	
-	@RequestMapping("/tip/list")  //5 층에  캠핑을즐기는 꿀tip
-	public String tip(Model model,HttpServletRequest request)
+	@RequestMapping("/tip/tip_list")  //5 층에  캠핑을즐기는 꿀tip
+	public String tip_list(Model model,HttpServletRequest request)
 	{
 	    TipDao tdao = sqlSession.getMapper(TipDao.class);
-	    ArrayList<TipDto> tip_list = tdao.list();
-	    model.addAttribute("tip_list",tip_list);
+	    ArrayList<TipDto> list = tdao.tip_list();
+	    model.addAttribute("list",list);
 	    model.addAttribute("email",request.getParameter("email"));
-	    return "/tip/list";
+	    return "/tip/tip_list";
 	}
 	
-	@RequestMapping("/tip/write")
-	public String write()
+	@RequestMapping("/tip/tip_write")
+	public String tip_write()
 	{		
-		return "/tip/write";
+		return "/tip/tip_write";
 	}	
 	
-	@RequestMapping("/tip/write_ok")
-	public String write_ok(TipDto tdto)
+	@RequestMapping("/tip/tip_write_ok")
+	public String tip_write_ok(TipDto tdto)
 	{
 		TipDao tdao = sqlSession.getMapper(TipDao.class);
-		tdao.write_ok(tdto);
-		return "redirect:/tip/list";		
+		tdao.tip_write_ok(tdto);
+		return "redirect:/tip/tip_list";		
 	}	
 	
-	@RequestMapping("/tip/content")
-	public String content(HttpServletRequest requset,Model model)
+	@RequestMapping("/tip/tip_content")
+	public String tip_content(HttpServletRequest requset,Model model)
 	{
 		String id=requset.getParameter("id");
 		TipDao tdao = sqlSession.getMapper(TipDao.class);
-		TipDto tipdto = tdao.content(id);
-		model.addAttribute("tipdto",tipdto);
-		return "/tip/content";		
+		TipDto tdto = tdao.tip_content(id);
+		model.addAttribute("tdto",tdto);
+		return "/tip/tip_content";		
 	}
 	
 	

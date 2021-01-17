@@ -7,17 +7,17 @@ import kr.co.jjjcamping.dto.CsDto;
 
 public interface CsDao {
 
-	public void write_ok(CsDto cdto);
+	public void cs_write_ok(CsDto cdto);
 
-	public ArrayList<CsDto> list(String cla, String search, int index);
+	public ArrayList<CsDto> cs_list(String cla, String search, int index);
 
-	public int list_cnt(String cla, String search);
+	public int cs_list_cnt(String cla, String search);
 
-	public CsDto content(String id);
+	public CsDto cs_content(String id);
 
-	public void delete(String id);
+	public void cs_delete(String id);
 
-	public CsDto mypage(String string);
+	public CsDto cs_info(String string);
 
 	
 	

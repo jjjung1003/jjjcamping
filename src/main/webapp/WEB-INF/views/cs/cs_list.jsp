@@ -61,7 +61,7 @@
 	<hr id="hr_1">
 
 	<!-- 검색단 시작 -->
-	<form method="post" action="list" name="jjj">
+	<form method="post" action="cs_list" name="jjj">
 	  <select name="cla">
 	    <option value="id"> 글번호 </option>	
 	    <option value="userid"> 아이디 </option>  
@@ -85,7 +85,7 @@
 	      <input type="hidden" name="userid" value="${cdto.userid}">
 	      <td height="40"> ${cdto.id} </td>
 	      <td> ${cdto.name} </td>
-	      <td> <a href="content?id=${cdto.id}&page=${page}"> ${cdto.title} </a></td>
+	      <td> <a href="cs_content?id=${cdto.id}&page=${page}"> ${cdto.title} </a></td>
 	      <td align="center"> ${cdto.writeday} </td>
 	    </tr> 
 	  </c:forEach>  
@@ -94,14 +94,14 @@
 	  <!-- 페이징처리 시작 -->
 	  
 	  <c:if test="${pstart != 1}">
-	  	<a href="list?page=${pstart-1}"> ◁◁ </a>
+	  	<a href="cs_list?page=${pstart-1}"> ◁◁ </a>
 	  </c:if>
 	  <c:if test="${pstart == 1}">
 	  	◁◁
 	  </c:if>
 	  
 	  <c:if test="${page != 1}">
-	  	<a href="list?page=${page-1}"> ◁ </a>
+	  	<a href="cs_list?page=${page-1}"> ◁ </a>
 	  </c:if>
 	  <c:if test="${page == 1}">
 	  	◁
@@ -109,22 +109,22 @@
 	  
 	  <c:forEach var="i" begin="${pstart}" end="${pend}">
 	    <c:if test="${page != i}">
-	      <a href="list?page=${i}"> ${i}</a>
+	      <a href="cs_list?page=${i}"> ${i}</a>
 	    </c:if>
 	    <c:if test="${page == i}">
-	      <a href="list?page=${i}" style="color:red"> ${i}</a>
+	      <a href="cs_list?page=${i}" style="color:red"> ${i}</a>
 	    </c:if>
 	  </c:forEach>
 	  
 	  <c:if test="${pend != page_cnt}">
-	  	<a href="list?page=${page+1}"> ▷ </a>
+	  	<a href="cs_list?page=${page+1}"> ▷ </a>
 	  </c:if>
 	  <c:if test="${pend == page_cnt}">
 	  	▷
 	  </c:if>
 	  
 	  <c:if test="${pend != page_cnt}">
-	  	<a href="list?page=${pend+1}"> ▷▷ </a>
+	  	<a href="cs_list?page=${pend+1}"> ▷▷ </a>
 	  </c:if>
 	  <c:if test="${pend == page_cnt}">
 	  	▷▷
@@ -132,7 +132,7 @@
 	  
 	  <!-- 페이징처리 끝 -->
 	  <p><br><br><br>
-	  <a href="write" id="cslist_btn"> 글쓰기 </a>
+	  <a href="cs_write" id="cslist_btn"> 글쓰기 </a>
 	</div>
 	</div>	
 </body>

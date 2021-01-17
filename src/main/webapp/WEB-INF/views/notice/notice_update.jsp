@@ -32,7 +32,7 @@
 	<div align="center"> <h2> 공지사항 수정</h2> </div>
 	<hr>
 	
-	<form method="post" action="update_ok?id=${ndto.id}" enctype="multipart/form-data">
+	<form method="post" action="notice_update_ok?id=${ndto.id}" enctype="multipart/form-data">
 	<input type="hidden" name="userid" value="${userid}">
 	<input type="hidden" name="name" value="관리자">
 	<table align="center" width="700">
@@ -50,7 +50,7 @@
 	  </tr>	 --%>
 	  <tr>
 	    <td>Title</td>
-	    <td><input type="text" name="title" size="30" placeholder="${ndto.title}"></td>
+	    <td><input type="text" name="title" size="30" value="${ndto.title}"></td>
 	  </tr>
 	  <tr>  
 	    <td>Content</td>
@@ -58,7 +58,7 @@
 	  </tr>	 
 	  <tr>  
 	    <td>File</td>
-	    <td><input type="file" name="fname"> <span style="color:red"> 파일 필수 선택 </span></td>
+	    <td><input type="file" name="fname"> ${ndto.fname} <span style="color:red"> 파일 필수 선택 </span></td>
 	  </tr>	 
 	</table> <p><br>
 	<div align="center"><input type="submit" value="수정하기"></div>	

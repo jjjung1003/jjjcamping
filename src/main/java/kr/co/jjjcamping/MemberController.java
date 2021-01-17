@@ -96,6 +96,7 @@ public class MemberController {
 		    session.setAttribute("email", mdto.getEmail());
 			session.setAttribute("userid", mdto.getUserid());
 			session.setAttribute("name", mdto.getName());
+			session.setMaxInactiveInterval(30*60);
 			url="redirect:/main/index";
 		  }
 		  else {

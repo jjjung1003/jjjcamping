@@ -346,10 +346,10 @@
    		<li onmouseover="view(4,100)" onmouseout="hide(4)" class="main_li">
     	  <span class="textbox" style="color:white;">공지사항</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="../notice/list">공지사항</a></li>
-	          	<li class="sub_li"><a href="../cs/list">고객센터</a></li>
-	          	<li class="sub_li"><a href="../store/list">매장안내</a></li>
-	          	<li class="sub_li"><a href="../tip/list">캠핑꿀팁</a></li>
+	         	<li class="sub_li"><a href="../notice/notice_list">공지사항</a></li>
+	          	<li class="sub_li"><a href="../cs/cs_list">고객센터</a></li>
+	          	<li class="sub_li"><a href="../store/store_list">매장안내</a></li>
+	          	<li class="sub_li"><a href="../tip/tip_list">캠핑꿀팁</a></li>
         	</ul>
         </li>
    		<li onmouseover="view(5,75)" onmouseout="hide(5)" class="main_li">
@@ -392,10 +392,10 @@
 		
 		<table id="obj">
 		  <tr height="55"> 
-		    <td> <a href="../store/list" class="def_btn">캠핑몰 매장 안내  </a> </td>
+		    <td> <a href="../store/store_list" class="def_btn">캠핑몰 매장 안내  </a> </td>
 		  </tr>
 		  <tr>
-		    <td><a href="../store/list"> <img src="../notice/img/11.jpg" width="300"> </a></td>
+		    <td><a href="../store/store_list"> <img src="../notice/img/11.jpg" width="300"> </a></td>
 		  </tr>
 		</table>
 		<table id="obj" style="border:none;">

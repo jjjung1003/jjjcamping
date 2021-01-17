@@ -6,16 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.co.jjjcamping.dao.TipDao">
 
 <!-- 꿀팁 -->
-	<select id="list" resultType="kr.co.jjjcamping.dto.TipDto">
+	<select id="tip_list" resultType="kr.co.jjjcamping.dto.TipDto">
 		select * from tip order by id desc 
 	</select>
 	
-	<insert id="write_ok" parameterType="kr.co.jjjcamping.dto.TipDto">
+	<insert id="tip_write_ok" parameterType="kr.co.jjjcamping.dto.TipDto">
 		insert tip(title,content,neyoung,writeday)
 		values(#{title},#{content},#{neyoung},now())
 	</insert>
 	
-	<select id="content" resultType="kr.co.jjjcamping.dto.TipDto">
+	<select id="tip_content" resultType="kr.co.jjjcamping.dto.TipDto">
 		select * from tip where id=#{param1}
 	</select>
 

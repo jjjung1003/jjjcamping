@@ -62,9 +62,9 @@
 	
 </style>
 <script>
-	function content(id)
+	function tip_content(id)
 	{
-		window.open("content?id="+id,"","width=600,height=350")
+		window.open("tip_content?id="+id,"","width=600,height=350")
 	}
 </script>
 </head>
@@ -72,7 +72,7 @@
 <div align="center" id="tip_first"> <h2> 캠핑을 즐기는 꿀팁 </h2> </div>
 	<hr id="hr_1">
 	<div align="center">
-	<form method="post" action="list" name="jjj">
+	<form method="post" action="tip_list" name="jjj">
 		<select name="cla">
 			<option value="title"> 제목 </option>
 		</select>
@@ -86,21 +86,21 @@
 	
 	  <tr style="font-size:25px">
 	    <td>No.</td>
-	    <td width="400" height="60" align="center">Content</td>
+	    <td width="400" height="60" align="center">Title</td>
 	    <td align="center">Date</td>
 	  </tr>
-	  <c:forEach items="${tip_list}" var="tipdto">
+	  <c:forEach items="${list}" var="tdto">
 	  <tr>
-	    <td height="40">${tipdto.id}</td>
-	    <td><a href="javascript:content('${tipdto.id}')"> ${tipdto.title} </a></td>
-	    <td align="center">${tipdto.writeday}</td>
+	    <td height="40">${tdto.id}</td>
+	    <td><a href="javascript:tip_content('${tdto.id}')"> ${tdto.title} </a></td>
+	    <td align="center">${tdto.writeday}</td>
 	  </tr> 
 	  </c:forEach> 	   
 	</table> <p><br>
 	
 	
 	<c:if test="${userid == 'admin'}">	
-		<div align="center"> <a href="write" id="list_btn"> 글 쓰기 </a> </div> <br><p/>
+		<div align="center"> <a href="tip_write" id="list_btn"> 글 쓰기 </a> </div> <br><p/>
 	</c:if>
   </div>
   

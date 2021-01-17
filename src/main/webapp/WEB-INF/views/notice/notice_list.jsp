@@ -58,7 +58,7 @@
 <div align="center" id="notice_first"> <h2> 공지사항</h2> </div>
 	<hr id="hr_1">
 	<div align="center">
-	<form method="post" action="list" name="jjj">
+	<form method="post" action="notice_list" name="jjj">
 		<select name="cla">
 			<option value="title"> 제목 </option>
 		</select>
@@ -79,7 +79,7 @@
 	  <c:forEach items="${list}" var="ndto">
 	  <tr>
 	    <td height="40">${ndto.id}</td>
-	    <td><a href="hit?id=${ndto.id}"> ${ndto.title} </a></td>
+	    <td><a href="notice_hit?id=${ndto.id}"> ${ndto.title} </a></td>
 	    <td align="center">${ndto.name}</td>
 	    <td align="center">${ndto.writeday}</td>
 	    <td align="center">${ndto.hit}</td>
@@ -89,14 +89,14 @@
 	
 	<div align="center">
 	  <c:if test="${pstart != 1}"> <!-- 1, 11, 21, 31.... -->
-	  	<a href="list?page=${pstart-1}"><strong>◁◁</strong> </a>
+	  	<a href="notice_list?page=${pstart-1}"><strong>◁◁</strong> </a>
 	  </c:if>
 	  <c:if test="${pstart == 1}"> 
 	  	<strong>◁◁</strong>
 	  </c:if>
 	  
 	  <c:if test="${page != 1}"> <!-- 1, 2, 3, 4.... -->
-	  	<a href="list?page=${page-1}"><strong>◁</strong> </a>
+	  	<a href="notice_list?page=${page-1}"><strong>◁</strong> </a>
 	  </c:if>
 	  <c:if test="${page == 1}"> 
 	  	<strong>◁</strong>
@@ -104,22 +104,22 @@
 	  
 	  <c:forEach var="i" begin="${pstart}" end="${pend}">	
 	  	<c:if test="${page != i}">
-	  		<a href="list?page=${i}"> <strong>${i}</strong></a>
+	  		<a href="notice_list?page=${i}"> <strong>${i}</strong></a>
 	  	</c:if>
 	  	<c:if test="${page == i}">
-	  		<a href="list?page=${i}" style="color:red"> <strong>${i}</strong></a>
+	  		<a href="notice_list?page=${i}" style="color:red"> <strong>${i}</strong></a>
 	  	</c:if>
 	  </c:forEach>  
 	  
 	  <c:if test="${page != page_cnt}"> <!-- 1, 2, 3, 4.... -->
-	  	<a href="list?page=${page+1}"><strong>▷</strong> </a>
+	  	<a href="notice_list?page=${page+1}"><strong>▷</strong> </a>
 	  </c:if>
 	  <c:if test="${page == page_cnt}"> 
 	  	<strong>▷</strong>
 	  </c:if>
 	  
 	  <c:if test="${pend != page_cnt}"> <!-- 1, 11, 21, 31.... -->
-	  	<a href="list?page=${pend+1}"><strong>▷▷</strong> </a>
+	  	<a href="notice_list?page=${pend+1}"><strong>▷▷</strong> </a>
 	  </c:if>
 	  <c:if test="${pend == page_cnt}"> 
 	  	<strong>▷▷ </strong>
@@ -127,7 +127,7 @@
 	</div> <br><p>
 	
 	<c:if test="${userid == 'admin'}">	
-		<div align="center"> <a href="write" id="list_btn"> 글쓰기 </a> </div> <br><p>
+		<div align="center"> <a href="notice_write" id="list_btn"> 글쓰기 </a> </div> <br><p>
 	</c:if>
 
 	</div>

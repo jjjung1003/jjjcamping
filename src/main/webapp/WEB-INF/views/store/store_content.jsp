@@ -66,12 +66,12 @@
   </div>
   
   <div id="store_second" align="center">
-    <input type="button" onclick="location.href='../store/list'" value="목록">
+    <input type="button" onclick="location.href='../store/store_list'" value="목록">
   </div>
   
    <div align="center" style="margin-bottom:50px">
   	 <c:if test="${userid eq 'admin'}">
-	   <a href="delete?id=${sdto.id}" id="store_del">매장삭제 </a>
+	   <a href="store_delete?id=${sdto.id}" id="store_del">매장삭제 </a>
 	 </c:if> 
    </div> 
 

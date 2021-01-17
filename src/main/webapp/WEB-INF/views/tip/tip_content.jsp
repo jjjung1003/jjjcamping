@@ -9,10 +9,10 @@
 <body>
 	<table width="500" height="300" align="center" border="3">
 	  <tr>
-		<td>${tipdto.id} ${tipdto.title}</td>
+		<td>${tdto.id} ${tdto.title}</td>
 	  </tr>	
 	  <tr>
-		<td>${tipdto.neyoung}</td>
+		<td>${tdto.content}</td>
 	  </tr>	
 	</table>
 </body>

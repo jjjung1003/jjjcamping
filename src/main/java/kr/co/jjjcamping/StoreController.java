@@ -19,8 +19,8 @@ public class StoreController {
 	@Autowired
 	public SqlSession sqlSession;
 	
-	@RequestMapping("/store/list")
-	public String list(HttpServletRequest request, Model model)
+	@RequestMapping("/store/store_list")
+	public String store_list(HttpServletRequest request, Model model)
 	{
 		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
 		
@@ -48,7 +48,7 @@ public class StoreController {
 		else
 			page=Integer.parseInt(request.getParameter("page"));
 		
-		int chong=sdao.list_cnt(cla,search);
+		int chong=sdao.store_list_cnt(cla,search);
 		page_cnt=chong/10;	
 		
 		if(chong%10 != 0)	
@@ -69,7 +69,7 @@ public class StoreController {
 		index=(page-1)*10;
 		
 
-		ArrayList<StoreDto> slist=sdao.list(cla,search,index);
+		ArrayList<StoreDto> slist=sdao.store_list(cla,search,index);
 		
 		model.addAttribute("slist", slist);
 		model.addAttribute("cla", cla);
@@ -79,26 +79,26 @@ public class StoreController {
 		model.addAttribute("pstart", pstart);
 		model.addAttribute("pend", pend);
 
-		return "/store/list";
+		return "/store/store_list";
 	}
 	
-	@RequestMapping("/store/content")
-	public String content(HttpServletRequest request, Model model)
+	@RequestMapping("/store/store_content")
+	public String store_ontent(HttpServletRequest request, Model model)
 	{
 		String id=request.getParameter("id");
 		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
-		StoreDto sdto=sdao.content(id);	
+		StoreDto sdto=sdao.store_content(id);	
 		model.addAttribute("sdto", sdto);
-		return "/store/content";		
+		return "/store/store_content";		
 	}
 	
-	@RequestMapping("/store/delete")
+	@RequestMapping("/store/store_delete")
 	public String delete(HttpServletRequest request)
 	{
 		String id=request.getParameter("id");
 		StoreDao sdao=sqlSession.getMapper(StoreDao.class);
-		sdao.delete(id);
-		return "redirect:/store/list";		
+		sdao.store_delete(id);
+		return "redirect:/store/store_list";		
 	}
 	
 	

@@ -72,8 +72,8 @@
 		    </tr> 
 	  </table>
 	  	  
-	  <a href="list?page=${page}" id="cscontent_btn"> 목록 </a>
-	  <a href="delete?id=${cdto.id}" id="cscontent_btn"> 삭제 </a> <p>
+	  <a href="cs_list?page=${page}" id="cscontent_btn"> 목록 </a>
+	  <a href="cs_delete?id=${cdto.id}" id="cscontent_btn"> 삭제 </a> <p>
 	  
 	  <!-- 댓글 시작 -->
 	<table width="700">  

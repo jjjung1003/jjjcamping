@@ -23,25 +23,25 @@ public class CsController {
 	@Autowired
 	public SqlSession sqlSession;
 	
-	@RequestMapping("/cs/write")
-	public String write(HttpSession session,Model model)
+	@RequestMapping("/cs/cs_write")
+	public String cs_write(HttpSession session,Model model)
 	{	
 		CsDao cdao=sqlSession.getMapper(CsDao.class);
-		CsDto cdto=cdao.mypage(session.getAttribute("userid").toString());
+		CsDto cdto=cdao.cs_info(session.getAttribute("userid").toString());
 		model.addAttribute("cdto", cdto);
-		return "/cs/write";
+		return "/cs/cs_write";
 	}
 	
-	@RequestMapping("/cs/write_ok")
-	public String write_ok(CsDto cdto)
+	@RequestMapping("/cs/cs_write_ok")
+	public String cs_write_ok(CsDto cdto)
 	{
 		CsDao cdao=sqlSession.getMapper(CsDao.class);
-		cdao.write_ok(cdto);
-		return "redirect:/cs/list";
+		cdao.cs_write_ok(cdto);
+		return "redirect:/cs/cs_list";
 	}
 	
-	@RequestMapping("/cs/list")
-	public String list(HttpServletRequest request,Model model)
+	@RequestMapping("/cs/cs_list")
+	public String cs_list(HttpServletRequest request,Model model)
 	{
 		CsDao cdao=sqlSession.getMapper(CsDao.class);
 		
@@ -68,7 +68,7 @@ public class CsController {
 		else
 			page=Integer.parseInt(request.getParameter("page"));
 		
-		int chong=cdao.list_cnt(cla,search);
+		int chong=cdao.cs_list_cnt(cla,search);
 		
 		page_cnt=chong/10;
 		if(chong%10 != 0)
@@ -88,7 +88,7 @@ public class CsController {
 		index=(page-1)*10;		
 		//페이징 끝
 		
-		ArrayList<CsDto> cslist=cdao.list(cla,search,index);
+		ArrayList<CsDto> cslist=cdao.cs_list(cla,search,index);
 		
 		model.addAttribute("cslist", cslist);
 		model.addAttribute("cla", cla);
@@ -99,16 +99,16 @@ public class CsController {
 		model.addAttribute("pend", pend);
 		model.addAttribute("index", index);
 		
-		return "/cs/list";
+		return "/cs/cs_list";
 	}
 	
-	@RequestMapping("/cs/content")
-	public String content(HttpServletRequest request,Model model,HttpSession session)
+	@RequestMapping("/cs/cs_content")
+	public String cs_content(HttpServletRequest request,Model model,HttpSession session)
 	{
 		String id=request.getParameter("id");
 		String userid=session.getAttribute("userid").toString();
 		CsDao cdao=sqlSession.getMapper(CsDao.class);
-		CsDto cdto=cdao.content(id);
+		CsDto cdto=cdao.cs_content(id);
 		model.addAttribute("cdto", cdto);
 		model.addAttribute("page", request.getParameter("page"));
 		model.addAttribute("userid", userid);
@@ -119,7 +119,7 @@ public class CsController {
 		model.addAttribute("list", list);
 		model.addAttribute("session", session);
 		
-		return "/cs/content";
+		return "/cs/cs_content";
 	}
 	
 	@RequestMapping("/cs/csdat_ok")
@@ -137,16 +137,16 @@ public class CsController {
 		String csid=request.getParameter("csid");
 		CsDatDao cddao=sqlSession.getMapper(CsDatDao.class);
 		cddao.csdat_del(id);
-		return "redirect:/cs/content?id="+cddto.getCsid()+"&did="+id+"&page="+request.getParameter("page")+"&chk=1";
+		return "redirect:/cs/cs_content?id="+cddto.getCsid()+"&did="+id+"&page="+request.getParameter("page")+"&chk=1";
 	}
 	
-	@RequestMapping("/cs/delete")
-	public String delete(HttpServletRequest request)
+	@RequestMapping("/cs/cs_delete")
+	public String cs_delete(HttpServletRequest request)
 	{
 		String id=request.getParameter("id");
 		CsDao cdao=sqlSession.getMapper(CsDao.class);
-		cdao.delete(id);
-		return "redirect:/cs/list";
+		cdao.cs_delete(id);
+		return "redirect:/cs/cs_list";
 	}
 	
 

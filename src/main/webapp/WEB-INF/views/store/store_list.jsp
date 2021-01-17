@@ -83,7 +83,7 @@
   </div>
 	
   <div id="store_second" align="center">
-	<form method="post" action="list" name="jjj">
+	<form method="post" action="store_list" name="jjj">
 	  <select name="cla">
 	    <option value="title"> 매장명 </option>
 	    <option value="region"> 지역명 </option>
@@ -100,7 +100,7 @@
       <c:set var="num" value="1"/>
       <c:forEach items="${slist}" var="sdto">
         <td width="330" height="400" align="center">
-          <a href="content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange; background:orange;"></a> <br>
+          <a href="store_content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange; background:orange;"></a> <br>
           [${sdto.region} ${sdto.title}]<br> ${sdto.address}<br> ${sdto.phone}  
         </td>
         
@@ -115,14 +115,14 @@
     
     <div align="center">
 	  <c:if test="${pstart != 1}"> <!-- 1, 11, 21, 31.... -->
-	  	<a href="list?page=${pstart-1}">◁◁ </a>
+	  	<a href="store_list?page=${pstart-1}">◁◁ </a>
 	  </c:if>
 	  <c:if test="${pstart == 1}"> 
 	  	◁◁
 	  </c:if>
 	  
 	  <c:if test="${page != 1}"> <!-- 1, 2, 3, 4.... -->
-	  	<a href="list?page=${page-1}">◁ </a>
+	  	<a href="store_list?page=${page-1}">◁ </a>
 	  </c:if>
 	  <c:if test="${page == 1}"> 
 	  	◁
@@ -130,22 +130,22 @@
 	  
 	  <c:forEach var="i" begin="${pstart}" end="${pend}">	
 	  	<c:if test="${page != i}">
-	  		<a href="list?page=${i}"> ${i}</a>
+	  		<a href="store_list?page=${i}"> ${i}</a>
 	  	</c:if>
 	  	<c:if test="${page == i}">
-	  		<a href="list?page=${i}" style="color:red"> ${i}</a>
+	  		<a href="store_list?page=${i}" style="color:red"> ${i}</a>
 	  	</c:if>
 	  </c:forEach>  
 	  
 	  <c:if test="${page != page_cnt}"> <!-- 1, 2, 3, 4.... -->
-	  	<a href="list?page=${page+1}">▷ </a>
+	  	<a href="store_list?page=${page+1}">▷ </a>
 	  </c:if>
 	  <c:if test="${page == page_cnt}"> 
 	  	▷
 	  </c:if>
 	  
 	  <c:if test="${pend != page_cnt}"> <!-- 1, 11, 21, 31.... -->
-	  	<a href="list?page=${pend+1}">▷▷ </a>
+	  	<a href="store_list?page=${pend+1}">▷▷ </a>
 	  </c:if>
 	  <c:if test="${pend == page_cnt}"> 
 	  	▷▷ 

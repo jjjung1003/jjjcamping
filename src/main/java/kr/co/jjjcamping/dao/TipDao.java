@@ -10,11 +10,11 @@ import kr.co.jjjcamping.dto.TipDto;
 public interface TipDao {
 
 /* 꿀팁  */	
-	public ArrayList<TipDto> list();
+	public ArrayList<TipDto> tip_list();
 	
-	public TipDto content(String id);
+	public TipDto tip_content(String id);
 	
-	public void write_ok(TipDto tdto);
+	public void tip_write_ok(TipDto tdto);
 	
 
 }

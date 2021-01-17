@@ -27,7 +27,7 @@ public class CartController {
 	{
 		CartDao cdao=sqlSession.getMapper(CartDao.class);
 		cdao.cart_add(cdto);
-		return "/cart/cart_add";
+		return "redirect:/cart/cart_list";
 	}
 	
 	@RequestMapping("/cart/cart_list")

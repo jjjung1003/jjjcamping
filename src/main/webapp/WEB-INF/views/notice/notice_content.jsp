@@ -61,11 +61,11 @@
 	  </tr>	 
 	</table> <p>
 	<div align="center">
-	<span align="center"><input type="button" value="목록보기" onclick="location.href='list'"></span>
+	<span align="center"><input type="button" value="목록보기" onclick="location.href='notice_list'"></span>
 	
 	<c:if test="${userid == 'admin'}">	  
-		<span align="center"><input type="button" value="수정하기" onclick="location='update?id=${ndto.id}'"></span>		
-		<span align="center"><input type="button" value="삭제하기" onclick="location='delete?id=${ndto.id}'"></span> <p>
+		<span align="center"><input type="button" value="수정하기" onclick="location='notice_update?id=${ndto.id}'"></span>		
+		<span align="center"><input type="button" value="삭제하기" onclick="location='notice_delete?id=${ndto.id}'"></span> <p>
 
 	</c:if>
 	</div>

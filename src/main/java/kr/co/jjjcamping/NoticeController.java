@@ -27,33 +27,49 @@ public class NoticeController {
 	
 	/*--------------------------------------------------------------------------------------------   notice   --------*/
 	
-	@RequestMapping("/notice/write")
-	public String write()
+	@RequestMapping("/notice/notice_write")
+	public String write(HttpSession session)
 	{
-		return "/notice/write";
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			return "/notice/notice_write";
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
-	@RequestMapping("/notice/write_ok")
-	public String write_ok(NoticeDto ndto,HttpServletRequest request) throws IOException
+	@RequestMapping("/notice/notice_write_ok")
+	public String write_ok(NoticeDto ndto,HttpServletRequest request,HttpSession session) throws IOException
 	{
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-		
-		String path="C:\\shop\\pro_camping\\src\\main\\webapp\\WEB-INF\\views\\notice\\img";
-		int max=1024*1024*20;
-		MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
-		
-		ndto.setName(multi.getParameter("name"));
-		ndto.setTitle(multi.getParameter("title"));
-		ndto.setContent(multi.getParameter("content"));
-		ndto.setFname(multi.getFilesystemName("fname"));
-		File file=multi.getFile("fname");
-		ndto.setFsize(file.length());
-		
-		ndao.write_ok(ndto);
-		return "redirect:/notice/list";
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
+			
+			String path="C:\\shop\\pro_camping\\src\\main\\webapp\\WEB-INF\\views\\notice\\img";
+			int max=1024*1024*20;
+			MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
+			
+			ndto.setName(multi.getParameter("name"));
+			ndto.setTitle(multi.getParameter("title"));
+			ndto.setContent(multi.getParameter("content"));
+			ndto.setFname(multi.getFilesystemName("fname"));
+			File file=multi.getFile("fname");
+			ndto.setFsize(file.length());
+			
+			ndao.write_ok(ndto);
+			return "redirect:/notice/notice_list";
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
-	@RequestMapping("/notice/list")
+	@RequestMapping("/notice/notice_list")
 	public String list(Model model, HttpServletRequest request)
 	{
 		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
@@ -111,19 +127,19 @@ public class NoticeController {
 		model.addAttribute("cla",cla);
 		model.addAttribute("search",search);
 		
-		return "/notice/list";
+		return "/notice/notice_list";
 	}
 	
-	@RequestMapping("/notice/hit")
+	@RequestMapping("/notice/notice_hit")
 	public String hit(HttpServletRequest request)
 	{
 		String id=request.getParameter("id");
 		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
 		ndao.hit(id);
-		return "redirect:/notice/content?id="+id;
+		return "redirect:/notice/notice_content?id="+id;
 	}
 	
-	@RequestMapping("/notice/content")
+	@RequestMapping("/notice/notice_content")
 	public String content(HttpServletRequest request, Model model)
 	{
 		String id=request.getParameter("id");
@@ -132,52 +148,71 @@ public class NoticeController {
 		NoticeDto ndto=ndao.content(id);
 		model.addAttribute("ndto", ndto);
 		model.addAttribute("chk", chk);
-		return "/notice/content";
+		return "/notice/notice_content";
 	}
 	
-	@RequestMapping("/notice/update")
-	public String update(HttpServletRequest request)
+	@RequestMapping("/notice/notice_update")
+	public String update(HttpServletRequest request,  Model model,HttpSession session)
 	{
-			return "/notice/update";
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			String id=request.getParameter("id");
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
+			NoticeDto ndto=ndao.update(id);
+			model.addAttribute("ndto", ndto);
+			return "/notice/notice_update";
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
-	@RequestMapping("/notice/update_ok")
-	public String update_ok(NoticeDto ndto,HttpServletRequest request) throws IOException
+	@RequestMapping("/notice/notice_update_ok")
+	public String update_ok(NoticeDto ndto,HttpServletRequest request,HttpSession session) throws IOException
 	{
-		String id=request.getParameter("id");
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-		
-		String path="C:\\shop\\pro_camping\\src\\main\\webapp\\WEB-INF\\views\\notice\\img";
-		int max=1024*1024*20;
-		MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
-		
-		ndto.setName(multi.getParameter("name"));
-		ndto.setTitle(multi.getParameter("title"));
-		ndto.setContent(multi.getParameter("content"));
-		ndto.setFname(multi.getFilesystemName("fname"));
-		File file=multi.getFile("fname");
-		ndto.setFsize(file.length());
-		
-		ndao.update_ok(ndto);
-		return "redirect:/notice/content?id="+id;
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			String id=request.getParameter("id");
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
+			
+			String path="C:\\shop\\pro_camping\\src\\main\\webapp\\WEB-INF\\views\\notice\\img";
+			int max=1024*1024*20;
+			MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
+			
+			ndto.setName(multi.getParameter("name"));
+			ndto.setTitle(multi.getParameter("title"));
+			ndto.setContent(multi.getParameter("content"));
+			ndto.setFname(multi.getFilesystemName("fname"));
+			File file=multi.getFile("fname");
+			ndto.setFsize(file.length());
+			
+			ndao.update_ok(ndto);
+			return "redirect:/notice/notice_content?id="+id;
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
-	@RequestMapping("/notice/delete")
+	@RequestMapping("/notice/notice_delete")
 	public String delete(HttpServletRequest request,HttpSession session)
 	{
-		String email=session.getAttribute("email").toString();
-		String id=request.getParameter("id");
-		String pwd=request.getParameter("pwd");	
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-		String dbpwd=ndao.pwd_chk(email);
-		
-		if(dbpwd.equals(pwd))
+		if(session.getAttribute("userid").equals("admin"))
 		{
+			String id=request.getParameter("id");
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
 			ndao.delete(id);
-			return "redirect:/notice/list";
-		}
-		else 
-			return "redirect:/notice/content?chk=1&id="+id;		
+			return "redirect:/notice/notice_list";	
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 
 	
