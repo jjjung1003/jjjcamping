@@ -86,11 +86,7 @@ public class MemberController {
 	@RequestMapping("/login/login_ok")
 	public String login_ok(MemberDto mdto,HttpSession session,HttpServletRequest request)
 	{
-		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		/*Login_okCommand loc=new Login_okCommand();
-		String url=loc.login_ok(mdto,session,request,mdao,pwdEncoder);
-		return url;*/
-		
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);		
 		String userid=request.getParameter("userid");
 		String dbpwd = mdao.pwd_check2(userid);
 		String url="";

@@ -34,37 +34,36 @@ public class AdminController {
 	@RequestMapping("/admin/admin_list")
 	public String admin_list(HttpSession session)
 	{
-		if(!(session.getAttribute("userid").equals("admin")))
+		if(session.getAttribute("userid").equals("admin"))
 		{			
+			return "/admin/admin_list";
+		}			
+		else	
+		{	
 			session.invalidate();
 			return "redirect:/login/login";
-		}			
-		else
-			return "/admin/admin_list";
+		}	
 	}
 	
 	@RequestMapping("/admin/store_write")
 	public String store_write(HttpSession session)
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
+			return "/admin/store_write";
 		}			
 		else
-			return "/admin/store_write";
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
 	@RequestMapping("/admin/store_write_ok")
 	public String store_write_ok(HttpSession session,StoreDto sdto, HttpServletRequest request) throws IOException
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
-		}			
-		else
-		{	
 			AdminDao adao=sqlSession.getMapper(AdminDao.class);
 			
 			String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\store\\img";
@@ -81,31 +80,33 @@ public class AdminController {
 			
 			adao.store_write_ok(sdto);
 			return "/admin/store_write_ok";
+		}			
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
 		}	
 	}
 	
 	@RequestMapping("/admin/camp_write")
 	public String camp_write(HttpSession session)
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
+			return "/admin/camp_write";
 		}			
 		else
-			return "/admin/camp_write";
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
+		}	
 	}
 	
 	@RequestMapping("/admin/camp_write_ok")
 	public String camp_write_ok(HttpSession session, CampDto cdto, HttpServletRequest request) throws IOException
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
-		}			
-		else
-		{
 			AdminDao adao=sqlSession.getMapper(AdminDao.class);
 			
 			String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img";
@@ -126,31 +127,33 @@ public class AdminController {
 			
 			adao.camp_write_ok(cdto);
 			return "redirect:/admin/admin_list";
+		}			
+		else
+		{
+			session.invalidate();
+			return "redirect:/login/login";			
 		}	
 	}
 	
 	@RequestMapping("/admin/product_write")
 	public String product_write(HttpSession session)
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
+			return "/admin/product_write";
 		}				
 		else
-			return "/admin/product_write";
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
 	@RequestMapping("/admin/product_write_ok")
 	public String product_write_ok(HttpSession session, ProductDto pdto, HttpServletRequest request) throws IOException
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
-		}			
-		else
-		{
 			AdminDao adao=sqlSession.getMapper(AdminDao.class);
 			
 			String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img";
@@ -161,21 +164,21 @@ public class AdminController {
 			pwoc.product_write_ok(multi,adao);		
 					
 			return "redirect:/admin/product_write";
+		}			
+		else
+		{
+			session.invalidate();
+			return "redirect:/login/login";			
 		}	
 	}
 	
 	@RequestMapping("/admin/product_all_list")
 	public String product_list(Model model, HttpServletRequest request,HttpSession session)
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
-		}				
-		else
-		{	
 			AdminDao adao=sqlSession.getMapper(AdminDao.class);
-				
+			
 			String cla, search;
 			if(request.getParameter("cla") == null)
 			{
@@ -193,19 +196,19 @@ public class AdminController {
 			model.addAttribute("cla", cla);	
 			model.addAttribute("search", search);	
 			return "/admin/product_all_list";
+		}				
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
 		}	
 	}
 	
 	@RequestMapping("/admin/member_list")
 	public String mem_view(Model model, HttpServletRequest request,HttpSession session)
 	{
-		if(!(session.getAttribute("userid").toString().equals("admin")))
+		if(session.getAttribute("userid").toString().equals("admin"))
 		{			
-			session.invalidate();
-			return "redirect:/login/login";
-		}			
-		else
-		{	
 			AdminDao adao = sqlSession.getMapper(AdminDao.class);
 			
 			String cla, search;
@@ -223,6 +226,11 @@ public class AdminController {
 			ArrayList<MemberDto> list = adao.member_list(cla,search);
 			model.addAttribute("list",list);
 			return "/admin/member_list";
+		}			
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
 		}	
 	}
 	

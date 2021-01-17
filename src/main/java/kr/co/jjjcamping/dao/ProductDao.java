@@ -2,6 +2,7 @@ package kr.co.jjjcamping.dao;
 
 import java.util.ArrayList;
 
+import kr.co.jjjcamping.dto.CartDto;
 import kr.co.jjjcamping.dto.CategoryDto;
 import kr.co.jjjcamping.dto.ProductDto;
 
@@ -14,7 +15,6 @@ public interface ProductDao {
 	public CategoryDto get_category(String code);
 
 	public ArrayList<CategoryDto> get_category2(String code);
-
 	
 	
 	

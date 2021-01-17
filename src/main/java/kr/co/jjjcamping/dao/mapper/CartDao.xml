@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybats-3-mapper.dtd">
+
+<mapper namespace="kr.co.jjjcamping.dao.CartDao">
+
+	<insert id="cart_add" parameterType="kr.co.jjjcamping.dto.CartDto">
+		insert into cart(userid,pro_name, code, quantity, writeday)
+		values(#{userid},#{pro_name},#{code},#{quantity},now())
+	</insert>
+
+	<select id="cart_list" resultType="kr.co.jjjcamping.dto.ProductDto">
+		select product.price, product.code, product.m_img, cart.pro_name from cart left outer join product on product.code = cart.code
+		where cart.userid=#{param}
+	</select>
+
+
+
+
+
+
+</mapper>

@@ -289,7 +289,7 @@
 		      <li><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
 			  <li><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
 			  <li><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
-		      <li><a href=""><span class="material-icons">local_grocery_store장바구니</span></a></li>
+		      <li><a href="../cart/cart_list"><span class="material-icons">local_grocery_store장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid eq 'admin'}">
 		      <li><div class="material-icons" style="margin-left:-650px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
