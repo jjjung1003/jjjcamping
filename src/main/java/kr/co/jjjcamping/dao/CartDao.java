@@ -11,6 +11,8 @@ public interface CartDao {
 
 	public ArrayList<ProductDto> cart_list(String userid);
 
+	public void cart_del(String id);
+
 
 	
 }

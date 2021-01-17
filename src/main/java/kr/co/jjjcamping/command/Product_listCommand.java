@@ -14,7 +14,7 @@ import kr.co.jjjcamping.dto.ProductDto;
 
 public class Product_listCommand {
 
-	public void pro_list(HttpServletRequest request, ProductDao pdao, Model model) {
+	/*public void pro_list(HttpServletRequest request, ProductDao pdao, Model model) {
 
 		String code=request.getParameter("code");
 		String category=null;
@@ -70,7 +70,7 @@ public class Product_listCommand {
 	   model.addAttribute("category",category);
 	   model.addAttribute("code",code);
 	   
-	}
+	}*/
 
 }
 

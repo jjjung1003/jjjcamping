@@ -87,7 +87,7 @@
 	}
 	
 	.main_li {
-		background:#1C1C1C;
+		background:#1E0300;
 	}
 	
 	#third #main > li { 
@@ -106,7 +106,7 @@
 	#third .sub {  /*3층에  하위메뉴 ul태그 */
 		width:118px;
 		height:80px;
-		border:1px solid #F7890C;
+		border:1px solid #1E0300;
 		position:absolute;
 		margin-top:40px;
 		background:white;
@@ -131,6 +131,7 @@
 
 	#footer1 {
 		margin:auto;
+		margin-top:10px;
 		width:1280px;
 		height:270px;
 		border-top:3px solid orange;
@@ -180,7 +181,7 @@
 		width:1280px;
 		height:50px;
 		margin:auto;
-		background:black; 
+		background:#1E0300; 
 	}
 	
 	#footer2 #left {/* 회사소개 ㅣ 이용약관 ㅣ 개인정보 처리방침 ㅣ  이용안내 */
@@ -201,7 +202,7 @@
 		height:50px;
 		float:right;
 		color:white;
-		background:orange;
+		background:#DC890C;
 		font-size:30px;
 		cursor:pointer;
 	}
@@ -239,13 +240,13 @@
 		document.getElementsByClassName("sub")[n].style.display="block";
 		document.getElementsByClassName("sub")[n].style.height=h+"px";
 		document.getElementsByClassName("sub")[n].style.top="10px";
-		document.getElementsByClassName("main_li")[n].style.background="#F7890C";
+		document.getElementsByClassName("main_li")[n].style.background="#DC890C";
 	}
 	
 	function hide(n)
 	{
 		document.getElementsByClassName("sub")[n].style.display="none";
-		document.getElementsByClassName("main_li")[n].style.background="#1C1C1C";
+		document.getElementsByClassName("main_li")[n].style.background="#1E0300";
 	}	
 	
 	function reser(userid)
@@ -289,7 +290,8 @@
 		      <li><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
 			  <li><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
 			  <li><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
-		      <li><a href="../cart/cart_list"><span class="material-icons">local_grocery_store장바구니</span></a></li>
+		      <li><a href="../cart/cart_list"><span class="material-icons">local_grocery_store DB장바구니</span></a></li>
+		      <li><a href="../cart/cart_cookie_list"><span class="material-icons">local_grocery_store 쿠키장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid eq 'admin'}">
 		      <li><div class="material-icons" style="margin-left:-650px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
@@ -303,12 +305,15 @@
 	     <center><a href="../main/index"><img src="../notice/img/logo11.jpg" width="170" height="80"></a></center> <!-- 로고 -->	    
 	  </div>
 	  
-	  <div id="search">
+	  <div id="search">	    
+	    <form method="post" action="default" name="jjj">
 	    <span id="inner">
-	      <input type="text" name="sear" size="27" height="50" placeholder="상품 검색">
+	      <input type="text" name="search" value="${search}" size="27" height="50" placeholder="상품 검색">
 	      <span class="material-icons">search</span>
-	    </span>
+	    </span>  
+	    </form>  	      	    
 	  </div>
+	  
 	</div>
 	
 	<div id="third">
@@ -316,7 +321,7 @@
 	    <li onmouseover="view(0,50)" onmouseout="hide(0)" class="main_li">
 		  <span class="textbox">텐트/타프</span>
 	        <ul class="sub">
-	         	<li class="sub_li"><a href="../product/pro_list?code=p0101">텐트</a></li>
+	         	<li class="sub_li"><a href="../product/pro_list">텐트</a></li>
 	          	<li class="sub_li"><a href="../product/pro_list?code=p0102">타프</a></li>
         	</ul>
    		</li>
@@ -371,7 +376,7 @@
 		    <td style="font-size:17px;color:gray"> 고객센터 </td>
 		  </tr>
 		  <tr>
-		    <td style="font-size:30px;color:orange;font-weight:bold;"> 1111-2222 </td>
+		    <td style="font-size:30px;color:#DC890C;font-weight:bold;"> 1111-2222 </td>
 		  </tr>
 		  <tr>
 		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>
@@ -392,7 +397,7 @@
 		
 		<table id="obj">
 		  <tr height="55"> 
-		    <td> <a href="../store/store_list" class="def_btn">캠핑몰 매장 안내  </a> </td>
+		    <td> <a href="../store/store_list" class="def_btn" align="center">매장 안내  </a> </td>
 		  </tr>
 		  <tr>
 		    <td><a href="../store/store_list"> <img src="../notice/img/11.jpg" width="300"> </a></td>
@@ -412,7 +417,7 @@
 	<hr id="hr_2">
 	
 	<div id="footer2">
-	  <div id="left"> 회사소개  ㅣ 이용약관 ㅣ<b id="jungbo">개인정보 처리방침</b> ㅣ 이용안내  </div>
+	  <div id="left"> 회사소개 | 이용약관 | 개인정보 처리방침 | 이용안내  </div>
 	  <span id="top"> ↑Top </span>	
 	</div>
 	

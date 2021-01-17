@@ -1,5 +1,7 @@
 package kr.co.jjjcamping;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.jjjcamping.command.Product_listCommand;
+import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CartDao;
 import kr.co.jjjcamping.dao.ProductDao;
 import kr.co.jjjcamping.dto.CartDto;
@@ -22,11 +25,11 @@ public class ProductController {
 	public SqlSession sqlSession;
 	
 	@RequestMapping("/product/pro_list")
-	public String admin_list(HttpServletRequest request, ProductDto pdto, Model model)
+	public String pro_list(HttpServletRequest request, ProductDto pdto, Model model)
 	{
 		ProductDao pdao=sqlSession.getMapper(ProductDao.class);
-		Product_listCommand plc=new Product_listCommand(); 
-		plc.pro_list(request, pdao, model);
+		ArrayList<ProductDto> list=pdao.pro_list();
+		model.addAttribute("list", list);
 		return "/product/pro_list";
 	}
 	

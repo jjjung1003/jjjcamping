@@ -11,11 +11,20 @@
 	</insert>
 
 	<select id="cart_list" resultType="kr.co.jjjcamping.dto.ProductDto">
-		select product.price, product.code, product.m_img, cart.pro_name from cart left outer join product on product.code = cart.code
-		where cart.userid=#{param}
+		select c.id, p.price, p.code, p.m_img, c.pro_name 
+		from cart as c left outer join product as p 
+		on p.code = c.code
+		where c.userid=#{param}
+		order by c.id asc
 	</select>
 
-
+	<delete id="cart_del">
+		delete from cart
+		where id=#{param}
+	</delete>
+	
+	
+	
 
 
 

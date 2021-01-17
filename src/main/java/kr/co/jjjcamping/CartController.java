@@ -1,6 +1,10 @@
 package kr.co.jjjcamping;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +16,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.jjjcamping.dao.CartDao;
@@ -44,7 +49,49 @@ public class CartController {
 		return "/cart/cart_list";
 	}
 	
+	@RequestMapping("/cart/cart_del")
+	public String cart_del(HttpServletRequest request, HttpSession session)
+	{
+		String userid=session.getAttribute("userid").toString();
+		String id=request.getParameter("id");
+		CartDao cdao=sqlSession.getMapper(CartDao.class);
+		cdao.cart_del(id);
+		return "redirect:/cart/cart_list";
+	}	
 	
+	@RequestMapping("/cart/cart_cookie_add")
+	public String cart_cookie_add(HttpServletRequest request) throws UnsupportedEncodingException
+	{		
+		return "redirect:/cart/cart_cookie_list";
+	}
+	
+	@RequestMapping("/cart/cart_cookie_list")
+	public String cart_cookie_list(HttpServletRequest request, Model model) throws UnsupportedEncodingException
+	{
+		String name="";
+		String value="";
+		String decVal="";
+		String cookie=request.getHeader("Cookie");	//헤더정보에 쿠키 가져오기
+		
+		if(cookie != null)
+		{
+			Cookie[] cookies = request.getCookies();	//쿠키값 읽어오기
+			for(int i=0; i<cookies.length; i++)
+			{
+				if(cookies[i].getName().equals("name"))
+				{
+					name=cookies[i].getName();
+					value=cookies[i].getValue();
+					decVal=URLDecoder.decode(value,"utf-8");
+				}
+			}						
+		} else {
+			System.out.println("쿠키없음");
+		}
+		
+		model.addAttribute("cookie", cookie);
+		return "/cart/cart_cookie_list";
+	}
 	
 	
 	

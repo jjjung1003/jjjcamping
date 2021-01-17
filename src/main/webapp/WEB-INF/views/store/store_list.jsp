@@ -28,7 +28,7 @@
 		margin-bottom:150px;
 	}
 	
-		select {
+	select {
 		margin-top:5px;
 		width: 70px;
 		height:30px;
@@ -62,24 +62,7 @@
   <div id="store_first" align="center">
     <h2> 매장안내 </h2>
 	<hr id="hr_1">
-	
-	<!-- <a href="javascript:all()">전체</a>
-	<a href="javascript:region('서울')">서울</a>
-	<a href="javascript:region('인천')">인천</a>
-	<a href="javascript:region('대전')">대전</a>
-	<a href="javascript:region('대구')">대구</a>
-	<a href="javascript:region('광주')">광주</a>
-	<a href="javascript:region('울산')">울산</a>
-	<a href="javascript:region('부산')">부산</a>
-	<a href="javascript:region('경기')">경기</a>
-	<a href="javascript:region('강원')">강원</a>
-	<a href="javascript:region('충북')">충북</a>
-	<a href="javascript:region('충남')">충남</a>
-	<a href="javascript:region('전북')">전북</a>
-	<a href="javascript:region('전남')">전남</a>
-	<a href="javascript:region('경북')">경북</a>
-	<a href="javascript:region('경남')">경남</a>
-	<a href="javascript:region('제주')">제주</a> -->
+
   </div>
 	
   <div id="store_second" align="center">
