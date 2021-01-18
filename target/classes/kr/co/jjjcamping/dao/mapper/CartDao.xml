@@ -23,6 +23,15 @@
 		where id=#{param}
 	</delete>
 	
+	<insert id="cart_c_add" parameterType="kr.co.jjjcamping.dto.ProductDto">
+		insert into cart(userid,pro_name,price,point,code,quantity,writeday)
+		values(#{userid},#{pro_name},#{price},#{point},#{code},#{quantity},now())
+	</insert>
+	
+	<select id="cart_c_list" resultType="kr.co.jjjcamping.dto.CartDto">
+		select * from cart
+		where userid=#{param}
+	</select>
 	
 	
 

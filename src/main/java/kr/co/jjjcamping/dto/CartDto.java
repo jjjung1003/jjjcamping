@@ -2,11 +2,29 @@
 
 public class CartDto {
 
-	private int id, quantity;
-	private String userid, pro_name, code, writeday;
+	private int id, quantity, point;
+	private String userid, pro_name, price, code, cookie, writeday;
 	
 	
 	
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	public String getCookie() {
+		return cookie;
+	}
+	public void setCookie(String cookie) {
+		this.cookie = cookie;
+	}
 	public String getUserid() {
 		return userid;
 	}

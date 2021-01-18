@@ -15,6 +15,8 @@ public interface ProductDao {
 	public CategoryDto get_category(String code);
 
 	public ArrayList<CategoryDto> get_category2(String code);
+
+	public ProductDto pro_content(String code);
 	
 	
 	

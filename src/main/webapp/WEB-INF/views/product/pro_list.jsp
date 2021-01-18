@@ -53,6 +53,7 @@
 		height:30px;
 	}
 </style>
+
 </head>
 <body>
 <div align="center" id="pro_first"> <h2> 전체 상품</h2> </div>
@@ -78,7 +79,6 @@
 	    <td align="center"><strong>판매여부</strong></td>
 	    <td align="center"><strong>재고수량</strong></td>
 	    <td align="center"><strong>등록일</strong></td>
-	    <td align="center"><strong>장바구니</strong></td>
 	  </tr>
 	  
 	  <c:forEach items="${list}" var="pdto">
@@ -94,19 +94,17 @@
 	 	  </c:if>
 	 	
 	  <tr>
-	  <form method="post" action="../cart/cart_cookie_add">
 	  <input type="hidden" name="userid" value="${userid}">
 	  <input type="hidden" name="code" value="${pdto.code}">
 	  <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 	  <input type="hidden" name="quantity" value="${pdto.quantity}">	  
 	    <td height="40">${pdto.code}</td>
 	    <td align="center"> ${pdto.pro_name}</td>
-	    <td align="center"><img src="../admin/img/product/${pdto.m_img}" width="80" height="60"></td>
+	    <td align="center"><a href="pro_content?code=${pdto.code}"><img src="../admin/img/product/${pdto.m_img}" width="80" height="60"></a></td>
 	    <td align="center">${pdto.price}</td>
 	    <td align="center">${imsi}</td>
 	    <td align="center">${pdto.quantity}</td>
 	    <td align="center">${pdto.writeday}</td>
-	    <td align="center"><input type="submit" value="장바구니"></td>  
 	  </form>  
 	  </tr> 
 	  </c:forEach> 	   

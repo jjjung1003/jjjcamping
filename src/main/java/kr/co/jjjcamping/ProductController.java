@@ -33,6 +33,16 @@ public class ProductController {
 		return "/product/pro_list";
 	}
 	
+	@RequestMapping("/product/pro_content")
+	public String pro_content(HttpServletRequest request, Model model)
+	{
+		ProductDao pdao=sqlSession.getMapper(ProductDao.class);
+		String code=request.getParameter("code");
+		ProductDto pdto=pdao.pro_content(code);
+		model.addAttribute("pdto", pdto);
+		return "/product/pro_content";
+	}
+	
 	
 
 	

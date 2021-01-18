@@ -31,9 +31,7 @@ public class NoticeController {
 	public String write(HttpSession session)
 	{
 		if(session.getAttribute("userid").equals("admin"))
-		{
 			return "/notice/notice_write";
-		}			
 		else	
 		{	
 			session.invalidate();

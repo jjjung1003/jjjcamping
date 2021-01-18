@@ -9,18 +9,13 @@
 		select * from product
 	</select>
 	
-	<select id="get_category" resultType="kr.co.jjjcamping.dto.CategoryDto">
-		select * from category
-		where code like concat(#{param1},'%')
-	</select>
-	
-	<select id="get_category2" resultType="kr.co.jjjcamping.dto.CategoryDto">
-		select * from category
-		where code like concat(#{param1},'%')
-	</select>
-	
 	<select id="tot_record" resultType="int">
 		select count(*) from product where code like concat(#{param1},'%')
+	</select>
+	
+	<select id="pro_content" resultType="kr.co.jjjcamping.dto.ProductDto">
+		select * from product 
+		where code=#{param}
 	</select>
 
 

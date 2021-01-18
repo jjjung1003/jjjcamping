@@ -59,19 +59,23 @@ public class CartController {
 		return "redirect:/cart/cart_list";
 	}	
 	
-	@RequestMapping("/cart/cart_cookie_add")
-	public String cart_cookie_add(HttpServletRequest request) throws UnsupportedEncodingException
+	@RequestMapping("/cart/cart_c_add")
+	public String cart_c_add(HttpServletRequest request, CartDto cdto)
 	{		
-		return "redirect:/cart/cart_cookie_list";
+		CartDao cdao=sqlSession.getMapper(CartDao.class);
+		cdao.cart_c_add(cdto);
+		return "redirect:/cart/cart_c_list";
 	}
 	
-	@RequestMapping("/cart/cart_cookie_list")
-	public String cart_cookie_list(HttpServletRequest request, Model model) throws UnsupportedEncodingException
+	@RequestMapping("/cart/cart_c_list")
+	public String cart_c_list(HttpServletRequest request, Model model) throws UnsupportedEncodingException
 	{
 		String name="";
 		String value="";
 		String decVal="";
-		String cookie=request.getHeader("Cookie");	//헤더정보에 쿠키 가져오기
+			
+		String strcookie=request.getCookies().toString();
+		Cookie[] cookie=request.getCookies();	//쿠키 가져오기
 		
 		if(cookie != null)
 		{
@@ -89,8 +93,11 @@ public class CartController {
 			System.out.println("쿠키없음");
 		}
 		
+		CartDao cdao=sqlSession.getMapper(CartDao.class);
+		ArrayList<CartDto> list=cdao.cart_c_list(strcookie);		
 		model.addAttribute("cookie", cookie);
-		return "/cart/cart_cookie_list";
+		model.addAttribute("list", list);
+		return "/cart/cart_c_list";
 	}
 	
 	
