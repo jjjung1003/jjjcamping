@@ -64,6 +64,7 @@ public class MemberController {
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		int result=mdao.userid_check(userid);
 		out.print(result);
+		System.out.println(userid);
 	}
 	
 	@RequestMapping("/login/mem_third")

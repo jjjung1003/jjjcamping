@@ -23,7 +23,7 @@ public class Mail_Send
 	{
 	     String host = "smtp.naver.com"; 
 	     final String username = "yunjjjung1003"; // 송신자 네이버 아이디
-	     final String password = "cyj1004*"; // 송신자 네이버 비밀번호  
+	     final String password = "****"; // 송신자 네이버 비밀번호  
 	     int port=465;
 	     int state=0;
 

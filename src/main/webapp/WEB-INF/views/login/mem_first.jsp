@@ -67,7 +67,7 @@
   <form method="post" name="agree" action="mem_second">
 	  <div id="cla1" name="cla" align="center"> 
 	    <div style="width:890px;color:#B40404" align="left"> 회원 가입을 하기에 앞서 회원약관을 읽어보시기 바랍니다. </div>
-	    <div> <textarea rows="15" cols="130">
+	    <div> <textarea rows="15" cols="120">
 	    제1장. 총칙
 1.제1조 (목적) 
 

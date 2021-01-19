@@ -9,7 +9,7 @@
 <body>
 	<table width="500" height="300" align="center" border="3">
 	  <tr>
-		<td>${tdto.id} ${tdto.title}</td>
+		<td height="50">${tdto.id} ${tdto.title}</td>
 	  </tr>	
 	  <tr>
 		<td>${tdto.content}</td>

@@ -45,7 +45,7 @@
 	<c:if test="${!(userid eq cdto.userid || userid eq 'admin')}">
 		<div align="center">
 	      <div> 문의글은 작성자와 관리자만 확인할 수 있습니다.</div> <p>	  	  
-	  		<a href="list?page=${page}" id="cscontent_btn"> 뒤로가기 </a>	  
+	  		<a href="cs_list?page=${page}" id="cscontent_btn"> 뒤로가기 </a>	  
 		</div>
 	</c:if>
 
@@ -79,7 +79,7 @@
 	<table width="700">  
       <form method="post" name="csdat" action="csdat_ok">      
       <input type="hidden" name="csid" value="${cdto.id}">
-      <input type="hidden" name="name" value="${name}">
+      <input type="hidden" name="name" value="${cdto.name}">
       <input type="hidden" name="page" value="${page}">
       <input type="hidden" name="userid" value="${userid}">
       <input type="hidden" name="id" value="0">

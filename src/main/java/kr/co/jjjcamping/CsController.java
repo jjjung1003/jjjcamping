@@ -127,7 +127,7 @@ public class CsController {
 	{
 		CsDatDao cddao=sqlSession.getMapper(CsDatDao.class);
 		cddao.csdat_ok(cddto);
-		return "redirect:/cs/content?id="+cddto.getCsid()+"&page="+request.getParameter("page");
+		return "redirect:/cs/cs_content?id="+cddto.getCsid()+"&page="+request.getParameter("page");
 	}
 	
 	@RequestMapping("/cs/csdat_del")

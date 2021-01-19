@@ -29,12 +29,12 @@
 	
 	function pwdchk(tt) {
 		
-		if(!(tt.value.length>=4 && tt.value.length<=10))
+		if(!(document.getElementById("pwd").value.length>=4 && document.getElementById("pwd").value.length<=10))
 		{
 			document.getElementById("pwd_msg").innerHTML="<span style='color:red;'> 4자이상 10자 이하로 가능합니다 </span>";
 			pwd_chk=0;
 		}	
-		else if(tt.value != document.jjj.pwd2.value)
+		else if(document.getElementById("pwd").value != document.getElementById("pwd2").value)
 		{
 			document.getElementById("pwd_msg").innerHTML="";
 			pwd_chk=0;
@@ -47,12 +47,12 @@
 	
 	function pwdchk_eq(tt) {
 		
-		if(!(tt.value.length>=4 && tt.value.length<=10))
+		if(!(document.getElementById("pwd2").value.length>=4 && document.getElementById("pwd2").value.length<=10))
 		{
 			document.getElementById("pwd2_msg").innerHTML="<span style='color:red;'> 4자이상 10자 이하로 가능합니다 </span>";
 			pwd_chk=0;
 		}
-		else if(tt.value != document.jjj.pwd.value)
+		else if(document.getElementById("pwd2").value != document.getElementById("pwd").value)
 		{
 			document.getElementById("pwd2_msg").innerHTML="<span style='color:red;'> 기재하신 비밀번호와 다릅니다. </span>"
 			pwd_chk=0;

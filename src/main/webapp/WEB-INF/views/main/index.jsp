@@ -116,8 +116,8 @@
 	.pop_2 {
 		position: fixed;
 		border: 1px solid #ccc;
-		top:20px;
-		left: 20px;
+		top:100px;
+		left: 520px;
 		z-index:10;
 	}
 </style>

@@ -40,7 +40,7 @@
 	<div align="center" id="cs_first"> <h2> 문의하기 </h2> </div>
 	<hr id="hr_1">
 	<div align="center" id="cs_second">
-	  <form method="post" action="write_ok" name="jjj">
+	  <form method="post" action="cs_write_ok" name="jjj">
 	  <input type="hidden" name="userid" value="${userid}">
 	  <input type="hidden" name="name" value="${cdto.name}">
 	    <table align="center" width="500" style="margin-bottom:50px">

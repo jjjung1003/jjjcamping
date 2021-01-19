@@ -158,7 +158,8 @@
 		
 		<br><p>
 		
-		<div>
+		<div> 선택한 정보를 확인해주세요!<br>
+		
 		  <input type="hidden" name="campValue" disabled>
 		  <input type="text" name="camp1" disabled> <br>	<!-- 선택한 캠핑장  -->
 		  

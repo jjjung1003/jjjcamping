@@ -32,18 +32,19 @@
 
 	function chk_userid(tt)
 	{
-		var chkuserid=tt.value;
-		tt.value=chkuserid.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, "");
+		var chkuserid=document.getElementById("userid").value;
+		document.getElementById("userid").value=chkuserid.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, "");		
 	}
-
+	
+	
 	var cyj=new XMLHttpRequest();
 	var id_chk=0;
 	var pwd_chk=0;
 	
 	function idchk() {
 
-		var uid=document.jjj.userid.value;
-		cyj.open("get","userid_check?userid="+uid);
+		var userid=document.getElementById("userid").value;
+		cyj.open("get","userid_check?userid="+userid);
 		cyj.send();
 	}	
 	
@@ -66,12 +67,12 @@
 	
 	function pwdchk(tt) {
 
-		if(!(tt.value.length>=4 && tt.value.length<=10))
+		if(!(document.getElementById("pwd").value.length>=4 && document.getElementById("pwd").value.length<=10))
 		{
 			document.getElementById("pwd_msg").innerHTML="<span style='color:red;'> 4자이상 10자 이하로 가능합니다 </span>";
 			pwd_chk=0;
 		}	
-		else if(tt.value != document.jjj.pwd2.value)
+		else if(document.getElementById("pwd").value != document.getElementById("pwd2").value)
 		{
 			document.getElementById("pwd_msg").innerHTML="";
 			pwd_chk=0;
@@ -84,12 +85,12 @@
 	
 	function pwdchk_eq(tt) {
 		
-		if(!(tt.value.length>=4 && tt.value.length<=10))
+		if(!(document.getElementById("pwd2").value.length>=4 && document.getElementById("pwd2").value.length<=10))
 		{
 			document.getElementById("pwd2_msg").innerHTML="<span style='color:red;'> 4자이상 10자 이하로 가능합니다 </span>";
 			pwd_chk=0;
 		}
-		else if(tt.value != document.jjj.pwd.value)
+		else if(document.getElementById("pwd2").value != document.getElementById("pwd").value)
 		{
 			document.getElementById("pwd2_msg").innerHTML="<span style='color:red;'> 기재하신 비밀번호와 다릅니다. </span>"
 			pwd_chk=0;
@@ -212,7 +213,7 @@
 	      </td>
 	    </tr>
 	    <tr>
-	      <td> <input type="password" name="pwd" id="pwd" placeholder="비밀번호" onblur="pwdchk(this)" onkeyup="chk_pwd(this)" style="width:450px; height:40px;">
+	      <td> <input type="password" name="pwd" id="pwd" placeholder="비밀번호" onblur="pwdchk(this)" style="width:450px; height:40px;">
 	      	   <span id="pwd_msg" style="font-size:12px;"></span>
 	      </td>
 	    </tr>

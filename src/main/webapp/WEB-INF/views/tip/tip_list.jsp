@@ -64,7 +64,7 @@
 <script>
 	function tip_content(id)
 	{
-		window.open("tip_content?id="+id,"","width=600,height=350")
+		window.open("tip_content?id="+id,"","width=500,height=250")
 	}
 </script>
 </head>
