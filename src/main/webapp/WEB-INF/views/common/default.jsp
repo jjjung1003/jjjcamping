@@ -294,7 +294,7 @@
 		      <li><a href="../cart/cart_cookie_list"><span class="material-icons">local_grocery_store 쿠키장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid eq 'admin'}">
-		      <li><div class="material-icons" style="margin-left:-650px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
+		      <li><div class="material-icons" style="margin-left:-570px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
 		    </c:if>
 	    </ul>
 	  </div>

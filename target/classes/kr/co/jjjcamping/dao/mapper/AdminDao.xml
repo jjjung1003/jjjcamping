@@ -38,7 +38,9 @@
 		order by id desc
 	</select>
 
-
+	<select id="reserve_list" resultType="kr.co.jjjcamping.dto.ReserveDto">
+		select * from reserve
+	</select>
 
 
 

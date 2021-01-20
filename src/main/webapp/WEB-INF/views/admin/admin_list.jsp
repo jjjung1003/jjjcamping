@@ -27,7 +27,7 @@
 		display:block;
 		width:130px;
 		height:25px;
-		border:4px solid orange;
+		border:3px solid orange;
 		border-radius:10px;
 		color:gray;
 		padding-top:5px;
@@ -41,13 +41,24 @@
 	<hr id="hr_1">
 	
 	<div align="center" id="admin_second">
-		<a href="store_write" class="admin_btn">매장등록</a> <p>
-		<a href="camp_write" class="admin_btn">캠핑장등록</a> <p>
-		<a href="member_list" class="admin_btn">회원목록</a> <p>
-		<a href="product_write" class="admin_btn">상품등록</a> <p>
-		<a href="product_all_list" class="admin_btn">전체상품</a> <p>
-		<a href="" class="admin_btn">카테고리생성</a> <p>
-		
+	  <table width="300" height="200">
+	    <tr align="center">
+	      <td><a href="member_list" class="admin_btn">회원목록</a></td>
+		  <td><a href="product_write" class="admin_btn">상품등록</a></td>
+		</tr>
+		<tr align="center">  
+		  <td><a href="product_all_list" class="admin_btn">전체상품</a></td>
+		  <td><a href="" class="admin_btn">카테고리생성</a></td>
+		</tr>
+		<tr align="center">
+		  <td><a href="store_write" class="admin_btn">매장등록</a></td>
+		  <td><a href="camp_write" class="admin_btn">캠핑장등록</a></td>
+		</tr>
+		<tr align="center">   
+		  <td><a href="reserve_check" class="admin_btn">예약확인</a></td>
+		  <td><a href="" class="admin_btn"></a></td>
+		</tr> 
+	  </table>	 
 	</div>
 </body>
 </html>

@@ -54,7 +54,7 @@
 </style>
 </head>
 <body>
-<div align="center" id="mem_first"> <h2> 전체 상품</h2> </div>
+<div align="center" id="mem_first"> <h2> 전체 회원</h2> </div>
 	<hr id="hr_1">
 	<div align="center">
 	<form method="post" action="member_list" name="jjj">

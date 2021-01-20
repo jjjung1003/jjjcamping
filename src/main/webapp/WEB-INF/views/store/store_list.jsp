@@ -9,7 +9,7 @@
 <style>
 	#hr_1 {
 		border:1px solid #B40404;
-		width:800px;
+		width:900px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -78,12 +78,12 @@
   </div>
   
   <div id="store_third" align="center">
-    <table width="950" align="center">
+    <table width="900" align="center">
       <tr>
       <c:set var="num" value="1"/>
       <c:forEach items="${slist}" var="sdto">
         <td width="330" height="400" align="center">
-          <a href="store_content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="270" height="250" style="border:3px solid orange; background:orange;"></a> <br>
+          <a href="store_content?id=${sdto.id}"> <img src="../store/img/${sdto.m_img}" width="250" height="230" style="border:3px solid orange; background:orange;"></a> <br>
           [${sdto.region} ${sdto.title}]<br> ${sdto.address}<br> ${sdto.phone}  
         </td>
         

@@ -2,7 +2,9 @@ package kr.co.jjjcamping;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,10 +21,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
+import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
 import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ProductDto;
+import kr.co.jjjcamping.dto.ReserveDto;
 import kr.co.jjjcamping.dto.StoreDto;
 
 @Controller
@@ -234,7 +238,19 @@ public class AdminController {
 		}	
 	}
 	
-	
+	@RequestMapping("/admin/reserve_check")
+	public String reserve_check(Model model)
+	{
+		Date date = new Date();
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-mm-dd");
+		String today = transFormat.format(date);
+		
+		AdminDao adao = sqlSession.getMapper(AdminDao.class);
+		ArrayList<ReserveDto> list=adao.reserve_list();
+		model.addAttribute("list", list);
+		model.addAttribute("today", today);
+		return "/admin/reserve_check";
+	}
 	
 	
 	
