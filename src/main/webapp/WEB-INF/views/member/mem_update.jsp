@@ -37,6 +37,13 @@
 		else
 			return true;
 	}
+	
+	function mem_del()
+	{
+		if(confirm("탈퇴를 진행하시겠습니까?"))
+			location.href='mem_del?id=${mdto.id}';
+		
+	}
 </script>
 <style>
 	#mpg_up {
@@ -64,11 +71,22 @@
 		display:block;
 		width:40px;
 		height:20px;
-		border:4px solid orange;
-		border-radius:10px;
+		border:3px solid orange;
+		border-radius:5px;
+		padding-left:7px;
 		color:gray;
-		padding-left:5px;
 		font-size:15px;	
+	}
+	
+	#mpg_btn2 {
+		display:block;
+		width:100px;
+		height:30px;
+		border:3px solid navy;
+		border-radius:5px;
+		color:gray;
+		font-size:15px;	
+		cursor:pointer;
 	}
 </style>
 </head>
@@ -148,6 +166,6 @@
 	</div>
 	
 </div>
-	<div id="mpg_btn" align="right"><a href="mem_del?id=${mdto.id}" id="mpg_btn1"> 회원 탈퇴 </a></div>
+	<div id="mpg_btn" align="right"><button  id="mpg_btn2" align="center" onclick="mem_del()">회원 탈퇴</button></div>
 </body>
 </html>

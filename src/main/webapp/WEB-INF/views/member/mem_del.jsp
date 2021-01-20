@@ -20,8 +20,14 @@
 	}
 	
 	#main_btn {
-		background-color:#2F0B3A;
-		color:white;
+		display:block;
+		width:150px;
+		height:25px;
+		border:4px solid orange;
+		border-radius:10px;
+		color:gray;
+		padding-top:5px;
+		font-size:15px;
 	}
 </style>
 </head>
@@ -30,7 +36,7 @@
 <div id="mem_del" align="center">
     <h2> 회원 탈퇴가 완료되었습니다. <br> 이용해 주셔서 감사합니다. </h2>
 	<hr id="hr_1">
-	
+	재가입을 진행하시기 위해서는 <br>고객센터 ☎ 1111-2222 으로 연락주시기 바랍니다. <br><p>
 	<a href="../main/index" id="main_btn">메인 화면으로 가기</a>
 	
 </div>	

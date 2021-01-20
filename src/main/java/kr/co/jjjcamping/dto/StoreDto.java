@@ -1,4 +1,4 @@
-	package kr.co.jjjcamping.dto;
+package kr.co.jjjcamping.dto;
 
 public class StoreDto {
 
