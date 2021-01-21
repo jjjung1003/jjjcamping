@@ -21,6 +21,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
+import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
@@ -218,7 +219,7 @@ public class AdminController {
 			String cla, search;
 			if(request.getParameter("cla") == null)
 			{
-				cla="userid";
+				cla="id";
 				search="";
 			}
 			else
@@ -252,7 +253,14 @@ public class AdminController {
 		return "/admin/reserve_check";
 	}
 	
-	
+	@RequestMapping("/admin/mem_rejoin")
+	public String mem_rejoin(HttpServletRequest request)
+	{
+		String id=request.getParameter("id");
+		MemberDao mdao = sqlSession.getMapper(MemberDao.class);
+		mdao.mem_rejoin(id);
+		return "redirect:/admin/member_list";
+	}
 	
 	
 	

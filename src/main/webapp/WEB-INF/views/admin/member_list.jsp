@@ -15,20 +15,20 @@
 		margin-bottom:150px;
 	}
 	
-	#mem_second #list_btn {
+	#mem_second #memlist_btn {
 		display:block;
-		width:70px;
+		width:95px;
 		height:25px;
-		border:4px solid orange;
-		border-radius:10px;
-		color:gray;
-		padding-top:5px;
+		border:2px solid navy;
+		border-radius:5px;
 		font-size:15px;
+		cursor:pointer;
+		font-size:10px;
 	}
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:900px;
+		width:1000px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -36,7 +36,7 @@
 	
 	select {
 		margin-top:5px;
-		width: 70px;
+		width: 80px;
 		height:30px;
 		border: 2px solid #999;
 	}
@@ -52,6 +52,13 @@
 		height:30px;
 	}
 </style>
+<script>
+	function mem_rejoin(id)
+	{
+		if(confirm("재가입을 위해 탈퇴회원의 아이디, 이메일을 삭제하시겠습니까?"))
+			location.href='mem_rejoin?id='+id;
+	}
+</script>
 </head>
 <body>
 <div align="center" id="mem_first"> <h2> 전체 회원</h2> </div>
@@ -59,6 +66,7 @@
 	<div align="center">
 	<form method="post" action="member_list" name="jjj">
 		<select name="cla">
+		    <option value="id"> 회원번호 </option>
 			<option value="userid"> 아이디 </option>
 			<option value="name"> 이름 </option>
 		</select>
@@ -68,9 +76,9 @@
 	</div>
 	
 	<div id="mem_second">
-	<table align="center" width="900">
+	<table align="center" width="1000">
 	  <tr style="font-size:15px">
-	    <td height="70"><strong>No.</strong></td>
+	    <td height="70"><strong>회원번호</strong></td>
 	    <td align="center"><strong>이름</strong></td>
 	    <td align="center"><strong>아이디</strong></td>
 	    <td align="center"><strong>성별</strong></td>
@@ -79,6 +87,7 @@
 	    <td align="center"><strong>이메일</strong></td>
 	    <td align="center"><strong>가입일</strong></td>
 	    <td align="center"><strong>회원상태</strong></td>
+	    <td align="center"><strong>재가입요청시</strong></td>
 	  </tr>
 	  
 	  <c:forEach items="${list}" var="mdto">	
@@ -94,11 +103,8 @@
 	 		<c:set var="wdimsi" value="정상회원"/>
 	 	  </c:if>
 	 	  <c:if test="${mdto.withdraw == 1}">
-	 		<c:set var="wdimsi" value="휴면회원"/>
-	 	  </c:if>
-	 	  <c:if test="${mdto.withdraw == 2}">
 	 		<c:set var="wdimsi" value="탈퇴회원"/>
-	 	  </c:if> 	
+	 	  </c:if>
 	  <tr>
 	    <td height="40">${mdto.id}</td>
 	    <td align="center"> ${mdto.name}</td>
@@ -109,6 +115,7 @@
 	    <td align="center">${mdto.email}</td>
 	    <td align="center">${mdto.writeday}</td>
 	    <td align="center">${wdimsi}</td>
+	    <td align="center"><button  id="memlist_btn" align="center" onclick="mem_rejoin(${mdto.id})">아이디/메일 삭제</button></td>
 	  </tr> 
 	  </c:forEach> 	   
 	</table> <p><br>

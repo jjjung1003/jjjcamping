@@ -24,7 +24,7 @@ public interface MemberDao {
 	public String pwd_check(String id);
 	public String pwd_check2(String userid);
 	
-	
+	public void mem_rejoin(String id);
 	
 	
 	

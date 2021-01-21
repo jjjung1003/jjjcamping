@@ -23,6 +23,8 @@ public interface AdminDao {
 	public ArrayList<MemberDto> member_list(String cla, String search);
 	
 	public ArrayList<ReserveDto> reserve_list();
+
+	
 	
 	
 	

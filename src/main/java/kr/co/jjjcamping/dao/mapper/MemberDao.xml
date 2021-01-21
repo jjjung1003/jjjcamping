@@ -15,7 +15,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert>
 			
 	<select id="login_ok" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
-		select * from member where userid=#{userid} and pwd=#{pwd} and withdraw=0
+		select * 
+		from member 
+		where userid=#{userid} and pwd=#{pwd} and withdraw=0
 	</select>
 	
 	<select id="id_search_ok" parameterType="kr.co.jjjcamping.dto.MemberDto" resultType="kr.co.jjjcamping.dto.MemberDto">
@@ -59,8 +61,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="pwd_check2" resultType="String">
-		select pwd from member where userid=#{param}
+		select pwd from member where userid=#{param} and withdraw=0
 	</select>
+	
+	<update id="mem_rejoin" parameterType="kr.co.jjjcamping.dto.MemberDto">
+		update member set userid=NULL ,email=NULL where id=#{param}
+	</update>
+	
+	
+	
 
 
 
