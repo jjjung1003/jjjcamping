@@ -59,9 +59,9 @@
 	#fifth 
 	{
 		width:1280px;
-		height:700px;
+		height:800px;
 		margin:auto;
-		margin-bottom:150px;
+		margin-bottom:0px;
 	}
 
 	#fifth #list {
@@ -73,7 +73,7 @@
 		width:1280px;
 		height:120px;
 		margin:0px;
-		margin-left:-40px;
+		margin-left:500px;
 		font-size:0px;
 	}
 	
@@ -110,14 +110,14 @@
 		height: 150px;
 		border: 1px solid #ccc;
 		top:50px;
-		left: 200px;
+		left: 203px;
 		z-index:10;
 	}
 	.pop_2 {
 		position: fixed;
 		border: 1px solid #ccc;
-		top:100px;
-		left: 520px;
+		top:20px;
+		left: 300px;
 		z-index:10;
 	}
 </style>
@@ -135,7 +135,7 @@
 	}
 </script>
 	<div class="pop_1"> Notice <br><br>
-		이 팝업은 방문기록이 없을 경우 확인 가능합니다.		
+		저희 jjjcamping에 오신것을 환영합니다 <br> <br>이 팝업은 방문기록이 없을 경우 확인 가능합니다.		
 	</div>
 	<button class="pop_2" onclick="Cookie_del()"> 방문기록삭제 </button>
 	<script>
@@ -192,35 +192,24 @@
       </div>
 	</div>
 	
-	<!-- <div id="fifth">
-	  <div id="list" style="margin-top:50px;">
-		<ul style="height:200px;margin-top:0px;">
-			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">NEW</a><br/>신상품<br/>&nbsp;<br/></li>
+	<div id="fifth">
+	  <div id="list" style="margin-top:10px;">
+		<ul style="height:180px;margin-top:0px;">
+			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">VIDEO</a><br/>sitemap<br/>&nbsp;<br/></li>
 		</ul>
-		<table width="1280" height="300" align="center" style="border:1px solid; margin-top:-70px;">
+		<table width="1100" height="700" align="center" style="margin-top:-80px;">
 		  <tr>
-		    <td>1</td>
-		    <td>2 </td>
-		    <td>3 </td>
-		    <td>4 </td>
-		    <td>5 </td>
-		  </tr> 
-		</table>
-		<ul style="height:200px;margin-top:0px;">
-			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">BEST</a><br/>판매량<br/>&nbsp;<br/></li>
-		</ul>
-		<table width="1280" height="300" align="center" style="border:1px solid; margin-top:-70px;">
-		  <tr>
-		    <td>1 </td>
-		    <td>2 </td>
-		    <td>3 </td>
-		    <td>4 </td>
-		    <td>5 </td>
+		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/zn7XzWeL3Xo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/fd5TEg8Gpvg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+		  </tr>  
+		  <tr>  
+		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/vnDC_sFkjtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/UCcxx1DBfAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 		  </tr> 
 		</table>
 	  </div>
 
-	  </div>  -->
+	  </div>
 	  
 </body>
 </html>

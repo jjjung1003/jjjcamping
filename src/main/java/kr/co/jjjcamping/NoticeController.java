@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -54,8 +57,12 @@ public class NoticeController {
 			ndto.setTitle(multi.getParameter("title"));
 			ndto.setContent(multi.getParameter("content"));
 			ndto.setFname(multi.getFilesystemName("fname"));
-			File file=multi.getFile("fname");
-			ndto.setFsize(file.length());
+			File ifile=multi.getFile("fname");
+			ndto.setFsize(ifile.length());
+			//동영상.. x
+			/*ndto.setVname(multi.getFilesystemName("vname"));
+			File vfile=multi.getFile("vname");
+			ndto.setVsize(vfile.length());*/
 			
 			ndao.write_ok(ndto);
 			return "redirect:/notice/notice_list";
@@ -212,6 +219,39 @@ public class NoticeController {
 			return "redirect:/login/login";
 		}	
 	}
+	
+	/*@RequestMapping(value = "/video/{id}", method = RequestMethod.GET)	//동영상.. 실패
+	public void getVideo(HttpServletRequest request, HttpServletResponse response, @PathVariable String id)
+	{
+		String filePath = FILE_PATH;
+		
+		FileModel fileModel = fileService.getFileInfo(Integer.parseInt(id));
+		
+		logger.info("동영상 스트리밍 요청: "+filePath + fileModel.getSaveFileName());
+		
+		File getFile = new File(filePath + fileModel.getSaveFileName());
+		
+		try {
+			MultipartFileSender
+			.fromFile(getFile)
+			.with(request)
+			.with(response)
+			.serveResource();
+		} catch (Exception e) {
+			if(!e.getClass().getName().equals("org.apache.catalina.connector.ClientAbortException")) e.printStackTrace();
+		}
+	}*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	

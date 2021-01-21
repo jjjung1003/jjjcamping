@@ -32,12 +32,12 @@
 	<div align="center"> <h2> 공지사항 글쓰기 </h2> </div>
 	<hr>
 	
-  <form method="post" action="write_ok" enctype="multipart/form-data">
+  <form method="post" action="notice_write_ok" enctype="multipart/form-data">
     <input type="hidden" name="userid" value="${userid}">
 	<table align="center" width="700">
 	  <tr>
 	    <td width="100">Name</td>
-	    <td>관리자</td>
+	    <td><input type="hidden" name="name" value="관리자">관리자</td>
 	  </tr>
 	  <tr>
 	    <td>Title</td>
@@ -48,9 +48,9 @@
 	    <td><textarea rows="20" cols="80" name="content"></textarea></td>
 	  </tr>	 
 	  <tr>  
-	    <td>File</td>
+	    <td>사진</td>
 	    <td><input type="file" name="fname"> <span style="color:red"> 파일 필수 선택 </span></td>
-	  </tr>	 
+	  </tr>
 	</table> <p>
 	<div align="center"> <input type="submit" value="등록하기"> </div>
   </form>

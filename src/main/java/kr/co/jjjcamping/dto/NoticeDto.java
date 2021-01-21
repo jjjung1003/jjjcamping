@@ -3,10 +3,23 @@ package kr.co.jjjcamping.dto;
 public class NoticeDto {
 
 	private int id, hit;
-	private long fsize;
-	private String name, pwd, title, content, fname, writeday;
+	private long fsize, vsize;
+	private String name, pwd, title, content, fname, vname, writeday;
 	
 	
+	
+	public long getVsize() {
+		return vsize;
+	}
+	public void setVsize(long vsize) {
+		this.vsize = vsize;
+	}
+	public String getVname() {
+		return vname;
+	}
+	public void setVname(String vname) {
+		this.vname = vname;
+	}
 	public String getPwd() {
 		return pwd;
 	}

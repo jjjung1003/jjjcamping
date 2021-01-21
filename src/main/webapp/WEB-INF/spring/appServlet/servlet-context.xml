@@ -36,11 +36,21 @@
 	  <beans:property name="username" value="root" /> 
 	  <beans:property name="password" value="1234" /> 
 	  </beans:bean>
+	  
 	 <beans:bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <beans:property name="dataSource" ref="dataSource" /> 
 	  <beans:property name="mapperLocations" value="classpath:kr/co/jjjcamping/**/mapper/*.xml" />
 	  </beans:bean>
+	  
 	 <beans:bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	  <beans:constructor-arg ref="sqlSessionFactory" /> 
 	  </beans:bean>
-	  </beans:beans>
+
+	  
+	  <!-- File 전송이 있는 경우 Spring 등록  -->
+	<!-- CommonsMultipartResolver -->
+	<beans:bean id="MultipartResolver"  
+			    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</beans:bean>
+	  
+	  </beans:beans>	  

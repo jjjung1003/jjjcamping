@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.co.jjjcamping.dao.NoticeDao">
 
 	<insert id="write_ok" parameterType="kr.co.jjjcamping.dto.NoticeDto">
-		insert into notice(name,title,content,fname,fsize,writeday)
-		values(#{name},#{title},#{content},#{fname},#{fsize},now())
+		insert into notice(name,title,content,fname,fsize,vname,vsize,writeday)
+		values(#{name},#{title},#{content},#{fname},#{fsize},#{vname},#{vsize},now())
 	</insert>
 	
 	<select id="list" resultType="kr.co.jjjcamping.dto.NoticeDto">

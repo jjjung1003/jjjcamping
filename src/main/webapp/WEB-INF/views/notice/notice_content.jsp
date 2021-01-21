@@ -52,9 +52,13 @@
 	    <td>${ndto.title}</td>
 	  </tr>
 	  <tr>  
-	    <td>File</td>
-	    <td><img src="../notice/img/${ndto.fname}" width="200"></td>
-	  </tr>	 
+	    <td>사진</td>
+	    <td><img src="../notice/img/${ndto.fname}" width="200" height="200"></td>
+	  </tr>	
+	  <tr>  
+	    <td>동영상</td>
+	    <td><video src="../notice/img/${ndto.vname}" controls width="300" height="300"> </video></td>
+	  </tr> 
 	  <tr>  
 	    <td>Content</td>
 	    <td>${ndto.content}</td>
