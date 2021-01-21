@@ -22,14 +22,6 @@
 		margin-bottom:150px;
 	}
 </style>
-<script>
-	function pro_cart(code)
-	{
-		//쿠키 생성
-		var str = "code="+code+"; max-age:60";
-		document.cookie=str;		
-	}
-</script>
 </head>
 <body>
 
@@ -63,15 +55,17 @@
 		  </tr>
 		</table> <p><br>
 		
+		  
 		<table width="650">
-		  <form method="post" action="../cart/cart_c_add">
-		    <input type="hidden" name="userid" value="${cookie}">
+		  <form method="post" action="../cart/cart_add">
+		    <input type="hidden" name="quantity" value="${pdto.quantity}">
+		    <input type="hidden" name="userid" value="${userid}">
 		    <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 		    <input type="hidden" name="quantity" value="${pdto.quantity}">
 		    <input type="hidden" name="code" value="${pdto.code}">
 		    <input type="hidden" name="price" value="${pdto.price*(100-pdto.discount)/100}">
 		    <input type="hidden" name="point" value="${pdto.point}">
-		    <input type="submit" value="주문하기" onclick="pro_cart('${pdto.code}')">
+		    <input type="submit" value="장바구니">
 		  </form>
 		</table>
 	</div>

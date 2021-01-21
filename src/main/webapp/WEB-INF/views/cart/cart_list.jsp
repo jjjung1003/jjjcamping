@@ -24,9 +24,10 @@
 <body>
 
 	<div align="center" id="cart_first">
-	<div align="center"> <h2> 전체 상품</h2> </div>
+	<div align="center"> <h2> 장바구니 </h2> </div>
 	<hr id="hr_1">
 	
+	<form method="post" action="../order/order_first">
 	 <table width="600">
 	   <tr>
 	     <td height="70"><strong>no.</strong></td>
@@ -43,12 +44,14 @@
 	     <td>${cdto.code}</td>
 	     <td>${cdto.pro_name}</td>
 	     <td align="center"><img src="../admin/img/product/${cdto.m_img}" width="80" height="60"></td>
-	     <td align="center">${cdto.price}</td>
+	     <td align="center"><input type="hidden" name="price" value="${cdto.price}">${cdto.price}</td>
 	     <td align="center"><a href="cart_del?id=${cdto.id}">X</a></td>
 	   </tr>  
 	   <c:set var="i" value="${i+1}"/>
 	   </c:forEach>
-	 </table>
+	 </table> <br><br>
+	 <input type="submit" value="주문하기">
+	 </form>
 	</div>
 </body>
 </html>

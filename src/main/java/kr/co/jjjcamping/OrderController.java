@@ -19,8 +19,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.CampDao;
+import kr.co.jjjcamping.dao.CartDao;
+import kr.co.jjjcamping.dao.OrderDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
+import kr.co.jjjcamping.dto.CartDto;
 import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ProductDto;
 import kr.co.jjjcamping.dto.StoreDto;
@@ -32,8 +35,14 @@ public class OrderController {
 	public SqlSession sqlSession;
 	
 	@RequestMapping("/order/order_first")
-	public String order_first()
+	public String order_first(HttpSession session, HttpServletRequest request, Model model)
 	{
+		String userid=session.getAttribute("userid").toString();
+		String price=request.getParameter("price");
+		OrderDao odao=sqlSession.getMapper(OrderDao.class);
+		ArrayList<CartDto> list=odao.cart_list(userid);
+		model.addAttribute("list", list);
+		model.addAttribute("price", price);
 		return "/order/order_first";
 	}
 	
