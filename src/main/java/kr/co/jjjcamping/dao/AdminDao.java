@@ -24,6 +24,8 @@ public interface AdminDao {
 	
 	public ArrayList<ReserveDto> reserve_list();
 
+	public void product_del(String id);
+
 	
 	
 	

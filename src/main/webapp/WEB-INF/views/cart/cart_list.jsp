@@ -20,14 +20,29 @@
 		margin-bottom:150px;
 	}
 </style>
+<script src="//code.jquery.com/jquery-1.11.0.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script>	
+	function tot(){       
+    	var id = $("input[name=price]").length();
+    	var tot_price=0;  
+    	for(i=0; i<id; i++){
+        	var id11 = $("input[name=price]").eq(i).val();
+            num  += Number(id11);              
+        }
+        alert(num);
+ }
+</script>
 </head>
 <body>
-
 	<div align="center" id="cart_first">
 	<div align="center"> <h2> 장바구니 </h2> </div>
 	<hr id="hr_1">
 	
 	<form method="post" action="../order/order_first">
+	
 	 <table width="600">
 	   <tr>
 	     <td height="70"><strong>no.</strong></td>
@@ -37,6 +52,7 @@
 	     <td align="center"><strong>정가</strong></td>
 	     <td align="center"><strong>삭제</strong></td>
 	   </tr>
+	   
 	   <c:set var="i" value="1"/>
 	   <c:forEach items="${list}" var="cdto">
 	   <tr>
@@ -44,13 +60,15 @@
 	     <td>${cdto.code}</td>
 	     <td>${cdto.pro_name}</td>
 	     <td align="center"><img src="../admin/img/product/${cdto.m_img}" width="80" height="60"></td>
-	     <td align="center"><input type="hidden" name="price" value="${cdto.price}">${cdto.price}</td>
+	     <td align="center"><input type="hidden" id="price" name="price" value="${cdto.price}">${cdto.price}</td>
 	     <td align="center"><a href="cart_del?id=${cdto.id}">X</a></td>
 	   </tr>  
 	   <c:set var="i" value="${i+1}"/>
+	   	   
 	   </c:forEach>
+	   
 	 </table> <br><br>
-	 <input type="submit" value="주문하기">
+	 <input type="submit" value="주문하기" onclick="javascript:tot();">
 	 </form>
 	</div>
 </body>

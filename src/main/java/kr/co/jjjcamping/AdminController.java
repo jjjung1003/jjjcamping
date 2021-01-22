@@ -21,6 +21,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
 import kr.co.jjjcamping.dao.MemberDao;
+import kr.co.jjjcamping.dao.ProductDao;
 import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dto.CampDto;
 import kr.co.jjjcamping.dto.MemberDto;
@@ -205,6 +206,15 @@ public class AdminController {
 			session.invalidate();
 			return "redirect:/login/login";			
 		}	
+	}
+	
+	@RequestMapping("/admin/product_del")
+	public String product_del(HttpServletRequest request)
+	{
+		String id=request.getParameter("id");
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
+		adao.product_del(id);
+		return "redirect:/admin/product_all_list";
 	}
 	
 	@RequestMapping("/admin/member_list")

@@ -78,6 +78,7 @@
 	    <td align="center"><strong>판매여부</strong></td>
 	    <td align="center"><strong>재고수량</strong></td>
 	    <td align="center"><strong>등록일</strong></td>
+	    <td align="center"><strong>상품삭제</strong></td>
 	  </tr>
 	  
 	  <c:forEach items="${list}" var="pdto">
@@ -102,7 +103,7 @@
 	    <td align="center">${imsi}</td>
 	    <td align="center">${pdto.quantity}</td>
 	    <td align="center">${pdto.writeday}</td>
-	    
+	    <td align="center"><a href="product_del?id=${pdto.id}">X</a></td>
 	  </tr> 
 	  </c:forEach> 	   
 	</table> <p><br>

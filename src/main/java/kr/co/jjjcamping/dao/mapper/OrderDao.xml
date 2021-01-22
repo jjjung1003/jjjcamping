@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.jjjcamping.dao.OrderDao">
 
-	<select id="cart_list" resultType="kr.co.jjjcamping.dto.CartDto">
+	<select id="order_first" resultType="kr.co.jjjcamping.dto.CartDto">
 		select * from cart where userid=#{param}
 	</select>
 

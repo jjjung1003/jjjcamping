@@ -3,6 +3,7 @@ package kr.co.jjjcamping;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -38,11 +39,12 @@ public class OrderController {
 	public String order_first(HttpSession session, HttpServletRequest request, Model model)
 	{
 		String userid=session.getAttribute("userid").toString();
-		String price=request.getParameter("price");
+		String tot_price=request.getParameter("tot_price");
 		OrderDao odao=sqlSession.getMapper(OrderDao.class);
-		ArrayList<CartDto> list=odao.cart_list(userid);
+		ArrayList<CartDto> list=odao.order_first(userid);
+
 		model.addAttribute("list", list);
-		model.addAttribute("price", price);
+		model.addAttribute("tot_price", tot_price);
 		return "/order/order_first";
 	}
 	

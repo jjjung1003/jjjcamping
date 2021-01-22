@@ -6,8 +6,8 @@
 <mapper namespace="kr.co.jjjcamping.dao.CartDao">
 
 	<insert id="cart_add" parameterType="kr.co.jjjcamping.dto.CartDto">
-		insert into cart(userid,pro_name, code, quantity, writeday)
-		values(#{userid},#{pro_name},#{code},#{quantity},now())
+		insert into cart(userid,pro_name, code, quantity,price, writeday)
+		values(#{userid},#{pro_name},#{code},#{quantity},#{price},now())
 	</insert>
 
 	<select id="cart_list" resultType="kr.co.jjjcamping.dto.ProductDto">

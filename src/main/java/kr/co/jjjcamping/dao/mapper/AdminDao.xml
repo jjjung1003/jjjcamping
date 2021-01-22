@@ -41,6 +41,11 @@
 	<select id="reserve_list" resultType="kr.co.jjjcamping.dto.ReserveDto">
 		select * from reserve
 	</select>
+	
+	<delete id="product_del">
+		delete from product
+		where id=#{param}
+	</delete>
 
 
 
