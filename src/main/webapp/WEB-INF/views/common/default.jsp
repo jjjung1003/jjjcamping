@@ -221,11 +221,13 @@
 	.def_btn {
 		display:block;
 		width:120px;
-		height:20px;
+		height:25px;
+		padding-top:5px;
 		border:3px solid gray;
 		border-radius:5px;
 		color:gray;
 		font-size:15px;
+		font-weight:bold;
 	}
 </style>
 <script>
@@ -282,19 +284,19 @@
 	    <ul>
 		  
 		    <c:if test="${userid eq null}">
-		  	  <li><a href="../login/mem_first"><span class="material-icons">person회원가입</span></a></li>
-		      <li><a href="../login/login"><span class="material-icons">vpn_key로그인</span></a></li>
-		      <li><a href="../cart/cart_c_list"><span class="material-icons">local_grocery_store 비회원장바구니</span></a></li>
+		  	  <li style="width:90px;"><a href="../login/mem_first"><span class="material-icons">person회원가입</span></a></li>
+		      <li style="width:80px;"><a href="../login/login"><span class="material-icons">vpn_key로그인</span></a></li>
+		      <li style="width:140px;"><a href="../cart/cart_c_list"><span class="material-icons">local_grocery_store 비회원장바구니</span></a></li>
 		    </c:if>
 		    <c:if test="${userid ne null}">		    
-		      <li><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
-		      <li><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
-			  <li><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
-			  <li><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
-		      <li><a href="../cart/cart_list"><span class="material-icons">local_grocery_store 장바구니</span></a></li>		      
+		      <li style="width:90px;"><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
+		      <li style="width:100px;"><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
+			  <li style="width:90px;"><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
+			  <li style="width:90px;"><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
+		      <li style="width:90px;"><a href="../cart/cart_list"><span class="material-icons">local_grocery_store 장바구니</span></a></li>		      
 		    </c:if>
 		    <c:if test="${userid eq 'admin'}">
-		      <li><div class="material-icons" style="margin-left:-570px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
+		      <li><div class="material-icons" style="margin-left:-700px"><a href="../admin/admin_list">assignment_ind관리자페이지</a></div></li>
 		    </c:if>
 	    </ul>
 	  </div>
@@ -373,10 +375,10 @@
 	<div id="footer1" valign="center">
 		<table id="obj">
 		  <tr height="60">
-		    <td style="font-size:17px;color:gray"> 고객센터 </td>
+		    <td style="font-size:20px;color:gray;font-weight:bold;"> 고객센터 </td>
 		  </tr>
 		  <tr>
-		    <td style="font-size:30px;color:#DC890C;font-weight:bold;"> 1111-2222 </td>
+		    <td style="font-size:40px;color:orange;font-weight:bold;"> 1111-2222 </td>
 		  </tr>
 		  <tr>
 		    <td> 상담시간 AM 09:00 ~ PM 06:00 <br>점심시간 AM 12:00 ~ PM 01:00 <br> 토요일, 일요일, 공휴일 휴무 <p/></td>

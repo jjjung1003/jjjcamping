@@ -20,10 +20,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.jjjcamping.command.Product_write_okCommand;
 import kr.co.jjjcamping.dao.AdminDao;
-import kr.co.jjjcamping.dao.CampDao;
 import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.ReserveDao;
-import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
 import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ProductDto;
@@ -240,16 +238,20 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin/reserve_check")
-	public String reserve_check(Model model)
+	public String reserve_check(HttpSession session, Model model)
 	{
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
+		
 		Date date = new Date();
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String today = transFormat.format(date);
 		
 		AdminDao adao = sqlSession.getMapper(AdminDao.class);
 		ArrayList<ReserveDto> list=adao.reserve_list();
 		model.addAttribute("list", list);
 		model.addAttribute("today", today);
+		model.addAttribute("mdto", mdto);
 		return "/admin/reserve_check";
 	}
 	
@@ -262,7 +264,14 @@ public class AdminController {
 		return "redirect:/admin/member_list";
 	}
 	
-	
+	@RequestMapping("/admin/reserve_del")
+	public String reserve_del(HttpServletRequest request)
+	{
+		String id=request.getParameter("id");
+		ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
+		rdao.reserve_del(id);
+		return "redirect:/admin/reserve_check";
+	}
 	
 	
 	

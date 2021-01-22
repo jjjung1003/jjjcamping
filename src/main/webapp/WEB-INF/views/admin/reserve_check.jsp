@@ -24,12 +24,11 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:850px;
+		width:900px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
 	}
-
 </style>
 </head>
 <body>
@@ -37,28 +36,29 @@
 	<hr id="hr_1">
 	
 	<div id="reserve_second">
-	<table align="center" width="850">
+	<table align="center" width="900">
 	<caption><h3>종료된예약</h3></caption>
-	  <tr style="font-size:17px" id="r_table">
-	    <td>No.</td>
+	  <tr style="font-size:20px">
+	    <td height="30">No.</td>
 	    <td>신청일</td>
 	    <td>캠핑장</td>
 	    <td>예약자명</td>
 	    <td>아이디</td>
+	    <td>연락처</td>
 	    <td>입실일</td>
 	    <td>퇴실일</td>
 	    <td>데크번호</td>
-	    <td>예약취소</td>
 	  </tr>
 	  
 	  <c:forEach items="${list}" var="rdto">
-	  <c:if test="${rdto.in_date <= today}">	   
-	  <tr>
+	  <c:if test="${rdto.in_date < today}">	   
+	  <tr height="30">
 	    <td> ${rdto.id} </td>
 	    <td> ${rdto.writeday} </td>
 	    <td> ${rdto.camp} </td>
 	    <td> ${rdto.name} </td>
 	    <td> ${rdto.userid} </td>
+	    <td> ${mdto.phone} </td>
 	    <td> ${rdto.in_date} </td>
 	    <td> ${rdto.out_date} </td>
 	    <td> ${rdto.a_deck} </td>
@@ -67,14 +67,15 @@
 	  </c:forEach>
 	  </table> <p><br>
 	  
-	  <table align="center" width="850">
+	  <table align="center" width="900">
 	  <caption><h3>다가오는예약</h3></caption>
-	  <tr style="font-size:17px" id="r_table">
-	    <td>No.</td>
+	  <tr style="font-size:20px;">
+	    <td height="30">No.</td>
 	    <td>신청일</td>
 	    <td>캠핑장</td>
 	    <td>예약자명</td>
 	    <td>아이디</td>
+	    <td>연락처</td>
 	    <td>입실일</td>
 	    <td>퇴실일</td>
 	    <td>데크번호</td>
@@ -83,16 +84,17 @@
 	  
 	  <c:forEach items="${list}" var="rdto">
 	  <c:if test="${rdto.in_date >= today}">	   
-	  <tr>
+	  <tr height="30">
 	    <td> ${rdto.id} </td>
 	    <td> ${rdto.writeday} </td>
 	    <td> ${rdto.camp} </td>
 	    <td> ${rdto.name} </td>
 	    <td> ${rdto.userid} </td>
+	    <td> ${mdto.phone} </td>
 	    <td> ${rdto.in_date} </td>
 	    <td> ${rdto.out_date} </td>
 	    <td> ${rdto.a_deck} </td>
-	    <td><a href="../reserve/reserve_del?id=${rdto.id}"> X </a></td>
+	    <td><a href="../admin/reserve_del?id=${rdto.id}"> X </a></td>
 	  </tr>
 	  </c:if>
 	  </c:forEach>  

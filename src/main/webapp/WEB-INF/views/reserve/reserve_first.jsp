@@ -125,7 +125,7 @@
 	<div>
 	  <form method="post" action="reserve_second" name="jjj" onsubmit="return check(this)">
 	  <input type="hidden" name="userid" value="${userid}">
-	  <input type="hidden" name="name" value="${name}">
+	  <input type="hidden" name="name" value="${mdto.name}">
 	    <div>	    
 	    <select name="camp" onChange="campSelectValue(this.form);">
 	      <option value=""> 캠핑장선택 </option>

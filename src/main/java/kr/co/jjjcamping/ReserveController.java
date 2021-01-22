@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.jjjcamping.dao.CampDao;
+import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dto.CampDto;
+import kr.co.jjjcamping.dto.MemberDto;
 import kr.co.jjjcamping.dto.ReserveDto;
 
 @Controller
@@ -50,8 +52,11 @@ public class ReserveController {
 	}
 	
 	@RequestMapping("/reserve/reserve_first")
-	public String reserve_first(HttpSession session)
+	public String reserve_first(HttpSession session, Model model)
 	{
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
+		model.addAttribute("mdto", mdto);
 		return "/reserve/reserve_first";
 	}
 	

@@ -61,7 +61,7 @@
 		width:1280px;
 		height:800px;
 		margin:auto;
-		margin-bottom:0px;
+		margin-bottom:100px;
 	}
 
 	#fifth #list {
