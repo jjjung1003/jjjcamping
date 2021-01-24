@@ -3,10 +3,16 @@ package kr.co.jjjcamping.dto;
 public class MemberDto {
 
 	private int id, cla1, cla2, cla3, cla4;
-	private String name, userid, pwd, email, birth, gen, phone, withdraw, writeday;
+	private String name, userid, pwd, email, birth, gen, phone, withdraw, point, writeday;
 	
 
 
+	public String getPoint() {
+		return point;
+	}
+	public void setPoint(String point) {
+		this.point = point;
+	}
 	public String getWithdraw() {
 		return withdraw;
 	}
