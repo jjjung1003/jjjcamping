@@ -31,11 +31,17 @@ public class CartController {
 	public SqlSession sqlSession;
 	
 	@RequestMapping("/cart/cart_add")
-	public String cart_add(CartDto cdto, HttpSession session)
+	public String cart_add(CartDto cdto, HttpSession session, HttpServletRequest request)
 	{
-		CartDao cdao=sqlSession.getMapper(CartDao.class);
-		cdao.cart_add(cdto);
-		return "redirect:/cart/cart_list";
+		if(session.getAttribute("userid")!=null)
+		{				
+			CartDao cdao=sqlSession.getMapper(CartDao.class);
+			cdao.cart_add(cdto);
+			return "redirect:/cart/cart_list";
+		}
+		else
+			return "redirect:/login/login";
+			
 	}
 	
 	@RequestMapping("/cart/cart_list")

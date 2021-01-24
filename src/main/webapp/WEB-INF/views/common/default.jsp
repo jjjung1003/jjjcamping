@@ -286,7 +286,7 @@
 		    <c:if test="${userid eq null}">
 		  	  <li style="width:90px;"><a href="../login/mem_first"><span class="material-icons">person회원가입</span></a></li>
 		      <li style="width:80px;"><a href="../login/login"><span class="material-icons">vpn_key로그인</span></a></li>
-		      <li style="width:140px;"><a href="../cart/cart_c_list"><span class="material-icons">local_grocery_store 비회원장바구니</span></a></li>
+		      <!-- <li style="width:140px;"><a href="../cart/cart_c_list"><span class="material-icons">local_grocery_store 비회원장바구니</span></a></li> -->
 		    </c:if>
 		    <c:if test="${userid ne null}">		    
 		      <li style="width:90px;"><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
