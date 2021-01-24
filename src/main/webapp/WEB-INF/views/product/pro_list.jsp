@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,7 @@
 	
 	#hr_1 {
 		border:1px solid #B40404;
-		width:900px;
+		width:850px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -52,6 +53,10 @@
 		width: 70px;
 		height:30px;
 	}
+	
+	.jjj_td {
+		 border-bottom:1px solid #BDBDBD;
+	}
 </style>
 
 </head>
@@ -70,15 +75,14 @@
 	</div>
 	
 	<div id="pro_second">
-	<table align="center" width="900">
+	<table align="center" width="850">
 	  <tr style="font-size:15px">
-	    <td height="70"><strong>Code</strong></td>
-	    <td align="center"><strong>상품명</strong></td>
-	    <td align="center"><strong>메인이미지</strong></td>
+	  	<td align="center"></td>
+	    <td align="center"><strong>상품코드</strong></td>
+	    <td align="center"><strong>상품명</strong></td>	    
 	    <td align="center"><strong>정가</strong></td>
+	    <td align="center"><strong>판매가</strong></td>
 	    <td align="center"><strong>판매여부</strong></td>
-	    <td align="center"><strong>재고수량</strong></td>
-	    <td align="center"><strong>등록일</strong></td>
 	  </tr>
 	  
 	  <c:forEach items="${list}" var="pdto">
@@ -98,15 +102,14 @@
 	  <input type="hidden" name="code" value="${pdto.code}">
 	  <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 	  <input type="hidden" name="quantity" value="${pdto.quantity}">	  
-	    <td height="40">${pdto.code}</td>
-	    <td align="center"> ${pdto.pro_name}</td>
-	    <td align="center"><a href="pro_content?code=${pdto.code}"><img src="../admin/img/product/${pdto.m_img}" width="80" height="60"></a></td>
-	    <td align="center">${pdto.price}</td>
-	    <td align="center">${imsi}</td>
-	    <td align="center">${pdto.quantity}</td>
-	    <td align="center">${pdto.writeday}</td>
+	    <td align="center"><a href="pro_content?code=${pdto.code}"><img src="../admin/img/product/${pdto.m_img}" width="150" height="130"></a></td>
+	    <td class="jjj_td" align="center">${pdto.code}</td>
+	    <td class="jjj_td" align="center"> ${pdto.pro_name}</td>
+	    <td class="jjj_td" align="center"><fmt:formatNumber value="${pdto.price}"/>원</td>
+	    <td class="jjj_td" align="center"><fmt:formatNumber value="${pdto.price*(100-pdto.discount)/100}"/>원</td>
+	    <td class="jjj_td" align="center">${imsi}</td>
 	  </form>  
-	  </tr> 
+	  </tr>
 	  </c:forEach> 	   
 	</table> <p><br>
 	

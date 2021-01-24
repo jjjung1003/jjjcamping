@@ -31,7 +31,7 @@
 	
 		<table width="650">
 		  <tr>
-		    <td rowspan="7" width="350"><img src="../admin/img/product/${pdto.m_img}" width="300" height="200"></td>
+		    <td rowspan="7" width="350"><img src="../admin/img/product/${pdto.m_img}" width="300" height="250"></td>
 		  </tr>
 		  <tr>
 		    <td width="120">상품코드 :</td>
@@ -63,10 +63,19 @@
 		    <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 		    <input type="hidden" name="quantity" value="${pdto.quantity}">
 		    <input type="hidden" name="code" value="${pdto.code}">
-		    <input type="hidden" name="price" value="${pdto.price*(100-pdto.discount)/100}">
+		    <input type="hidden" name="d_price" value="${pdto.price*(100-pdto.discount)/100}">
 		    <input type="hidden" name="point" value="${pdto.point}">
 		    <input type="submit" value="장바구니">
 		  </form>
+		</table> <br><br><br><br><br>
+		
+		<table width="650">
+		  <tr>
+		    <td align="center">상세이미지</td>
+		  </tr>
+		  <tr>
+		    <td rowspan="7"><img src="../admin/img/product/${pdto.d_img}" width="650" height="550"></td>
+		  </tr>
 		</table>
 	</div>
 

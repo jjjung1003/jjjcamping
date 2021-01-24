@@ -34,10 +34,13 @@ public class CartController {
 	public String cart_add(CartDto cdto, HttpSession session, HttpServletRequest request)
 	{
 		if(session.getAttribute("userid")!=null)
-		{				
+		{	
+			String price=request.getParameter("price");
+			String d_price=request.getParameter("d_price");
+			
 			CartDao cdao=sqlSession.getMapper(CartDao.class);
 			cdao.cart_add(cdto);
-			return "redirect:/cart/cart_list";
+			return "redirect:/cart/cart_list?d_price="+d_price;
 		}
 		else
 			return "redirect:/login/login";
@@ -45,13 +48,17 @@ public class CartController {
 	}
 	
 	@RequestMapping("/cart/cart_list")
-	public String cart_list(HttpServletRequest request, HttpSession session,Model model)
+	public String cart_list(HttpServletRequest request, HttpSession session,Model model, CartDto cdto)
 	{
 		String userid=session.getAttribute("userid").toString();
 		String code=request.getParameter("code");
+		String d_price=request.getParameter("d_price");
+
+		System.out.println(d_price);
 		CartDao cdao=sqlSession.getMapper(CartDao.class);
 		ArrayList<ProductDto> list=cdao.cart_list(userid);
 		model.addAttribute("list", list);
+		model.addAttribute("d_price", d_price);
 		return "/cart/cart_list";
 	}
 	
@@ -65,15 +72,15 @@ public class CartController {
 		return "redirect:/cart/cart_list";
 	}	
 	
-	@RequestMapping("/cart/cart_c_add")
+	/*@RequestMapping("/cart/cart_c_add")
 	public String cart_c_add(HttpServletRequest request, CartDto cdto)
 	{		
 		CartDao cdao=sqlSession.getMapper(CartDao.class);
 		cdao.cart_c_add(cdto);
 		return "redirect:/cart/cart_c_list";
-	}
+	}*/
 	
-	@RequestMapping("/cart/cart_c_list")
+	/*@RequestMapping("/cart/cart_c_list")
 	public String cart_c_list(HttpServletRequest request, Model model) throws UnsupportedEncodingException
 	{
 		String name="";
@@ -104,7 +111,7 @@ public class CartController {
 		model.addAttribute("cookie", cookie);
 		model.addAttribute("list", list);
 		return "/cart/cart_c_list";
-	}
+	}*/
 	
 	
 	
