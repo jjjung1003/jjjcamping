@@ -84,7 +84,6 @@
 </script>
 </head>
 <body>
-<%-- <c:if test="${userid == 'admin'}">	 --%>
   
 <div align="center" id="pro_first"> <h2> 상품 정보 등록 </h2> </div>
 <hr id="hr_1">
@@ -128,7 +127,7 @@
 		<td colspan="2"><input type="file" name="d_img"></td>
 	  </tr> 
 			
-	  <tr>
+	  <!-- <tr>
 		<td> 옵션 1 </td>
 		<td colspan="2"> <input type="text" name="opt1" placeholder="없으면 입력 X"> </td>
 	  </tr>
@@ -139,7 +138,7 @@
 	  <tr>
 		<td> 옵션 3 </td>
 		<td colspan="2"> <input type="text" name="opt3" placeholder="없으면 입력 X"> </td>
-	  </tr>
+	  </tr> -->
 	  
       <tr>
 		<td> 제조사 </td>

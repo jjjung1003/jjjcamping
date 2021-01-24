@@ -26,6 +26,10 @@ public interface AdminDao {
 
 	public void product_del(String id);
 
+	public ProductDto product_update(String id);
+
+	public void product_update_ok(ProductDto pdto);
+
 	
 	
 	

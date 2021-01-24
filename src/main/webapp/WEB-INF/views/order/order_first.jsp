@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,15 +42,15 @@
 	     <td>${i}</td>
 	     <td>${cdto.code}</td>
 	     <td>${cdto.pro_name}</td>
-	     <td align="center" value="${i}" class="">${cdto.price} 원</td>
+	     <td align="center" value="${i}"><fmt:formatNumber value="${cdto.d_price}"/> 원</td>
 	   </tr>    
 	    
 	   <c:set var="i" value="${i+1}"/>
-	   <c:set var="tot_price" value="${tot_price+cdto.price}"/>
+	   <c:set var="tot_price" value="${tot_price+cdto.d_price}"/>
 	   </c:forEach>
 	 </table> <br><br>
 	 <input type="hidden" name="tot_price" id="tot_price" value="${tot_price}">
-	<div>합계 : ${tot_price} 원</div><br><br>
+	<div>합계 : <fmt:formatNumber value="${tot_price}"/> 원</div><br><br>
 
 	 <input type="submit" value="주문하기">
 	 </form>

@@ -160,7 +160,7 @@ public class AdminController {
 		{			
 			AdminDao adao=sqlSession.getMapper(AdminDao.class);
 			
-			String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img";
+			String path="C:\\web_spring\\jjjcamping\\src\\main\\webapp\\WEB-INF\\views\\admin\\img\\product";
 			int max=1024*1024*20;
 			MultipartRequest multi=new MultipartRequest(request,path,max,"utf-8",new DefaultFileRenamePolicy());
 			
@@ -208,6 +208,24 @@ public class AdminController {
 		}	
 	}
 	
+	@RequestMapping("/admin/product_update")
+	public String product_update(HttpServletRequest request, Model model)
+	{
+		String id=request.getParameter("id");
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
+		ProductDto pdto=adao.product_update(id);
+		model.addAttribute("pdto", pdto);
+		return "/admin/product_update";
+	}
+	
+	@RequestMapping("/admin/product_update_ok")
+	public String product_update_ok(ProductDto pdto)
+	{
+		AdminDao adao=sqlSession.getMapper(AdminDao.class);
+		adao.product_update_ok(pdto);
+		return "redirect:/admin/product_all_list";
+	}
+		
 	@RequestMapping("/admin/product_del")
 	public String product_del(HttpServletRequest request)
 	{

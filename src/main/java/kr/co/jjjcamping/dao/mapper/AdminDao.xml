@@ -47,6 +47,19 @@
 		where id=#{param}
 	</delete>
 
+	<select id="product_update" resultType="kr.co.jjjcamping.dto.ProductDto">
+		select * from product
+		where id=#{param}
+	</select>
+
+	<update id="product_update_ok" parameterType="kr.co.jjjcamping.dto.ProductDto">
+		update product set 
+		price=#{price}, discount=#{discount}, point=#{point}, pro_stock=#{pro_stock}, quantity=#{quantity}
+		where id=#{id}
+	</update>
+
+
+
 
 
 

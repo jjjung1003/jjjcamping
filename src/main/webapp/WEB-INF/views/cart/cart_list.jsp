@@ -42,7 +42,6 @@
 	     <td height="70"><strong>상품 코드</strong></td>
 	     <td align="center"><strong>상품명</strong></td>
 	     <td align="center"><strong>메인이미지</strong></td>
-	     <td align="center"><strong>정가</strong></td>
 	     <td align="center"><strong>판매가</strong></td>
 	     <td align="center"><strong>삭제</strong></td>
 	   </tr>
@@ -54,8 +53,7 @@
 	     <td>${cdto.code}</td>			
 	     <td>${cdto.pro_name}</td>
 	     <td align="center"><img src="../admin/img/product/${cdto.m_img}" width="80" height="60"></td>
-	     <td align="center"><fmt:formatNumber value="${cdto.price}"/>원</td>
-	     <td align="center"><input type="hidden" id="d_price" name="d_price" value="${d_price}"><fmt:formatNumber value="${d_price}"/>원</td>
+	     <td align="center"><fmt:formatNumber value="${cdto.price*(100-cdto.discount)/100}"/>원</td>
 	     <td align="center"><a href="cart_del?id=${cdto.id}">X</a></td>
 	   </tr>  
 	   <c:set var="i" value="${i+1}"/>

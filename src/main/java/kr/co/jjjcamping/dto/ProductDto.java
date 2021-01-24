@@ -3,9 +3,15 @@
 public class ProductDto {
 
 	private int id, price, sale, discount, point, payment, charge, pro_stock, quantity;
-	private String pro_name, code, m_img, d_img, made, writeday;
+	private String pro_name, code, m_img, d_img, made, d_price, writeday;
 	
 	
+	public String getD_price() {
+		return d_price;
+	}
+	public void setD_price(String d_price) {
+		this.d_price = d_price;
+	}
 	public int getId() {
 		return id;
 	}

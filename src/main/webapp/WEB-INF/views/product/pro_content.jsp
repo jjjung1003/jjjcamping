@@ -63,6 +63,7 @@
 		    <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 		    <input type="hidden" name="quantity" value="${pdto.quantity}">
 		    <input type="hidden" name="code" value="${pdto.code}">
+		    <input type="hidden" name="discount" value="${pdto.discount}">
 		    <input type="hidden" name="d_price" value="${pdto.price*(100-pdto.discount)/100}">
 		    <input type="hidden" name="point" value="${pdto.point}">
 		    <input type="submit" value="장바구니">

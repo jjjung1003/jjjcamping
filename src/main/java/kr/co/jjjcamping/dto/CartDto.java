@@ -3,11 +3,15 @@
 public class CartDto {
 
 	private int id, quantity, point;
-	private String userid, pro_name, code, cookie, price, discount, writeday;
-	
-	
+	private String userid, pro_name, code, cookie, price, discount, d_price, writeday;
 	
 
+	public String getD_price() {
+		return d_price;
+	}
+	public void setD_price(String d_price) {
+		this.d_price = d_price;
+	}
 	public String getDiscount() {
 		return discount;
 	}

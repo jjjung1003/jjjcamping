@@ -75,9 +75,11 @@
 	    <td align="center"><strong>상품명</strong></td>
 	    <td align="center"><strong>메인이미지</strong></td>
 	    <td align="center"><strong>정가</strong></td>
+	    <td align="center"><strong>할인율</strong></td>
 	    <td align="center"><strong>판매여부</strong></td>
 	    <td align="center"><strong>재고수량</strong></td>
 	    <td align="center"><strong>등록일</strong></td>
+	    <td align="center"><strong>상품수정</strong></td>
 	    <td align="center"><strong>상품삭제</strong></td>
 	  </tr>
 	  
@@ -100,9 +102,11 @@
 	    <td align="center"> ${pdto.pro_name}</td>
 	    <td align="center"><img src="../admin/img/product/${pdto.m_img}" width="80" height="60"></td>
 	    <td align="center">${pdto.price}</td>
+	    <td align="center">${pdto.discount}</td>
 	    <td align="center">${imsi}</td>
 	    <td align="center">${pdto.quantity}</td>
 	    <td align="center">${pdto.writeday}</td>
+	    <td align="center"><a href="product_update?id=${pdto.id}">click</a></td>
 	    <td align="center"><a href="product_del?id=${pdto.id}">X</a></td>
 	  </tr> 
 	  </c:forEach> 	   

@@ -5,13 +5,13 @@
 
 <mapper namespace="kr.co.jjjcamping.dao.CartDao">
 
-	<insert id="cart_add" parameterType="kr.co.jjjcamping.dto.CartDto">
-		insert into cart(userid,pro_name, code, quantity,price, writeday)
-		values(#{userid},#{pro_name},#{code},#{quantity},#{price},now())
+	<insert id="cart_add" parameterType="kr.co.jjjcamping.dto.ProductDto">
+		insert into cart(userid,pro_name, code, quantity,point, d_price, writeday)
+		values(#{userid},#{pro_name},#{code},#{quantity},#{point},#{d_price},now())
 	</insert>
 
 	<select id="cart_list" resultType="kr.co.jjjcamping.dto.ProductDto">
-		select c.id, p.price, p.code, p.m_img, c.pro_name 
+		select c.id, p.price, p.discount, p.code, p.m_img, c.pro_name 
 		from cart as c left outer join product as p 
 		on p.code = c.code
 		where c.userid=#{param}

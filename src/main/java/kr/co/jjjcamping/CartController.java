@@ -31,34 +31,25 @@ public class CartController {
 	public SqlSession sqlSession;
 	
 	@RequestMapping("/cart/cart_add")
-	public String cart_add(CartDto cdto, HttpSession session, HttpServletRequest request)
+	public String cart_add(CartDto cdto, ProductDto pdto, HttpSession session, HttpServletRequest request)
 	{
 		if(session.getAttribute("userid")!=null)
 		{	
-			String price=request.getParameter("price");
-			String d_price=request.getParameter("d_price");
-			
 			CartDao cdao=sqlSession.getMapper(CartDao.class);
 			cdao.cart_add(cdto);
-			return "redirect:/cart/cart_list?d_price="+d_price;
+			return "redirect:/cart/cart_list";
 		}
 		else
-			return "redirect:/login/login";
-			
+			return "redirect:/login/login";			
 	}
 	
 	@RequestMapping("/cart/cart_list")
 	public String cart_list(HttpServletRequest request, HttpSession session,Model model, CartDto cdto)
 	{
-		String userid=session.getAttribute("userid").toString();
-		String code=request.getParameter("code");
-		String d_price=request.getParameter("d_price");
-
-		System.out.println(d_price);
+		String userid=session.getAttribute("userid").toString();		
 		CartDao cdao=sqlSession.getMapper(CartDao.class);
 		ArrayList<ProductDto> list=cdao.cart_list(userid);
 		model.addAttribute("list", list);
-		model.addAttribute("d_price", d_price);
 		return "/cart/cart_list";
 	}
 	
