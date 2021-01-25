@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +36,7 @@ import kr.co.jjjcamping.dto.StoreDto;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -70,9 +73,25 @@ public class OrderController {
 	@RequestMapping("/order/order_second")
 	public String order_second(HttpSession session, HttpServletRequest request, OrderDto odto)
 	{		
-		String o_code=request.getParameter("o_code");
 		String point=request.getParameter("point");
 		OrderDao odao=sqlSession.getMapper(OrderDao.class);
+
+		Calendar cal = Calendar.getInstance();
+
+		//현재 년도, 월, 일
+		String y = Integer.toString(cal.get ( cal.YEAR ));
+		String m = Integer.toString(cal.get ( cal.MONTH ) + 1) ;
+		String d = Integer.toString(cal.get ( cal.DATE )) ;
+		
+		//주문번호 생성 ----------------------------- 아직 실패
+		String o_code=odao.get_code();
+
+		if(o_code == null)
+			o_code=y+m+d+"001";
+		else
+			o_code=o_code+1;
+
+		odto.setO_code(o_code);
 		odao.order_second(odto);
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		mdao.point_update(point,session.getAttribute("userid").toString());
@@ -85,10 +104,18 @@ public class OrderController {
 		String userid=session.getAttribute("userid").toString();
 		String o_code=request.getParameter("o_code");
 		String point=request.getParameter("point");
-		OrderDao odao=sqlSession.getMapper(OrderDao.class);		
-		OrderDto odto=odao.order_complete(userid, o_code);
+
+		Calendar cal = Calendar.getInstance();
+
+		//현재 년도, 월, 일
+		String y = Integer.toString(cal.get ( cal.YEAR ));
+		String m = Integer.toString(cal.get ( cal.MONTH ) + 1) ;
+		String d = Integer.toString(cal.get ( cal.DATE )) ;
+		String date=y+"-"+m+"-"+d;
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		model.addAttribute("odto", odto);
+
+		model.addAttribute("date", date);
+		model.addAttribute("o_code", o_code);
 		model.addAttribute("point", point);
 		return "/order/order_complete";
 	}

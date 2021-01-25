@@ -5,8 +5,13 @@ public class OrderDto {
 	private int id, tot_price;
 	private String userid, o_code, o_name, o_phone, zipcode, address, d_address, payment, writeday;
 	
-	
 
+	public String getO_code() {
+		return o_code;
+	}
+	public void setO_code(String o_code) {
+		this.o_code = o_code;
+	}
 	public int getTot_price() {
 		return tot_price;
 	}
@@ -30,12 +35,6 @@ public class OrderDto {
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
-	}
-	public String getO_code() {
-		return o_code;
-	}
-	public void setO_code(String o_code) {
-		this.o_code = o_code;
 	}
 	public String getO_name() {
 		return o_name;

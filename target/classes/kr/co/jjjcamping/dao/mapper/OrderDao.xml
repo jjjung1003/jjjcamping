@@ -14,8 +14,8 @@
 		values(#{userid},#{o_code},#{o_name},#{o_phone},#{zipcode},#{address},#{d_address},#{tot_price},#{payment},now())
 	</insert>
 	
-	<select id="order_complete" resultType="kr.co.jjjcamping.dto.OrderDto">
-		select * from pro_order where userid=#{param1} and o_code=#{param2}
+	<select id="get_code" resultType="String">
+		select o_code from pro_order order by id desc limit 1
 	</select>
 	
 

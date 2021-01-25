@@ -195,7 +195,6 @@
 	  <tr>
 		<td>배송지선택</td>
 		<td colspan="3">
-			<input type="hidden" name="o_code" value="12345">
 			<input type="button" value="배송지 목록" onclick="deliv_list('${userid}')">
 			<input type="checkbox" name="place" onclick="chg_place(this)">신규 배송지<br/>
 		</td>
@@ -217,10 +216,7 @@
 	  </tr>
 	  <tr>
 		<td colspan="3"><input type="text" name="d_address" id="d_address" placeholder="상세주소" size="40" readonly></td>
-	  </tr>
-	  <!-- <tr>
-		<td colspan="3"><input type="text" name="extra" id="extra" placeholder="참고항목" size="40" readonly></td>
-	  </tr> -->  
+	  </tr>  
 	</table> <br><br>
 	 
 	 <table width="300">

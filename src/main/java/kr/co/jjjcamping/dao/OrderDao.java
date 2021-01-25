@@ -12,6 +12,6 @@ public interface OrderDao {
 
 	public void order_second(OrderDto odto);
 
-	public OrderDto order_complete(String userid, String o_code);
+	public String get_code();
 
 }
