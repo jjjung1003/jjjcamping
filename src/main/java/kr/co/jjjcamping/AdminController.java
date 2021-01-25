@@ -83,7 +83,7 @@ public class AdminController {
 			sdto.setM_imgsize(file.length());
 			
 			adao.store_write_ok(sdto);
-			return "/admin/store_write_ok";
+			return "redirect:/admin/store_write";
 		}			
 		else
 		{	

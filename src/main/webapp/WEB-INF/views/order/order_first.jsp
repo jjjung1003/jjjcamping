@@ -22,6 +22,10 @@
 		margin-top:100px;
 		margin-bottom:150px;
 	}
+	
+	table td {
+		height: 25px;
+	}
 </style>
 <script>
 	function deliv_list(userid)
@@ -36,14 +40,14 @@
 			document.jjj_order.zipcode.readOnly = true;
 			document.jjj_order.address.readOnly = true;
 			document.jjj_order.d_address.readOnly = false;
-			document.jjj_order.extra.readOnly = false;
+			/* document.jjj_order.extra.readOnly = false; */
 		}
 		else
 		{
 			document.jjj_order.zipcode.readOnly = true;
 			document.jjj_order.address.readOnly = true;
 			document.jjj_order.d_address.readOnly = true;
-			document.jjj_order.extra.readOnly = true;
+			/* document.jjj_order.extra.readOnly = true; */
 		}
 	}
 	
@@ -90,10 +94,10 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("extra").value = extraAddr;
+                    document.getElementById("d_address").value = extraAddr;
                 
                 } else {
-                    document.getElementById("extra").value = '';
+                    document.getElementById("d_address").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -137,7 +141,7 @@
 	<div align="center"> <h2> 주문하기 - first </h2> </div>
 	<hr id="hr_1">
 	
-	<form method="post" action="../order/order_second" name="jjj_order">
+	<form method="post" action="order_second" name="jjj_order">
 	  <input type="hidden" name="userid" value="${userid}">
 	 <table width="500">
 	   <tr>
@@ -191,18 +195,18 @@
 	  <tr>
 		<td>배송지선택</td>
 		<td colspan="3">
-			<input type="hidden" name="d_id" value="">
+			<input type="hidden" name="o_code" value="12345">
 			<input type="button" value="배송지 목록" onclick="deliv_list('${userid}')">
 			<input type="checkbox" name="place" onclick="chg_place(this)">신규 배송지<br/>
 		</td>
 	  </tr>	 
 	  <tr>
 		<td> 받는분 이름 </td>
-		<td><input type="text" name="name" value=""></td>
+		<td><input type="text" name="o_name" value=""></td>
 	  </tr>
 	  <tr>
 		<td> 연락처 </td>
-		<td><input type="text" name="phone" value="" maxlength="11" onkeyup="phone_num(this)" placeholder="휴대폰번호 ( - 없이 숫자만 입력하세요)"></td>
+		<td><input type="text" name="o_phone" value="" maxlength="11" onkeyup="phone_num(this)" placeholder="휴대폰번호 ( - 없이 숫자만 입력하세요)"></td>
 	  </tr>
 	  <tr>
 		<td rowspan="4"> 주소</td>
@@ -214,9 +218,9 @@
 	  <tr>
 		<td colspan="3"><input type="text" name="d_address" id="d_address" placeholder="상세주소" size="40" readonly></td>
 	  </tr>
-	  <tr>
+	  <!-- <tr>
 		<td colspan="3"><input type="text" name="extra" id="extra" placeholder="참고항목" size="40" readonly></td>
-	  </tr>  
+	  </tr> -->  
 	</table> <br><br>
 	 
 	 <table width="300">
@@ -233,15 +237,15 @@
 	     <td align="center" rowspan="3"><strong>결제방법</strong></td>
 	   </tr>  
 	   <tr>   
-	     <td align="center"><input type="radio" name="card" value="1"> 신용카드 </td>
+	     <td align="center"><input type="radio" name="payment" value="1"> 신용카드 </td>
 	   </tr>
 	   <tr>   
-	     <td align="center"><input type="radio" name="card" value="2"> 계좌이체 </td>
+	     <td align="center"><input type="radio" name="payment" value="2"> 계좌이체 </td>
 	   </tr>	   
 	 </table> <br><br>
 	 
-	 	<div>총  결제금액 : <fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
-		<div>총 적립포인트 : <fmt:formatNumber value="${tot_point}"/> P</div><br><br>
+	 	<div>총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point}"><fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
+		<div>총 적립포인트 : <input type="hidden" name="point" value="${tot_point}"><fmt:formatNumber value="${tot_point}"/> P</div><br><br>
 	 <input type="submit" value="결제하기">
 	 </form>
 	</div>

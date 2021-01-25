@@ -10,4 +10,8 @@ public interface OrderDao {
 
 	public ArrayList<CartDto> order_first(String userid);
 
+	public void order_second(OrderDto odto);
+
+	public OrderDto order_complete(String userid, String o_code);
+
 }

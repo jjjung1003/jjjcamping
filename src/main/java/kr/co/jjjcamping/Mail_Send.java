@@ -22,7 +22,7 @@ public class Mail_Send
 	public int setEmail(String email, String subject, String body) throws Exception 
 	{
 	     String host = "smtp.naver.com"; 
-	     final String username = "yunjjjung1003"; // 송신자 네이버 아이디
+	     final String username = "jjjung1003"; // 송신자 네이버 아이디
 	     final String password = "****"; // 송신자 네이버 비밀번호  
 	     int port=465;
 	     int state=0;

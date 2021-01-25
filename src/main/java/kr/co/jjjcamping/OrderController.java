@@ -27,6 +27,7 @@ import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
 import kr.co.jjjcamping.dto.CartDto;
 import kr.co.jjjcamping.dto.MemberDto;
+import kr.co.jjjcamping.dto.OrderDto;
 import kr.co.jjjcamping.dto.ProductDto;
 import kr.co.jjjcamping.dto.StoreDto;
 
@@ -58,7 +59,6 @@ public class OrderController {
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 				
 		ArrayList<CartDto> list=odao.order_first(userid);
-
 		MemberDto mdto=mdao.mypage(userid);
 		
 		model.addAttribute("list", list);
@@ -66,14 +66,38 @@ public class OrderController {
 		model.addAttribute("mdto", mdto);
 		return "/order/order_first";
 	}
+
+	@RequestMapping("/order/order_second")
+	public String order_second(HttpSession session, HttpServletRequest request, OrderDto odto)
+	{		
+		String o_code=request.getParameter("o_code");
+		String point=request.getParameter("point");
+		OrderDao odao=sqlSession.getMapper(OrderDao.class);
+		odao.order_second(odto);
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		mdao.point_update(point,session.getAttribute("userid").toString());
+		return "redirect:/order/order_complete?o_code="+o_code+"&point="+point;
+	}
+	
+	@RequestMapping("/order/order_complete")
+	public String order_complete(HttpSession session, HttpServletRequest request, Model model)
+	{		
+		String userid=session.getAttribute("userid").toString();
+		String o_code=request.getParameter("o_code");
+		String point=request.getParameter("point");
+		OrderDao odao=sqlSession.getMapper(OrderDao.class);		
+		OrderDto odto=odao.order_complete(userid, o_code);
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		model.addAttribute("odto", odto);
+		model.addAttribute("point", point);
+		return "/order/order_complete";
+	}
 	
 	@RequestMapping("/order/deliv_list")
 	public String deliv_list()
 	{		
 		return "/order/deliv_list";
 	}
-	
-	
 	
 	
 	

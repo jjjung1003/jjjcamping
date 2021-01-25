@@ -1,27 +1,29 @@
 package kr.co.jjjcamping.dto;
 
 public class OrderDto {
-	private String quantity, point;
-	private String order_code, userid, tot_price, writeday;
+	
+	private int id, tot_price;
+	private String userid, o_code, o_name, o_phone, zipcode, address, d_address, payment, writeday;
 	
 	
-	public String getQuantity() {
-		return quantity;
+
+	public int getTot_price() {
+		return tot_price;
 	}
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+	public void setTot_price(int tot_price) {
+		this.tot_price = tot_price;
 	}
-	public String getPoint() {
-		return point;
+	public String getPayment() {
+		return payment;
 	}
-	public void setPoint(String point) {
-		this.point = point;
+	public void setPayment(String payment) {
+		this.payment = payment;
 	}
-	public String getOrder_code() {
-		return order_code;
+	public int getId() {
+		return id;
 	}
-	public void setOrder_code(String order_code) {
-		this.order_code = order_code;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getUserid() {
 		return userid;
@@ -29,18 +31,51 @@ public class OrderDto {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getTot_price() {
-		return tot_price;
+	public String getO_code() {
+		return o_code;
 	}
-	public void setTot_price(String tot_price) {
-		this.tot_price = tot_price;
+	public void setO_code(String o_code) {
+		this.o_code = o_code;
 	}
+	public String getO_name() {
+		return o_name;
+	}
+	public void setO_name(String o_name) {
+		this.o_name = o_name;
+	}
+	public String getO_phone() {
+		return o_phone;
+	}
+	public void setO_phone(String o_phone) {
+		this.o_phone = o_phone;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getD_address() {
+		return d_address;
+	}
+	public void setD_address(String d_address) {
+		this.d_address = d_address;
+	}
+
 	public String getWriteday() {
 		return writeday;
 	}
 	public void setWriteday(String writeday) {
 		this.writeday = writeday;
 	}
+	
+	
 	
 	
 }
