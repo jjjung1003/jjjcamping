@@ -15,7 +15,8 @@
 	</insert>
 	
 	<select id="get_code" resultType="String">
-		select o_code from pro_order order by id desc limit 1
+		select o_code from pro_order 
+		order by id desc limit 1
 	</select>
 	
 

@@ -37,6 +37,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -76,21 +79,25 @@ public class OrderController {
 		String point=request.getParameter("point");
 		OrderDao odao=sqlSession.getMapper(OrderDao.class);
 
-		Calendar cal = Calendar.getInstance();
-
+		LocalTime time1=LocalTime.now();
+		
 		//현재 년도, 월, 일
-		String y = Integer.toString(cal.get ( cal.YEAR ));
-		String m = Integer.toString(cal.get ( cal.MONTH ) + 1) ;
-		String d = Integer.toString(cal.get ( cal.DATE )) ;
+		String time2=time1.toString().replace(":", "");
+		String time=time2.substring(0, 6);
 		
 		//주문번호 생성 ----------------------------- 아직 실패
 		String o_code=odao.get_code();
-
+		System.out.println(o_code);
+		
 		if(o_code == null)
-			o_code=y+m+d+"001";
+			o_code=time+"0001";
 		else
-			o_code=o_code+1;
-
+		{
+			int code=Integer.parseInt(o_code);	
+			code=code+1;
+			o_code=Integer.toString(code);
+		}
+						
 		odto.setO_code(o_code);
 		odao.order_second(odto);
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
