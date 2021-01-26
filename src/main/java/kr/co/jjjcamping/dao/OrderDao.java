@@ -14,4 +14,6 @@ public interface OrderDao {
 
 	public String get_code();
 
+	public void o_pcode_in(String[] ccode, String[] cprice);
+
 }

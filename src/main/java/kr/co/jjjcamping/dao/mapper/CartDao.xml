@@ -33,6 +33,12 @@
 		where userid=#{param}
 	</select>
 	
+	<select id="cart_list_code" resultType="kr.co.jjjcamping.dto.CartDto">
+		select code from cart
+		where userid=#{param}
+	</select>
+	
+	
 	
 
 

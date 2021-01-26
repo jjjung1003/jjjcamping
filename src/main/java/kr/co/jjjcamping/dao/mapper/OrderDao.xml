@@ -10,14 +10,18 @@
 	</select>
 	
 	<insert id="order_second" parameterType="kr.co.jjjcamping.dto.OrderDto">
-		insert into pro_order(userid, o_code, o_name, o_phone, zipcode, address, d_address, tot_price, payment, writeday)
-		values(#{userid},#{o_code},#{o_name},#{o_phone},#{zipcode},#{address},#{d_address},#{tot_price},#{payment},now())
+		insert into pro_order(userid, o_code, o_name, o_phone, zipcode, address, d_address, tot_price, payment, p_code, d_price, writeday)
+		values(#{userid},#{o_code},#{o_name},#{o_phone},#{zipcode},#{address},#{d_address},#{tot_price},#{payment},#{p_code},#{d_price},now())
 	</insert>
 	
 	<select id="get_code" resultType="String">
 		select o_code from pro_order 
 		order by id desc limit 1
 	</select>
+	
+	<update id="o_pcode_in" parameterType="kr.co.jjjcamping.dto.OrderDto">
+		
+	</update>
 	
 
 

@@ -74,32 +74,44 @@ public class OrderController {
 	}
 
 	@RequestMapping("/order/order_second")
-	public String order_second(HttpSession session, HttpServletRequest request, OrderDto odto)
+	public String order_second(HttpSession session, HttpServletRequest request, OrderDto odto, CartDto cdto)
 	{		
 		String point=request.getParameter("point");
 		OrderDao odao=sqlSession.getMapper(OrderDao.class);
 
-		LocalTime time1=LocalTime.now();
-		
 		//현재 년도, 월, 일
+		LocalTime time1=LocalTime.now();		
 		String time2=time1.toString().replace(":", "");
 		String time=time2.substring(0, 6);
 		
-		//주문번호 생성 ----------------------------- 아직 실패
+		//주문번호 생성
 		String o_code=odao.get_code();
-		System.out.println(o_code);
 		
 		if(o_code == null)
-			o_code=time+"0001";
+			o_code="1"+time+"001";
 		else
 		{
 			int code=Integer.parseInt(o_code);	
 			code=code+1;
 			o_code=Integer.toString(code);
-		}
-						
+		}						
 		odto.setO_code(o_code);
-		odao.order_second(odto);
+		
+		//장바구니에서 넘어온 상품코드 배열로 담기		
+		String[] p_code=cdto.getCode().split(",");
+		String[] d_price=cdto.getD_price().split(",");
+
+		int length=p_code.length;
+		
+		System.out.println(p_code);
+
+		for(int i=0; i<length; i++)
+		{
+			odto.setD_price(d_price[i]);
+			odto.setP_code(p_code[i]);
+			odao.order_second(odto);
+		}
+				
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		mdao.point_update(point,session.getAttribute("userid").toString());
 		return "redirect:/order/order_complete?o_code="+o_code+"&point="+point;

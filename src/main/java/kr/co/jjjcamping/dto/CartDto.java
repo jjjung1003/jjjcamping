@@ -2,10 +2,31 @@
 
 public class CartDto {
 
-	private int id, quantity, point;
-	private String userid, pro_name, code, cookie, price, discount, d_price, writeday;
+	private int id, quantity;
+	private double  tot_price;
+	private String userid, pro_name, code, o_code, cookie, point, price, discount, d_price, writeday;
 	
 
+	
+	
+	public String getO_code() {
+		return o_code;
+	}
+	public void setO_code(String o_code) {
+		this.o_code = o_code;
+	}
+	public double getTot_price() {
+		return tot_price;
+	}
+	public void setTot_price(double tot_price) {
+		this.tot_price = tot_price;
+	}
+	public String getPoint() {
+		return point;
+	}
+	public void setPoint(String point) {
+		this.point = point;
+	}
 	public String getD_price() {
 		return d_price;
 	}
@@ -24,12 +45,7 @@ public class CartDto {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
+
 	public String getCookie() {
 		return cookie;
 	}

@@ -134,6 +134,20 @@
 			}	
 		}	
 	}	
+	
+/* 	function arr()
+	{
+		var code=document.getElementById("code")[i].value;
+		var size=code[i].length;
+		alert(size);
+		var value=new Array(size);		
+		for(i=0; i<size; i++)
+		{
+			var codevalue=tt.code[i].value;			
+			arrvalue[i]=codevalue;
+		}
+		document.getElementById("code").value=arrvalue;
+	} */
 </script>
 </head>
 <body>
@@ -151,10 +165,13 @@
 	     <td align="center"><strong>가격</strong></td>
 	     <td align="center"><strong>적립포인트</strong></td>
 	   </tr>
+	   
 	   <c:set var="tot_price" value="0"/>
 	   <c:set var="tot_point" value="0"/>
 	   <c:set var="i" value="1"/>
 	   <c:forEach items="${list}" var="cdto">
+	   <input type="hidden" name="code" id="code" value="${cdto.code}">
+	   <input type="hidden" name="d_price" value="${cdto.d_price}">
 	   <tr>
 	     <td>${i}</td>
 	     <td>${cdto.code}</td>
@@ -242,7 +259,7 @@
 	 
 	 	<div>총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point}"><fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
 		<div>총 적립포인트 : <input type="hidden" name="point" value="${tot_point}"><fmt:formatNumber value="${tot_point}"/> P</div><br><br>
-	 <input type="submit" value="결제하기">
+	 <input type="submit" value="결제하기" onclick="arr()">
 	 </form>
 	</div>
 </body>

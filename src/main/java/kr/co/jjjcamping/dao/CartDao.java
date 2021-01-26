@@ -19,6 +19,8 @@ public interface CartDao {
 
 	public ArrayList<CartDto> cart_c_list(String strcookie);
 
+	public String[] cart_list_code(String userid);
+
 
 	
 }

@@ -2,21 +2,36 @@ package kr.co.jjjcamping.dto;
 
 public class OrderDto {
 	
-	private int id, tot_price;
-	private String userid, o_code, o_name, o_phone, zipcode, address, d_address, payment, writeday;
+	private int id;
+	private double  tot_price;
+	private String userid, o_code, o_name, o_phone, p_code, d_price, zipcode, address, d_address, payment, writeday;
+	
+	
 	
 
+	public double getTot_price() {
+		return tot_price;
+	}
+	public void setTot_price(double tot_price) {
+		this.tot_price = tot_price;
+	}
+	public String getP_code() {
+		return p_code;
+	}
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+	public String getD_price() {
+		return d_price;
+	}
+	public void setD_price(String d_price) {
+		this.d_price = d_price;
+	}
 	public String getO_code() {
 		return o_code;
 	}
 	public void setO_code(String o_code) {
 		this.o_code = o_code;
-	}
-	public int getTot_price() {
-		return tot_price;
-	}
-	public void setTot_price(int tot_price) {
-		this.tot_price = tot_price;
 	}
 	public String getPayment() {
 		return payment;
