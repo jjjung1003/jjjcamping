@@ -109,7 +109,7 @@
         }).open();
     }
 	
-	var cyj=new XMLHttpRequest();
+	/* var cyj=new XMLHttpRequest();	포인트 조회............
 
 	function point_chk()
 	{
@@ -133,21 +133,8 @@
 				return false;
 			}	
 		}	
-	}	
-	
-/* 	function arr()
-	{
-		var code=document.getElementById("code")[i].value;
-		var size=code[i].length;
-		alert(size);
-		var value=new Array(size);		
-		for(i=0; i<size; i++)
-		{
-			var codevalue=tt.code[i].value;			
-			arrvalue[i]=codevalue;
-		}
-		document.getElementById("code").value=arrvalue;
-	} */
+	}	 */
+
 </script>
 </head>
 <body>
@@ -250,7 +237,7 @@
 	     <td align="center" rowspan="3"><strong>결제방법</strong></td>
 	   </tr>  
 	   <tr>   
-	     <td align="center"><input type="radio" name="payment" value="1"> 신용카드 </td>
+	     <td align="center"><input type="radio" name="payment" value="1" checked> 신용카드 </td>
 	   </tr>
 	   <tr>   
 	     <td align="center"><input type="radio" name="payment" value="2"> 계좌이체 </td>

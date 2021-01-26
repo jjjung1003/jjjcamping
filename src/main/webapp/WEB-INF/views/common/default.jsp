@@ -292,7 +292,7 @@
 		      <li style="width:90px;"><a href="../login/logout"><span class="material-icons">sensor_door로그아웃</span></a></li>
 		      <li style="width:100px;"><a href="../member/mypage"><span class="material-icons">favorite_border마이페이지</span></a></li>
 			  <li style="width:90px;"><a href="../member/my_reserve"><span class="material-icons">date_range예약내역</span></a></li>
-			  <li style="width:90px;"><a href=""><span class="material-icons">local_shipping주문내역</span></a></li>
+			  <li style="width:90px;"><a href="../member/order_list"><span class="material-icons">local_shipping주문내역</span></a></li>
 		      <li style="width:90px;"><a href="../cart/cart_list"><span class="material-icons">local_grocery_store 장바구니</span></a></li>		      
 		    </c:if>
 		    <c:if test="${userid eq 'admin'}">
@@ -386,7 +386,7 @@
 		  
 		  <c:if test="${userid != null}">
 		  <tr>
-		    <td align="center"> <span><a href="../cs/write" class="def_btn"> 1:1 문의하기 </a></span>  </td>
+		    <td align="center"> <span><a href="../cs/cs_write" class="def_btn"> 1:1 문의하기 </a></span>  </td>
 		  </tr>
 		  </c:if>
 		  <c:if test="${userid == null}">
@@ -407,10 +407,10 @@
 		</table>
 		<table id="obj" style="border:none;">
 		  <tr height="55"> 
-		    <td> <a href="../tip/list" class="def_btn" align="center">캠핑 꿀팁</a></td>
+		    <td> <a href="../tip/tip_list" class="def_btn" align="center">캠핑 꿀팁</a></td>
 		  </tr>
 		  <tr>
-		    <td><a href="../tip/list"><img src="../notice/img/22.jpg" width="300"></a></td>
+		    <td><a href="../tip/tip_list"><img src="../notice/img/22.jpg" width="300"></a></td>
 		  </tr>
 
 		</table>

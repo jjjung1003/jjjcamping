@@ -10,7 +10,7 @@ public interface ProductDao {
 
 	public int tot_record(String code);
 
-	public ArrayList<ProductDto> pro_list();
+	public ArrayList<ProductDto> pro_list(String cla, String search);
 
 	public CategoryDto get_category(String code);
 

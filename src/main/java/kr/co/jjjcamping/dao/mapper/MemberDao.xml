@@ -72,6 +72,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set point=point+${param1} where userid=#{param2}
 	</update>
 	
+	<select id="get_o_list" resultType="kr.co.jjjcamping.dto.OrderDto">
+		select * from pro_order
+		where userid=#{param}
+	</select>
+	
 	
 	
 	

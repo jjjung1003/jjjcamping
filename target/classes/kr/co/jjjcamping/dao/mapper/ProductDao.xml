@@ -7,6 +7,7 @@
 
 	<select id="pro_list" resultType="kr.co.jjjcamping.dto.ProductDto">
 		select * from product
+		where ${param1} like concat('%',#{param2},'%')
 	</select>
 	
 	<select id="tot_record" resultType="int">

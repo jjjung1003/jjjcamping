@@ -1,8 +1,11 @@
 package kr.co.jjjcamping.dao;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import kr.co.jjjcamping.dto.MemberDto;
+import kr.co.jjjcamping.dto.OrderDto;
 import kr.co.jjjcamping.dto.ReserveDto;
 
 public interface MemberDao {
@@ -26,6 +29,7 @@ public interface MemberDao {
 	
 	public void mem_rejoin(String id);
 	public void point_update(String point, String userid);
+	public ArrayList<OrderDto> get_o_list(String userid);
 	
 	
 	

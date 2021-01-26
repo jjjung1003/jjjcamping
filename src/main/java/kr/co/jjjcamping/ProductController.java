@@ -28,7 +28,20 @@ public class ProductController {
 	public String pro_list(HttpServletRequest request, ProductDto pdto, Model model)
 	{
 		ProductDao pdao=sqlSession.getMapper(ProductDao.class);
-		ArrayList<ProductDto> list=pdao.pro_list();
+		
+		String cla, search;
+		if(request.getParameter("cla")==null)
+		{	
+			cla="code";
+			search="";
+		}	
+		else
+		{
+			cla=request.getParameter("cla");
+			search=request.getParameter("search");
+		}
+		
+		ArrayList<ProductDto> list=pdao.pro_list(cla, search);
 		model.addAttribute("list", list);
 		return "/product/pro_list";
 	}

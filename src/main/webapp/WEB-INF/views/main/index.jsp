@@ -107,17 +107,17 @@
 		position: fixed;
 		padding: 20px;
 		width: 150px;
-		height: 150px;
+		height: 170px;
 		border: 1px solid #ccc;
 		top:50px;
-		left: 203px;
+		left: 13px;
 		z-index:10;
 	}
 	.pop_2 {
 		position: fixed;
 		border: 1px solid #ccc;
 		top:20px;
-		left: 300px;
+		left: 50px;
 		z-index:10;
 	}
 </style>
@@ -193,18 +193,13 @@
 	</div>
 	
 	<div id="fifth">
-	  <div id="list" style="margin-top:10px;">
+	  <div id="list" style="margin-top:50px;">
 		<ul style="height:180px;margin-top:0px;">
-			<li class="title" style="color:orange;font-size:15px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">VIDEO</a><br/>sitemap<br/>&nbsp;<br/></li>
+			<li class="title" style="color:orange;font-size:17px;padding-top:0px;padding-bottom:0px;"><br/><a style="font-size:35px;font-weight:bold;padding:0px;color:orange">SITEMAP</a><br/>VIDEO<br/>&nbsp;<br/></li>
 		</ul>
-		<table width="1100" height="700" align="center" style="margin-top:-80px;">
+		<table width="1000" height="650" align="center" style="margin-top:-80px;">
 		  <tr>
-		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/zn7XzWeL3Xo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/fd5TEg8Gpvg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-		  </tr>  
-		  <tr>  
-		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/vnDC_sFkjtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-		    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/UCcxx1DBfAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+		    <td><iframe width="1000" height="650" src="https://www.youtube.com/embed/zn7XzWeL3Xo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 		  </tr> 
 		</table>
 	  </div>

@@ -24,6 +24,8 @@ import kr.co.jjjcamping.command.Mail_SendCommand;
 import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.ReserveDao;
 import kr.co.jjjcamping.dto.MemberDto;
+import kr.co.jjjcamping.dto.OrderDto;
+import kr.co.jjjcamping.dto.ProductDto;
 import kr.co.jjjcamping.dto.ReserveDto;
 
 @Controller
@@ -253,6 +255,16 @@ public class MemberController {
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
 		mdao.mem_del(id);
 		session.invalidate();
+	}
+	
+	@RequestMapping("member/order_list")
+	public String order_list(HttpSession session, Model model)
+	{
+		String userid=session.getAttribute("userid").toString();
+		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+		ArrayList<OrderDto> list=mdao.get_o_list(userid);
+		model.addAttribute("list", list);
+		return "member/order_list";
 	}
 	
 	

@@ -64,7 +64,7 @@
 <div align="center" id="pro_first"> <h2> 전체 상품</h2> </div>
 	<hr id="hr_1">
 	<div align="center">
-	<form method="post" action="product_list" name="jjj">
+	<form method="post" action="pro_list" name="jjj">
 		<select name="cla">
 			<option value="code"> 코드번호 </option>
 			<option value="pro_name"> 상품명 </option>

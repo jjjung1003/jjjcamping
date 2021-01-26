@@ -7,7 +7,7 @@
 
 	<insert id="cart_add" parameterType="kr.co.jjjcamping.dto.ProductDto">
 		insert into cart(userid,pro_name, code, quantity,point, d_price, writeday)
-		values(#{userid},#{pro_name},#{code},#{quantity},#{point},#{d_price},now())
+		values(#{userid},#{pro_name},#{code},${quantity},#{point},#{d_price},now())
 	</insert>
 
 	<select id="cart_list" resultType="kr.co.jjjcamping.dto.ProductDto">
