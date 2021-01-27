@@ -16,4 +16,8 @@ public interface OrderDao {
 
 	public void cart_del(OrderDto odto);
 
+	public ArrayList<OrderDto> deliv_list(String userid);
+
+	public void deliv_add(OrderDto odto);
+
 }

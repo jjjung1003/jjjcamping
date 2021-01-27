@@ -24,6 +24,16 @@
 		where userid=#{userid} and code=#{p_code}
 	</delete>
 	
+	<insert id="deliv_add" parameterType="kr.co.jjjcamping.dto.OrderDto">
+		insert into delivery(userid, o_name, o_phone, zipcode, address, d_address, writeday)
+		values(#{userid},#{o_name},#{o_phone},#{zipcode},#{address},#{d_address},now())
+	</insert>
+	
+	<select id="deliv_list" resultType="kr.co.jjjcamping.dto.OrderDto">
+		select * from delivery
+		where userid=#{param}
+	</select>
+	
 
 
 

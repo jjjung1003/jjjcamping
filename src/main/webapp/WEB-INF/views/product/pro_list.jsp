@@ -76,15 +76,13 @@
 	
 	<div id="pro_second">
 	<table align="center" width="850">
-	  <tr style="font-size:15px">
+	  <tr style="font-size:15px" height="100">
 	  	<td align="center"></td>
-	    <td align="center"><strong>상품코드</strong></td>
 	    <td align="center"><strong>상품명</strong></td>	    
 	    <td align="center"><strong>정가</strong></td>
 	    <td align="center"><strong>판매가</strong></td>
 	    <td align="center"><strong>판매여부</strong></td>
 	  </tr>
-	  
 	  <c:forEach items="${list}" var="pdto">
 	  
 		  <c:if test="${pdto.pro_stock == 0}">
@@ -102,8 +100,7 @@
 	  <input type="hidden" name="code" value="${pdto.code}">
 	  <input type="hidden" name="pro_name" value="${pdto.pro_name}">
 	  <input type="hidden" name="quantity" value="${pdto.quantity}">	  
-	    <td align="center"><a href="pro_content?code=${pdto.code}"><img src="../admin/img/product/${pdto.m_img}" width="150" height="130"></a></td>
-	    <td class="jjj_td" align="center">${pdto.code}</td>
+	    <td align="center"><a href="pro_content?code=${pdto.code}"><img src="../admin/img/product/${pdto.m_img}" width="300" height="270"></a></td>
 	    <td class="jjj_td" align="center"> ${pdto.pro_name}</td>
 	    <td class="jjj_td" align="center"><fmt:formatNumber value="${pdto.price}"/>원</td>
 	    <td class="jjj_td" align="center"><fmt:formatNumber value="${pdto.price*(100-pdto.discount)/100}"/>원</td>

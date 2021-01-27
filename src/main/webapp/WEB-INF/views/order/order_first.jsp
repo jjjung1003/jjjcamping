@@ -30,7 +30,7 @@
 <script>
 	function deliv_list(userid)
 	{	// 배송지 목록 조회
-		window.open("deliv_list?userid="+userid,"","width=500,height=350");
+		window.open("deliv_list?userid="+userid,"","width=800,height=350");
 	}
 	
 	function chg_place(obj)

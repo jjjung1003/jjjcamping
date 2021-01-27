@@ -46,11 +46,16 @@ public class CartController {
 	@RequestMapping("/cart/cart_list")
 	public String cart_list(HttpServletRequest request, HttpSession session,Model model, CartDto cdto)
 	{
-		String userid=session.getAttribute("userid").toString();		
-		CartDao cdao=sqlSession.getMapper(CartDao.class);
-		ArrayList<ProductDto> list=cdao.cart_list(userid);
-		model.addAttribute("list", list);
-		return "/cart/cart_list";
+		if(session.getAttribute("userid")!=null)
+		{
+			String userid=session.getAttribute("userid").toString();		
+			CartDao cdao=sqlSession.getMapper(CartDao.class);
+			ArrayList<ProductDto> list=cdao.cart_list(userid);
+			model.addAttribute("list", list);
+			return "/cart/cart_list";
+		}
+		else
+			return "redirect:/login/login";	
 	}
 	
 	@RequestMapping("/cart/cart_del")
