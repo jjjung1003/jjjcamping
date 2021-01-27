@@ -19,9 +19,10 @@
 		order by id desc limit 1
 	</select>
 	
-	<update id="o_pcode_in" parameterType="kr.co.jjjcamping.dto.OrderDto">
-		
-	</update>
+	<delete id="cart_del" parameterType="kr.co.jjjcamping.dto.OrderDto">
+		delete from cart
+		where userid=#{userid} and code=#{p_code}
+	</delete>
 	
 
 

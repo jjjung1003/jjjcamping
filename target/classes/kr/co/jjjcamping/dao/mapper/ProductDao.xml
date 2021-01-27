@@ -19,7 +19,10 @@
 		where code=#{param}
 	</select>
 
-
+	<update id="quantity_update">
+		update product set quantity=quantity-1
+		where code=#{p_code}
+	</update>
 
 
 

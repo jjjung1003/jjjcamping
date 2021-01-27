@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.co.jjjcamping.dto.CartDto;
 import kr.co.jjjcamping.dto.CategoryDto;
+import kr.co.jjjcamping.dto.OrderDto;
 import kr.co.jjjcamping.dto.ProductDto;
 
 public interface ProductDao {
@@ -17,6 +18,8 @@ public interface ProductDao {
 	public ArrayList<CategoryDto> get_category2(String code);
 
 	public ProductDto pro_content(String code);
+
+	public void quantity_update(OrderDto odto);
 	
 	
 	

@@ -25,6 +25,7 @@ import kr.co.jjjcamping.dao.CampDao;
 import kr.co.jjjcamping.dao.CartDao;
 import kr.co.jjjcamping.dao.MemberDao;
 import kr.co.jjjcamping.dao.OrderDao;
+import kr.co.jjjcamping.dao.ProductDao;
 import kr.co.jjjcamping.dao.StoreDao;
 import kr.co.jjjcamping.dto.CampDto;
 import kr.co.jjjcamping.dto.CartDto;
@@ -110,6 +111,9 @@ public class OrderController {
 			odto.setD_price(d_price[i]);
 			odto.setP_code(p_code[i]);
 			odao.order_second(odto);
+			odao.cart_del(odto);
+			ProductDao pdao=sqlSession.getMapper(ProductDao.class);
+			pdao.quantity_update(odto);
 		}
 				
 		MemberDao mdao=sqlSession.getMapper(MemberDao.class);

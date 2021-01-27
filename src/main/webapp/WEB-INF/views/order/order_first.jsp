@@ -12,7 +12,7 @@
 <style>
 	#hr_1 {
 		border:1px solid #B40404;
-		width:500px;
+		width:600px;
 		align:center;
 		background-color:#B40404;
 		margin-bottom:50px;
@@ -109,6 +109,38 @@
         }).open();
     }
 	
+	function order_check(tt)
+	{
+		if(document.getElementById("o_name").value=="")
+		{
+			alert("받는분 이름을 기재해주세요.");
+			return false;
+		}		
+		else if(document.getElementById("o_phone").value=="")
+		{
+			alert("받는분 연락처를 기재해주세요.");
+			return false;
+		}			
+		else if(document.getElementById("zipcode").value=="")
+		{
+			alert("우편번호 확인해주세요.");
+			return false;
+		}		
+		else if(document.getElementById("address").value=="")
+		{
+			alert("주소를 확인해주세요.");
+			return false;
+		}			
+		else if(document.getElementById("d_address").value=="")
+		{
+			alert("세부주소를 확인해주세요.");
+			return false;
+		}	 
+
+		return true;
+		
+	}
+	
 	/* var cyj=new XMLHttpRequest();	포인트 조회............
 
 	function point_chk()
@@ -142,7 +174,7 @@
 	<div align="center"> <h2> 주문하기 - first </h2> </div>
 	<hr id="hr_1">
 	
-	<form method="post" action="order_second" name="jjj_order">
+	<form method="post" action="order_second" name="jjj_order" onsubmit="return order_check(this)">
 	  <input type="hidden" name="userid" value="${userid}">
 	 <table width="500">
 	   <tr>
@@ -205,11 +237,11 @@
 	  </tr>	 
 	  <tr>
 		<td> 받는분 이름 </td>
-		<td><input type="text" name="o_name" value=""></td>
+		<td><input type="text" name="o_name" id="o_name" value=""></td>
 	  </tr>
 	  <tr>
-		<td> 연락처 </td>
-		<td><input type="text" name="o_phone" value="" maxlength="11" onkeyup="phone_num(this)" placeholder="휴대폰번호 ( - 없이 숫자만 입력하세요)"></td>
+		<td> 받는분 연락처 </td>
+		<td><input type="text" name="o_phone" id="o_phone" value="" maxlength="11" onkeyup="phone_num(this)" placeholder="휴대폰번호 ( - 없이 숫자만 입력하세요)"></td>
 	  </tr>
 	  <tr>
 		<td rowspan="4"> 주소</td>
@@ -246,7 +278,7 @@
 	 
 	 	<div>총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point}"><fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
 		<div>총 적립포인트 : <input type="hidden" name="point" value="${tot_point}"><fmt:formatNumber value="${tot_point}"/> P</div><br><br>
-	 <input type="submit" value="결제하기" onclick="arr()">
+	 <input type="submit" value="결제하기">
 	 </form>
 	</div>
 </body>
