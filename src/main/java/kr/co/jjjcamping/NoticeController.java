@@ -136,28 +136,44 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/notice/notice_hit")
-	public String hit(HttpServletRequest request)
+	public String hit(HttpSession session, HttpServletRequest request)
 	{
-		String id=request.getParameter("id");
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
-		ndao.hit(id);
-		return "redirect:/notice/notice_content?id="+id;
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			String id=request.getParameter("id");
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);		
+			ndao.hit(id);
+			return "redirect:/notice/notice_content?id="+id;
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
 	@RequestMapping("/notice/notice_content")
-	public String content(HttpServletRequest request, Model model)
+	public String content(HttpSession session, HttpServletRequest request, Model model)
 	{
-		String id=request.getParameter("id");
-		String chk=request.getParameter("chk");
-		NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
-		NoticeDto ndto=ndao.content(id);
-		model.addAttribute("ndto", ndto);
-		model.addAttribute("chk", chk);
-		return "/notice/notice_content";
+		if(session.getAttribute("userid").equals("admin"))
+		{
+			String id=request.getParameter("id");
+			String chk=request.getParameter("chk");
+			NoticeDao ndao=sqlSession.getMapper(NoticeDao.class);
+			NoticeDto ndto=ndao.content(id);
+			model.addAttribute("ndto", ndto);
+			model.addAttribute("chk", chk);
+			return "/notice/notice_content";
+		}			
+		else	
+		{	
+			session.invalidate();
+			return "redirect:/login/login";
+		}	
 	}
 	
 	@RequestMapping("/notice/notice_update")
-	public String update(HttpServletRequest request,  Model model,HttpSession session)
+	public String update(HttpSession session, HttpServletRequest request,  Model model)
 	{
 		if(session.getAttribute("userid").equals("admin"))
 		{

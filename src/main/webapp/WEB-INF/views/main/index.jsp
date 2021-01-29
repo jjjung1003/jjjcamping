@@ -124,18 +124,19 @@
 </head>
 <body>	
 <script>
+
 	function img_chg(n)
 	{
-		var main=document.getElementsByClassName("main");
-		for(i=0; i<main.length; i++)
+		var main=document.getElementsByClassName("main");		
+		for(var i=0; i<main.length; i++)
 		{
-			main[i].style.zIndex="1";
+			main[i].style.zIndex="0";
 		}	
 		main[n].style.zIndex="2";
 	}
 </script>
 	<div class="pop_1"> Notice <br><br>
-		저희 jjjcamping에 오신것을 환영합니다 <br> <br>이 팝업은 방문기록이 없을 경우 확인 가능합니다.		
+		저희 jjjcamping에 오신것을 환영합니다 <br> <br>이 팝업은 당일 방문기록이 없을 경우 확인 가능합니다.		
 	</div>
 	<button class="pop_2" onclick="Cookie_del()"> 방문기록삭제 </button>
 	<script>
@@ -180,7 +181,11 @@
 	<div id="fourth">
   	  <div id="view">
         <div id="inner">
-      	  <img class="main" src="../notice/img/11.jpg" width="1280" height="500"> <img class="main" src="../notice/img/22.jpg" width="1280" height="500">  <img class="main" src="../notice/img/33.jpg" width="1280" height="500"><img class="main" src="../notice/img/44.jpg" width="1280" height="500"><img class="main" src="../notice/img/55.jpg" width="1280" height="500">
+      	  <img class="main" src="../notice/img/55.jpg" width="1280" height="500">
+      	  <img class="main" src="../notice/img/22.jpg" width="1280" height="500">
+		  <img class="main" src="../notice/img/33.jpg" width="1280" height="500">
+		  <img class="main" src="../notice/img/44.jpg" width="1280" height="500">
+		  <img class="main" src="../notice/img/11.jpg" width="1280" height="500">
 	     	<div id="number">
 		      <a href="javascript:img_chg(0)" class="num">1</a> 
 		      <a href="javascript:img_chg(1)" class="num">2</a> 

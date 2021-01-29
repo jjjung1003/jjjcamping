@@ -209,13 +209,21 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin/product_update")
-	public String product_update(HttpServletRequest request, Model model)
+	public String product_update(HttpSession session, HttpServletRequest request, Model model)
 	{
-		String id=request.getParameter("id");
-		AdminDao adao=sqlSession.getMapper(AdminDao.class);
-		ProductDto pdto=adao.product_update(id);
-		model.addAttribute("pdto", pdto);
-		return "/admin/product_update";
+		if(session.getAttribute("userid").toString().equals("admin"))
+		{
+			String id=request.getParameter("id");
+			AdminDao adao=sqlSession.getMapper(AdminDao.class);
+			ProductDto pdto=adao.product_update(id);
+			model.addAttribute("pdto", pdto);
+			return "/admin/product_update";
+		}				
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
+		}	
 	}
 	
 	@RequestMapping("/admin/product_update_ok")
@@ -268,37 +276,61 @@ public class AdminController {
 	@RequestMapping("/admin/reserve_check")
 	public String reserve_check(HttpSession session, Model model)
 	{
-		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
-		
-		Date date = new Date();
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String today = transFormat.format(date);
-		
-		AdminDao adao = sqlSession.getMapper(AdminDao.class);
-		ArrayList<ReserveDto> list=adao.reserve_list();
-		model.addAttribute("list", list);
-		model.addAttribute("today", today);
-		model.addAttribute("mdto", mdto);
-		return "/admin/reserve_check";
+		if(session.getAttribute("userid").toString().equals("admin"))
+		{
+			MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+			MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
+			
+			Date date = new Date();
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String today = transFormat.format(date);
+			
+			AdminDao adao = sqlSession.getMapper(AdminDao.class);
+			ArrayList<ReserveDto> list=adao.reserve_list();
+			model.addAttribute("list", list);
+			model.addAttribute("today", today);
+			model.addAttribute("mdto", mdto);
+			return "/admin/reserve_check";
+		}				
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
+		}	
 	}
 	
 	@RequestMapping("/admin/mem_rejoin")
-	public String mem_rejoin(HttpServletRequest request)
+	public String mem_rejoin(HttpSession session, HttpServletRequest request)
 	{
-		String id=request.getParameter("id");
-		MemberDao mdao = sqlSession.getMapper(MemberDao.class);
-		mdao.mem_rejoin(id);
-		return "redirect:/admin/member_list";
+		if(session.getAttribute("userid").toString().equals("admin"))
+		{
+			String id=request.getParameter("id");
+			MemberDao mdao = sqlSession.getMapper(MemberDao.class);
+			mdao.mem_rejoin(id);
+			return "redirect:/admin/member_list";
+		}				
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
+		}	
 	}
 	
 	@RequestMapping("/admin/reserve_del")
-	public String reserve_del(HttpServletRequest request)
+	public String reserve_del(HttpSession session, HttpServletRequest request)
 	{
-		String id=request.getParameter("id");
-		ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
-		rdao.reserve_del(id);
-		return "redirect:/admin/reserve_check";
+		if(session.getAttribute("userid").toString().equals("admin"))
+		{
+			String id=request.getParameter("id");
+			ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
+			rdao.reserve_del(id);
+			return "redirect:/admin/reserve_check";
+		}				
+		else
+		{	
+			session.invalidate();
+			return "redirect:/login/login";			
+		}	
 	}
 	
 	

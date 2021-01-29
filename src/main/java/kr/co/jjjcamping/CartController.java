@@ -61,11 +61,16 @@ public class CartController {
 	@RequestMapping("/cart/cart_del")
 	public String cart_del(HttpServletRequest request, HttpSession session)
 	{
-		String userid=session.getAttribute("userid").toString();
-		String id=request.getParameter("id");
-		CartDao cdao=sqlSession.getMapper(CartDao.class);
-		cdao.cart_del(id);
-		return "redirect:/cart/cart_list";
+		if(session.getAttribute("userid")!=null)
+		{
+			String userid=session.getAttribute("userid").toString();
+			String id=request.getParameter("id");
+			CartDao cdao=sqlSession.getMapper(CartDao.class);
+			cdao.cart_del(id);
+			return "redirect:/cart/cart_list";
+		}
+		else
+			return "redirect:/login/login";	
 	}	
 	
 	/*@RequestMapping("/cart/cart_c_add")

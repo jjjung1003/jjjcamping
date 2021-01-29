@@ -54,41 +54,61 @@ public class ReserveController {
 	@RequestMapping("/reserve/reserve_first")
 	public String reserve_first(HttpSession session, Model model)
 	{
-		MemberDao mdao=sqlSession.getMapper(MemberDao.class);
-		MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
-		model.addAttribute("mdto", mdto);
-		return "/reserve/reserve_first";
+		if(session.getAttribute("userid") != null)
+		{	
+			MemberDao mdao=sqlSession.getMapper(MemberDao.class);
+			MemberDto mdto=mdao.mypage(session.getAttribute("userid").toString());
+			model.addAttribute("mdto", mdto);
+			return "/reserve/reserve_first";
+		}
+		else
+			return "redirect:/login/login";
 	}
 	
 	@RequestMapping("/reserve/reserve_second")	
 	public String reserve_second(ReserveDto rdto, HttpSession session)
 	{	
-		ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
-		rdao.reserve_second(rdto);
-		return "/reserve/reserve_second";
+		if(session.getAttribute("userid") != null)
+		{	
+			ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
+			rdao.reserve_second(rdto);
+			return "/reserve/reserve_second";
+		}
+		else
+			return "redirect:/login/login";
 	}
 	
 	@RequestMapping("member/my_reserve")
 	public String my_reserve(HttpSession session,Model model)
 	{
-		Date date = new Date();
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String today = transFormat.format(date);		
-		
-		ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
-		ArrayList<ReserveDto> list=rdao.my_reserve(session.getAttribute("userid").toString());
-		model.addAttribute("list", list);
-		model.addAttribute("today", today);
-		return "member/my_reserve";
+		if(session.getAttribute("userid") != null)
+		{	
+			Date date = new Date();
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String today = transFormat.format(date);		
+			
+			ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
+			ArrayList<ReserveDto> list=rdao.my_reserve(session.getAttribute("userid").toString());
+			model.addAttribute("list", list);
+			model.addAttribute("today", today);
+			return "member/my_reserve";
+		}
+		else
+			return "redirect:/login/login";
 	}
 	
 	@RequestMapping("/reserve/reserve_del")
-	public String reserve_del(HttpServletRequest request)
+	public String reserve_del(HttpSession session, HttpServletRequest request)
 	{
-		String id=request.getParameter("id");
-		ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
-		rdao.reserve_del(id);
-		return "redirect:/member/my_reserve";
+		if(session.getAttribute("userid") != null)
+		{	
+			String id=request.getParameter("id");
+			ReserveDao rdao=sqlSession.getMapper(ReserveDao.class);
+			rdao.reserve_del(id);
+			return "redirect:/member/my_reserve";
+		}
+		else
+			return "redirect:/login/login";
 	}
 
 	

@@ -167,12 +167,19 @@ public class OrderController {
 	
 	@RequestMapping("/order/deliv_list")
 	public String deliv_list(HttpSession session, Model model)
-	{		
+	{	
+		if(session.getAttribute("userid") != null)
+		{
 		String userid=session.getAttribute("userid").toString();
 		OrderDao odao=sqlSession.getMapper(OrderDao.class);
 		ArrayList<OrderDto> list=odao.deliv_list(userid);
 		model.addAttribute("list", list);
 		return "/order/deliv_list";
+		}
+		else	
+		{	
+			return "redirect:/login/login";
+		}	
 	}
 	
 	
