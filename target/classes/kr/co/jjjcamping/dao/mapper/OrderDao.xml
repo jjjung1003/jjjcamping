@@ -32,6 +32,7 @@
 	<select id="deliv_list" resultType="kr.co.jjjcamping.dto.OrderDto">
 		select * from delivery
 		where userid=#{param}
+		group by zipcode
 	</select>
 	
 

@@ -30,7 +30,7 @@
 <script>
 	function deliv_list(userid)
 	{	// 배송지 목록 조회
-		window.open("deliv_list?userid="+userid,"","width=800,height=350");
+		window.open("deliv_list?userid="+userid,"","width=900,height=350");
 	}
 	
 	function chg_place(obj)
@@ -171,7 +171,7 @@
 </head>
 <body>
 <div align="center" id="order_first">
-	<div align="center"> <h2> 주문하기 - first </h2> </div>
+	<div align="center"> <h2> 주문하기 </h2> </div>
 	<hr id="hr_1">
 	
 	<form method="post" action="order_second" name="jjj_order" onsubmit="return order_check(this)">
