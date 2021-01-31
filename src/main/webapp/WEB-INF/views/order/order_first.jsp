@@ -276,8 +276,15 @@
 	   </tr>	   
 	 </table> <br><br>
 	 
-	 	<div>총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point}"><fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
+	 <c:if test="${tot_price >= 50000}">
+	 	<div style="font-size:20px">총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point}"><fmt:formatNumber value="${tot_price-mdto.point}"/> 원</div>
 		<div>총 적립포인트 : <input type="hidden" name="point" value="${tot_point}"><fmt:formatNumber value="${tot_point}"/> P</div><br><br>
+	 </c:if>
+	 <c:if test="${tot_price < 50000}">
+	   <div style="font-size:20px">총  결제금액 : <input type="hidden" name="tot_price" value="${tot_price-mdto.point+2500}"><fmt:formatNumber value="${tot_price-mdto.point}"/>+<fmt:formatNumber value="2500"/> 원</div>
+	   <div style="font-size:15px;color:gray">( 50,000원 미만 주문시 배송비 2,500원이 추가됩니다. )</div><br>
+	   <div>총 적립포인트 : <input type="hidden" name="point" value="${tot_point}"><fmt:formatNumber value="${tot_point}"/> P</div><br><br>
+	 </c:if>	
 	 <input type="submit" value="결제하기">
 	 </form>
 	</div>
